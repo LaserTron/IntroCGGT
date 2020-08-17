@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pretext>
+<docinfo>
+  <latex-image-preamble>
+    \usepackage{tikz}
+  </latex-image-preamble>
+  <macros>
+    \newcommand{\into}{\hookrightarrow}
+    \newcommand{\onto}{\twoheadrightarrow}
+  </macros>
+</docinfo>
+
+<book xml:id="IntroCGGT">
+  <title>An introduction to combinatorial and geometric group
+    theory</title>
+    <author>Nicholas Touikan</author>
+    <introduction xml:id="chap_intro"><title>Introduction</title>
+    <p>
+      Because the field of geometric group theory is relatively new,
+      sounds cool, is cool, and is accessible, it is, in 2020, very
+      active and evolving. This also means that geometric group
+      theory means different things to different people.
+    </p>
+    
+    <p>
+      Drutu and Kapovich's imposing 2018 monograph
+      <i>Geometric Group Theory</i> arguably gives the most
+      comprehensive overview of the field, but it omits certain
+      important topics such as CAT(0) cube complexes or
+      <m>\mathrm{Out}(F_n)</m> and the spaces it acts on, which are
+      touched on in Volume 21 of the IAS/Park City Mathematics
+      series titled <i>Geometric Group Theory</i>. And even these do
+      not cover some of the author's favourite topics.
+    </p>
+    
+    <p>
+      The breadth of field forces us to limit our scope. Lie groups,
+      for example, are certainly interesting as groups, are very
+      geometrical, and would certainly have their place in a course
+      in geometric group theory. But, Dynkin diagrams
+      notwithstanding, drawings are not a major tool for dealing
+      with Lie groups.
+    </p>
+      
+    <p>
+      This course will be a self-contained introduction to the art of
+      working with infinite discrete groups by drawing pictures. We
+      will start with a rigourous exploration of the <m>F_n</m>, the
+      free group on <m>n</m> generators and touch on the clasical
+      subject of combinatorial group theory, which is the study of
+      groups given by generators and relations. Our driving question
+      will be: <i>Which calculations can we perform, or which
+      algorithmic problems can we solve, in a group given by a certain
+      presentation?</i>
+    </p>
+    <p>
+      Our approach to this will be geometrical: group presentations
+      enable us to draw Van Kampen diagrams and we will see that in
+      the presence of (combinatorial) negative curvature, many
+      algorithmic problems become tractable.
+    </p>
+    
+    <p>Modified August 17, 2020</p>
+
+    </introduction>
+
+    <chapter><title>Free groups and presentations</title>
+    <section xml:id="Lecture_1"><title>Lecture 1: Reduced words</title>
+    <p>Foo</p>
+    Write group axioms define a structure 
+    </section>
+    </chapter>
+    
+      <!--introduction>
+	<p>
+	  Since the dawn of time blablabla.
+	</p>
+	<p>
+	  This is a short sentence. <m> R \onto S</m> <m>2+2</m>
+	</p>
+    
+      </introduction-->
+</book>
+</pretext>
+
+<!-->      
+      <section xml:id="section-1">
+	<title>Section 1</title>
+	<p> Muhaha! </p>
+	<image source="images/cat.jpg"/>
+      </section>
+
+
+      <section xml:id="sec-2">
+	<title> Whaaat?</title>
+	<p> Here is some math <m>2+2=4</m> and moar math
+	<me>\sum_{i=1}^\infty a_i, a_i \in \mathbb R </me></p>
+	<ol>
+	  <li> Here'a thing</li>
+	  <li> here's another </li>
+	</ol>
+
+	<figure>
+	  <caption>Tikz test</caption>
+	<image width="50%" xml:id="tikztext">
+	  <latex-image>
+	    \begin{tikzpicture}
+	    \node (a) at (0,0) {$\alpha$};
+	    \node (b) at (2,0) {$\gamma$};
+	    \end{tikzpicture}
+	  </latex-image>
+	  
+	</image>
+	</figure>
+      </section>
+</book>
+    
+  </pretext>
+<!-->
