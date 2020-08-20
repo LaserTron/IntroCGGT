@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pretext>
-<docinfo>
-  <latex-image-preamble>
+  <docinfo>
+    <brandlogo source="images/CGGT.svg"/>
+    
+    <latex-image-preamble>
     \usepackage{tikz}
   </latex-image-preamble>
   <macros>
     \newcommand{\into}{\hookrightarrow}
     \newcommand{\onto}{\twoheadrightarrow}
+    \newcommand{\QQ}{\mathbb{Q}}
   </macros>
 </docinfo>
 
 <book xml:id="IntroCGGT">
   <title>An introduction to combinatorial and geometric group
-    theory</title>
-    <author>Nicholas Touikan</author>
+  theory</title>
+  <frontmatter>
+    <titlepage>
+      <author>
+	<personname>Nicholas Touikan</personname>
+      </author>
+      <date>Last Modified <today/></date>
+    </titlepage>
+    
     <introduction xml:id="chap_intro"><title>Introduction</title>
     <p>
       Because the field of geometric group theory is relatively new,
@@ -22,7 +32,7 @@
       theory means different things to different people.
     </p>
     
-    <p>
+    <!--p>
       Drutu and Kapovich's imposing 2018 monograph
       <i>Geometric Group Theory</i> arguably gives the most
       comprehensive overview of the field, but it omits certain
@@ -31,89 +41,361 @@
       touched on in Volume 21 of the IAS/Park City Mathematics
       series titled <i>Geometric Group Theory</i>. And even these do
       not cover some of the author's favourite topics.
-    </p>
+    </p!-->
     
     <p>
-      The breadth of field forces us to limit our scope. Lie groups,
-      for example, are certainly interesting as groups, are very
-      geometrical, and would certainly have their place in a course
-      in geometric group theory. But, Dynkin diagrams
-      notwithstanding, drawings are not a major tool for dealing
-      with Lie groups.
+      Lie groups, for example, are interesting as groups, play a
+      critical role in geometry, and would certainly have their place
+      in a course in geometric group theory. But, Dynkin diagrams
+      notwithstanding, drawings are not a major tool for dealing with
+      Lie groups. Furthermore, differential geometry is a prerequisite
+      to studying these groups.
     </p>
-      
+
     <p>
       This course will be a self-contained introduction to the art of
-      working with infinite discrete groups by drawing pictures. We
-      will start with a rigourous exploration of the <m>F_n</m>, the
-      free group on <m>n</m> generators and touch on the clasical
-      subject of combinatorial group theory, which is the study of
-      groups given by generators and relations. Our driving question
-      will be: <i>Which calculations can we perform, or which
+      working with infinite discrete groups by drawing pictures. In
+      particular this course has no advanced prerequisites, besides
+      mathematical maturity. This constraint will guide the choice of
+      topics.
+    </p>
+
+    <p>
+      We will start with a rigourous exploration of the <m>F(X)</m>,
+      the free group on a set <m>X</m> of letters and touch on the
+      clasical subject of combinatorial group theory, which is the
+      study of groups given by generators and relations. One driving
+      question will be: <i>Which calculations can we perform, or which
       algorithmic problems can we solve, in a group given by a certain
       presentation?</i>
     </p>
+    
     <p>
       Our approach to this will be geometrical: group presentations
       enable us to draw Van Kampen diagrams and we will see that in
       the presence of (combinatorial) negative curvature, many
       algorithmic problems become tractable.
     </p>
-    
-    <p>Modified August 17, 2020</p>
+
+    <p>Along the way we will touch on many other topics that can be
+    explored by the techniques we will develop.</p>
 
     </introduction>
 
-    <chapter><title>Free groups and presentations</title>
-    <section xml:id="Lecture_1"><title>Lecture 1: Reduced words</title>
-    <p>Foo</p>
-    Write group axioms define a structure 
+    <references>
+      <p>
+      Much of the material in these lectures is covered in <xref
+      ref="book_lyndon-schupp"/>, but this book is difficult to
+      read. Stillwell's book <xref ref="book_stillwell"/> has an
+      excellent treatement of algorithmic problems and covers many
+      crucial interractions between topology and group theory that
+      will not be not covered in this course. Both of these books also
+      give important historical accounts.
+      </p>
+      <p>
+      Although the ideas of small cancellation theory have been around
+      for many decades the paper <xref ref="art_mccammond-wise"/>
+      gives a thorough and modern treatment of the topic. Most
+      material on hyperbolic groups will be taken from <xref
+      ref="notes_hyperbolic"/>.
+      </p>
+
+      <p> The book, which as of 2020, gives the best description of
+      the field is Drutu and Kapovich's <em>Geometric Group
+      Theory</em> <xref ref="book_drutu-kapovich"/>. This book also
+      has many historical references. Many important topics not
+      covered in this book are covered in <xref ref="GGT-park"/> which
+      is also called... <em>Geomeric Group Theory.</em>
+      </p>
+      <!--biblio xml:id="book_bogoposlki">
+	Oleg Bogopolski. <em>Introduction to Group Theory.</em> February 2008.
+      </biblio-->
+      <biblio xml:id="notes_hyperbolic">
+	J. M. Alonso, T. Brady, D. Cooper, V. Ferlini, M. Lustig,
+	M. Mihalik, M. Shapiro, and H. Short. <em>Notes on word hyperbolic
+	groups. In Group theory from a geometrical viewpoint (Trieste,
+	1990),</em> pages 3–63. World Sci. Publ., River Edge, NJ, 1991.
+      </biblio>
+
+      <biblio xml:id="GGT-park">
+	Mladen Bestvina, Michah Sageev, and Karen Vogtmann,
+	editors. <em>Ge- ometric group theory.</em> Number volume 21
+	in IAS/Park City math- ematics series. American Mathematical
+	Society ; Institute for Ad- vanced Studyb, Providence, RI :
+	[Princeton, N.J.], 2014.
+      </biblio>
+
+      <biblio xml:id="book_drutu-kapovich">
+	Cornelia Druţu and Michael Kapovich. <em>Geometric Group
+	Theory.</em> American Mathematical Soc., March
+	2018. Google-Books-ID: JtFT- DwAAQBAJ.
+      </biblio>
+
+      <biblio xml:id="book_lyndon-schupp">
+	Roger C. Lyndon and Paul E. Schupp. <em>Combinatorial group
+	theory.</em> Classics in Mathematics. Springer-Verlag, Berlin,
+	2001.
+      </biblio>
+
+      <biblio xml:id="book_stillwell">
+	John Stillwell. <em>Classical topology and combinatorial group
+	theory,</em> volume 72 of Graduate Texts in
+	Mathematics. Springer-Verlag, New York, second edition, 1993.
+      </biblio>
+
+      <biblio xml:id="art_mccammond-wise">
+	Jonathan P. McCAMMOND and Daniel T. Wise. <em>Fans and LAdders
+	in Smal Cancellation Theory.</em>. Proceedings of the London
+	Mathematical Society, 84(3):599–644, May 2002. Publisher:
+	Cambridge University Press.
+      </biblio>
+    </references>
+    
+  </frontmatter>
+
+  <chapter><title>Free groups and presentations</title>
+    <section xml:id="reductions"><title>Lecture 1: Words and reductions</title>
+    <p>
+      Let <m>X</m> be a set. We will call <m>X</m> an
+      <term>alphabet</term> and we will call its elements
+      <term>symbols</term>. For each symbol <m>x \in X</m> take a
+      formal inverse <m>x^{-1}</m> and we denote:
+      <me>
+	 X^{\pm 1} = X \cup \{x^{-1} : x \in X\}.
+      </me>
+      We further adopt the convention that <m>\left(x^{-1}\right)^{-1}
+      = x</m>.
+      
+      A <term>word</term> in <m>X^{\pm 1}</m> is a string of symbols
+      <me>
+	w(X) = x_1x_2\cdots x_n
+      </me>
+      where each symbol <m>x_i \in X^{\pm 1}</m>. In the situation
+      where alphabet is clear we will simply write <m>w</m> instead of
+      <m>w(X)</m>.   
+      
+      So, for example, if  <m>X = \{a,b,c\}</m> then <m>X^{\pm 1} = \{a,
+      a^{-1}, b, b^{-1},c , c^{-1}\}</m> and the string <me>
+      abbac^{-1}b^{-1}ba^{-1}</me> is a word in <m>X^{\pm 1}</m>.
+    </p>
+
+    <p>
+      Given two words <m>w_1,w_2</m> in some alphabet <m>X</m>, we
+      denote their <term>concatenation</term> by <m>w_1\ast
+      w_2</m>. For example if
+      <me>
+	w_1 = ab \text{  and  } w_2 = ba,
+      </me>
+      then <m>w_1\ast w_2 = abba</m>. 
+    </p>
+
+    <p>We will state the following proposition without proof, we would
+    encourage the reader to prove this for themselves, but since the
+    the reader will soon be asked to prove similar statements, we will
+    not insist. That being said, <em>composition of functions and
+    concatenation are two prototypical associative binary
+    operations. </em></p>
+    <proposition xml:id="cat-assoc">
+      <statement><p>
+	Concatenation of words is associative, i.e. <me>
+	\left(w_1\ast w_2\right)\ast w_3 = w_1\ast
+	\left(w_2\ast w_3\right). </me></p>
+      </statement>
+    </proposition>
+    
+    <p>
+      In particular the concatenation of three words <me> w_1\ast
+      w_2 \ast w_3
+    </me>
+    is well defined. Given a word <m>w</m> we will say that <m>u</m>
+    is a <term>subword</term> of <m>w</m> if there are words
+    <m>w',w''</m>, which may be empty, such that
+    <me>
+      w = w'\ast u \ast w''.
+    </me>
+    </p>
+
+    <p> We say that a word <m>w(X)</m> is <term>reduced</term> if it
+    has no subwords of the form <m> xx^{-1}</m> where <m>x \in X^{\pm
+    1}.</m> We are now in a situation where we can describe the set
+    underlying <m>F(X)</m> the <term>free group on alphabet
+    <m>X</m></term>.
+    </p>
+
+    <p>Let's first consider an analogy with the set <m>\QQ</m> of
+    fractions. We can consider fractions to be formal ratios of
+    integers, but two different formal ratios, such as <m>\frac 2 4
+    \text{ and } \frac 4 8</m>, can be equal. <m>\QQ</m> is therefore
+    best thought of the set of ratios of formal ratios of integers
+    modulo some eqivalence relation. Furthermore every equivalence
+    class of ratios has a reduced element. In <m>\QQ</m> a ratio is
+    reduced if the numerator and denominator are relatively prime.</p>
+
+    <p>As a set <m>F(X)</m> can be thought of as the collection of
+    words in the alphabet <m>X</m> modulo an equivalence relation
+    which we will now define.
+    </p>
+
+    <definition xml:id="cancellation">
+      <statement>
+	<p> An <term>elementary cancellation</term> in a word <m>w</m>
+	is the operation of deleting a subword of the form
+	<m>xx^{-1}</m> where <m>x \in X^{\pm 1}</m>, i.e.<me>
+	w = w'\ast xx^{-1} \ast w'' \stackrel{c}{\to} w'\ast w''</me>.
+	</p>
+	<p> If <m>u</m> is obtained from <m>w</m> by an elementary
+	cancellation, i.e. <m>w \stackrel{c}{\to}u</m>, then we say
+	that <m>u</m> is obtained from <m>w</m> by an <term>elementary
+	insertion</term>. </p>	
+      </statement>
+    </definition>
+    <p>
+    So, for example, we have:
+    <me>
+      bca^{-1}ac \stackrel{c}{\to} bcc.
+    </me>
+    </p>
+    
+    <p>
+      We now define an equivalence relation <m>\stackrel{c}{\sim}</m>
+      on the set of words in <m>X</m> as follows:
+      <ol>
+	<li>
+	   For each word we declare <m>w \stackrel c \sim
+	   w</m>. (Reflexivity)
+	</li>
+	<li>
+	  We declare <m>w \stackrel c \sim u</m> if <m>w</m> can be
+	  brought to <m>u</m> by a sequence of elementary
+	  cancellations and elementary insertions.
+	</li>
+      </ol>
+    </p>
+
+    <p>Now, on the one hand, given any word, because it has finite
+    <term>length</term> (which here means number of symbols) after a
+    finite sequence of elementary cancellations we will arrive at a
+    reduced word. On the other hand, a given word can admit many
+    distinct elementary cancellations, and in particular there are
+    many different possible sequences of elementary cancellations
+    which bring a word <m>w</m> to its reduced form. We can now state
+    the main result of this lecture.</p>
+
+    <theorem xml:id="thm_unique_reduced">
+      <statement>
+	Every word <m>w</m> in an alphabet <m>X</m> has a unique
+	reduced form <m>\overline w</m>,
+	i.e. if <m>w' \stackrel c \sim w \stackrel c \sim w''</m> and
+	both <m>w,w''</m> are reduced, then <m>w'=w''</m>.
+      </statement>
+    </theorem>
+
+    A restatement of this theorem is that elementary reductions form a
+    <url href="https://en.wikipedia.org/wiki/Confluence_(abstract_rewriting)">
+      confluent rewriting system.
+    </url>
+    
+    The following exercises will guide the reader through the proof.
+    
+    <exercises><title>Lecture 1 exercises</title>
+    <p> The purpose of these exercises, besides proving a crucial fact
+    about free groups, is to get the reader to write arguments using
+    words and using the technique of induction on word length.
+    </p>
+      <exercise>
+	<statement>
+	  <p>Prove the diamond lemma:</p>
+	  <lemma xml:id="lem_diamond"><title>The diamond lemma</title>
+	    <statement>
+	      Suppose we have two elementary cancellations of a word
+	      <m>w</m> <me>w_1 \stackrel c \leftarrow w \stackrel c
+	      \to w_2</me>, then there exists some <m>w'</m> such that
+	      there are cancellations <me> w_1 \stackrel c \to w'
+	      \stackrel c \leftarrow w_2.
+	    </me> See <xref ref="fig_diamond"/>.
+	    </statement>
+	  </lemma>
+	    <figure xml:id="fig_diamond">
+	      <caption>The diamond lemma</caption>
+	      <image width="20%" xml:id="diamond_lemma">
+		<latex-image>
+		  \begin{tikzpicture}
+		  \node (w) at (0,0) {$w$};
+		  \node (w1) at (-1,-1) {$w_1$};
+		  \node (w2) at (1,-1) {$w_2$};
+		  \node (wp) at (0,-2) {$w'$};
+		  \draw[->] (w) -- node[above]{$c$} (w1);
+		  \draw[->] (w) -- node[above]{$c$} (w2);
+		  \draw[->] (w1) -- node[above]{$c$} (wp);
+		  \draw[->] (w2) -- node[above]{$c$} (wp);
+		  \end{tikzpicture}
+		</latex-image>
+	      </image>
+	    </figure>
+	  <p>
+	    Hint: There are two cases to consider: whether or not the
+	    cancelled subwords in <m>w</m> overlap. Be thoughtful with
+	    your notation and use of subscripts.
+	  </p>
+	</statement>
+      </exercise>
+
+      <exercise>
+	<statement>
+	  <p>Use the diamond lemma to prove <xref
+	  ref="thm_unique_reduced"/>
+	  </p>
+	  <p>Hint:
+	  <!-- <ul> -->
+	  <!--   <li>Start by writing out some words to see how the -->
+	  <!--   diamons lemma works.</li> -->
+	  <!--   <li>Suppose towards a contradiction that some word <m>w</m> -->
+	  <!--   could be reduced to two distinct reduced forms.</li> -->
+	  <!--   <li>Use induction on the length of words, i.e. consider a -->
+	  <!--   minimal length counterexample.</li> -->
+	  <!--   <li> -->
+	      Start with this diagram where <m>w</m> is a minimal
+	      length counterexample and <m>\overline w</m> and
+	      <m>\overline w'</m> are distinct reduced words:
+	      <image width="50%" xml:id="confluence">
+		<latex-image>
+		  \begin{tikzpicture}
+		  \node (w) at (0,0) {$w$};
+		  \node (w1) at (-1,-1) {$w_1$};
+		  \node (w2) at (1,-1) {$w_2$};
+		  \node (ow) at (-3,-3) {$\overline w'$};
+		  \node (owp) at (3,-3) {$\overline w$};
+		  \draw[->] (w) -- node[above]{$c$} (w1);
+		  \draw[->] (w) -- node[above]{$c$} (w2);
+		  \draw[->] (w1) -- node[above]{$c$} (-2,-2);
+		  \draw[->] (w2) -- node[above]{$c$} (2,-2);
+		  \path (-2,-2) --node[sloped]{$\cdots$} (ow);
+		  \path (2,-2) --node[sloped]{$\cdots$} (owp);
+		  \end{tikzpicture}
+		</latex-image>
+	      </image>
+	  <!--   </li> -->
+	  <!-- </ul> -->
+	  </p>
+	</statement>
+      </exercise>
+    </exercises>
+    
     </section>
-    </chapter>
+    <!-- WIP
+    <section xml:id="universal"><title>Lecture 2: The universal
+    property of free groups</title>
+    <p>Generalized associatvity and the universal property.</p>
+    </section>
     
-      <!--introduction>
-	<p>
-	  Since the dawn of time blablabla.
-	</p>
-	<p>
-	  This is a short sentence. <m> R \onto S</m> <m>2+2</m>
-	</p>
-    
-      </introduction-->
-</book>
+    <section xml:id="presentations"><title>Lecture 3: Group presentations</title>
+    </section> -->
+  </chapter>
+  <!-- WIP
+    <backmatter>
+    <title>References</title>
+    <section><title>Things to read</title>
+    Books here</section>
+    </backmatter> -->
+  </book>
 </pretext>
-
-<!-->      
-      <section xml:id="section-1">
-	<title>Section 1</title>
-	<p> Muhaha! </p>
-	<image source="images/cat.jpg"/>
-      </section>
-
-
-      <section xml:id="sec-2">
-	<title> Whaaat?</title>
-	<p> Here is some math <m>2+2=4</m> and moar math
-	<me>\sum_{i=1}^\infty a_i, a_i \in \mathbb R </me></p>
-	<ol>
-	  <li> Here'a thing</li>
-	  <li> here's another </li>
-	</ol>
-
-	<figure>
-	  <caption>Tikz test</caption>
-	<image width="50%" xml:id="tikztext">
-	  <latex-image>
-	    \begin{tikzpicture}
-	    \node (a) at (0,0) {$\alpha$};
-	    \node (b) at (2,0) {$\gamma$};
-	    \end{tikzpicture}
-	  </latex-image>
-	  
-	</image>
-	</figure>
-      </section>
-</book>
-    
-  </pretext>
-<!-->
