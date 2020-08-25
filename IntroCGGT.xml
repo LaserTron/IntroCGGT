@@ -32,17 +32,6 @@
       theory means different things to different people.
     </p>
     
-    <!--p>
-      Drutu and Kapovich's imposing 2018 monograph
-      <i>Geometric Group Theory</i> arguably gives the most
-      comprehensive overview of the field, but it omits certain
-      important topics such as CAT(0) cube complexes or
-      <m>\mathrm{Out}(F_n)</m> and the spaces it acts on, which are
-      touched on in Volume 21 of the IAS/Park City Mathematics
-      series titled <i>Geometric Group Theory</i>. And even these do
-      not cover some of the author's favourite topics.
-    </p!-->
-    
     <p>
       Lie groups, for example, are interesting as groups, play a
       critical role in geometry, and would certainly have their place
@@ -107,47 +96,77 @@
       covered in this book are covered in <xref ref="GGT-park"/> which
       is also called... <em>Geomeric Group Theory.</em>
       </p>
-      <!--biblio xml:id="book_bogoposlki">
-	Oleg Bogopolski. <em>Introduction to Group Theory.</em> February 2008.
-      </biblio-->
+
+
+      <p>
+    	As far as accessible contemporary introductions go, the texts
+    	<xref ref="book_bogopolski"/> and <xref ref="book_loh_ggt"/>
+    	are at a level similar to this course, but cover different
+    	topics.(And yes, so far there are three books with the same
+    	title.) <url
+    	href="https://www.jstor.org/stable/j.ctt1vwmg8g">Office Hours
+    	with a Geometric Group Theorist</url> apparently also gives a
+    	good idea of the field. And finally <xref
+    	ref="book_groups_and_back"/> is another good introductory text
+    	which covers substantially different topics.
+      </p>
+      
+      <biblio xml:id="book_bogopolski">
+    	Oleg Bogopolski. <em>Introduction to Group Theory.</em>
+    	February 2008.
+      </biblio>
       <biblio xml:id="notes_hyperbolic">
-	J. M. Alonso, T. Brady, D. Cooper, V. Ferlini, M. Lustig,
-	M. Mihalik, M. Shapiro, and H. Short. <em>Notes on word hyperbolic
-	groups. In Group theory from a geometrical viewpoint (Trieste,
-	1990),</em> pages 3–63. World Sci. Publ., River Edge, NJ, 1991.
+    	J. M. Alonso, T. Brady, D. Cooper, V. Ferlini, M. Lustig,
+    	M. Mihalik, M. Shapiro, and H. Short. <em>Notes on word hyperbolic
+    	groups. In Group theory from a geometrical viewpoint (Trieste,
+    	1990),</em> pages 3–63. World Sci. Publ., River Edge, NJ, 1991.
       </biblio>
 
       <biblio xml:id="GGT-park">
-	Mladen Bestvina, Michah Sageev, and Karen Vogtmann,
-	editors. <em>Ge- ometric group theory.</em> Number volume 21
-	in IAS/Park City math- ematics series. American Mathematical
-	Society ; Institute for Ad- vanced Studyb, Providence, RI :
-	[Princeton, N.J.], 2014.
+    	Mladen Bestvina, Michah Sageev, and Karen Vogtmann,
+    	editors. <em>Ge- ometric group theory.</em> Number volume 21
+    	in IAS/Park City math- ematics series. American Mathematical
+    	Society ; Institute for Ad- vanced Studyb, Providence, RI :
+    	[Princeton, N.J.], 2014.
       </biblio>
 
       <biblio xml:id="book_drutu-kapovich">
-	Cornelia Druţu and Michael Kapovich. <em>Geometric Group
-	Theory.</em> American Mathematical Soc., March
-	2018. Google-Books-ID: JtFT- DwAAQBAJ.
+    	Cornelia Druţu and Michael Kapovich. <em>Geometric Group
+    	Theory.</em> American Mathematical Soc., March
+    	2018.
       </biblio>
 
       <biblio xml:id="book_lyndon-schupp">
-	Roger C. Lyndon and Paul E. Schupp. <em>Combinatorial group
-	theory.</em> Classics in Mathematics. Springer-Verlag, Berlin,
-	2001.
+    	Roger C. Lyndon and Paul E. Schupp. <em>Combinatorial group
+    	theory.</em> Classics in Mathematics. Springer-Verlag, Berlin,
+    	2001.
       </biblio>
 
       <biblio xml:id="book_stillwell">
-	John Stillwell. <em>Classical topology and combinatorial group
-	theory,</em> volume 72 of Graduate Texts in
-	Mathematics. Springer-Verlag, New York, second edition, 1993.
+    	John Stillwell. <em>Classical topology and combinatorial group
+    	theory,</em> volume 72 of Graduate Texts in
+    	Mathematics. Springer-Verlag, New York, second edition, 1993.
       </biblio>
 
       <biblio xml:id="art_mccammond-wise">
-	Jonathan P. McCAMMOND and Daniel T. Wise. <em>Fans and LAdders
-	in Smal Cancellation Theory.</em>. Proceedings of the London
-	Mathematical Society, 84(3):599–644, May 2002. Publisher:
-	Cambridge University Press.
+    	Jonathan P. McCammond and Daniel T. Wise. <em>Fans and Ladders
+    	in Small Cancellation Theory.</em>. Proceedings of the London
+    	Mathematical Society, 84(3):599–644, May 2002. Publisher:
+    	Cambridge University Press.
+      </biblio>
+
+      <biblio xml:id="book_ggt_officehours">
+    	Matt Clay and Dan Margalit, editors. <em>Office hours with a
+    	geometric group theorist.</em> Princeton University Press,
+    	Princeton, NJ, 2017.
+      </biblio>
+
+      <biblio xml:id="book_loh_ggt">Clara Löh. <em>Geometric group
+      theory.</em> Universitext. Springer, Cham, 2017.</biblio>
+
+      <biblio xml:id="book_groups_and_back">
+    	Vaughn Climenhaga and Anatole Katok. <em>From Groups to
+    	Geometry and Back.</em> American Mathematical Soc., April 2017
       </biblio>
     </references>
     
@@ -382,15 +401,256 @@
     </exercises>
     
     </section>
-    <!-- WIP
-    <section xml:id="universal"><title>Lecture 2: The universal
-    property of free groups</title>
-    <p>Generalized associatvity and the universal property.</p>
-    </section>
+
+    <section xml:id="universal"><title>Lecture 2: The free group and
+    its universal property</title>
+    <p>As the reader should already know, a <term>group</term>
+    <m>(G,\cdot)</m> is a pair consisting of a set <m>G</m> and a
+    binary operation <m>\star:G\times G \to G</m>, usually called
+    <term>multiplication</term>, which satisfies the following axioms:
+    <ul>
+      <li>The multiplication operation is <term>associative</term>,
+      i.e. for all <m>g,h,k \in G</m> we have <me>(g\star h)\star k =
+      g\star(h \star k).</me></li>
+      <li>There exists an element <m>1_G\in G</m> called the
+      <term>identity elment</term> such that for every <m>g\in ,
+      1_G \star g = g</m>.</li>
+      <li>For every <m>g \in G</m> there exists an inverse <m>g^{-1}
+      \in G</m> such that <m>g\star g^{-1}=1_G.</m>
+      </li>
+    </ul>
+    We will always denote a group by simply <m>G</m>, we will almost
+    always omit the subscript for the identity element, and we will
+    usually denote multiplication simply by concatenation, i.e. "we'll"
+    write stuf like <me>gg^{-1}=1.</me> </p> <p> <m>F(X)</m>, the
+    <term>free group on an alphabet <m>X</m></term> consists of the
+    set of reduced words in <m>X</m> and multiplication is defined by
+    concatenation and reduction, i.e.  <me> u\star v = \overline{u*v},
+    </me> where <m>*</m> denotes concatentation of strings.  The
+    identity <m>1_{F(X)}</m> is the empty word (i.e. the word with
+    zero symbols in it.) Associativity amounts to showing that
+    <me>
+      (u\star v)\star w = \overline{\overline{u * v} * w} = \overline{
+      u* \overline{v * w}} = u\star (v\star w),
+    </me>
+    which immidiately follows from <xref
+    ref="thm_unique_reduced"/>. We leave the third group axiom as
+    <xref ref="ex_free_gp_inv"/>.
+  </p>
+
+  <p>
+    The free group plays a crucial role because of the following
+    <term>universal property.</term>
+  </p>
+
+  <theorem xml:id="thm_free_gp_universal"><title>The universal
+  property of free groups.</title>
+    <statement>Let <m>G</m> be any group and let <m>F(X)</m> be the
+    free group on the alphabet <m>X</m>. Then for any function
+    <me>
+      \varphi*:X \to G
+    </me>
+    there exists a unique group homomorphism
+    <me>
+      \varphi^*: F(X) \to G
+      </me>  such that <m>\varphi \mid_X = \varphi</m>,
+      i.e. <m>\varphi^*</m> is an extension of <m>\varphi</m>.
+    </statement>
+      <figure xml:id="fig_universal_prop">
+	      <caption>The universal property of free groups.</caption>
+	      <image width="20%" xml:id="universal_prop">
+		<latex-image>
+		  \begin{tikzpicture}[xscale=2]
+		  \node (FX) at (0,0) {$F(X)$};
+		  \node (X) at (0,-1) {$X$};
+		  \node (G) at (1,0) {$G$};
+		  \path (X) --node[sloped]{$\subset$} (FX);
+		  \draw[->] (X) --node[below]{$\forall \varphi$} (G);
+		  \draw[dashed,->] (FX)
+		  --node[above]{$\exists!\varphi^*$}
+		  (G);
+		  \end{tikzpicture}
+		</latex-image>
+	      </image>
+      </figure>
+  </theorem>
+
+  <p>
+    Our approach to Theorem <xref ref="thm_free_gp_universal"/> hinges
+    on a consequence of associativity: <term>generalized
+    associativity</term>. Since it is difficult to get excited about
+    associativity, some discussion is in order.
+  </p>
+
+  <p> Division <m>\div</m> is not associative, which means that
+  expressions of the form <m>12\div 12 \div 12</m> are not well
+  defined:<me> \frac{1}{12} = (12\div 12) \div 12 \neq 12\div(12\div
+  12) = 12.</me> Different bracketings give different results. In the
+  previous lecture associativity was used to say that a product of
+  three elements <m>w_1\star w_2 \star w_3</m> was well-defined, which
+  in turn enables us to define subwords. So what about arbitrary
+  products such as
+  <me>
+    g_1g_2\cdots g_n = \prod_{i=1}^n g_i
+  </me>?
+  The issue here is that our group operation is a <em>binary
+  operation</em>. Bracketing simply gives the order in which we
+  perform the multiplication operations, multiplying two elements at a
+  time. Associativity only says that products of three factors are
+  well defined. We will say that a product is <term>nice</term> if it
+  looks like
+  <me>
+    a_1*(a_2*(a_3*a_4))
+  </me>
+  and other wise a product like <me> ((a_1*a_2)*(a_3*a_4))*a_5</me> is
+  called <term>messy</term>. This terminology is neither standard nor
+  particuarly good. In fact we "didn't" even give precise
+  definitions. In <xerv ref="ex_nice"/> you are asked to give a
+  precise recursive definition of a nice product and then you will be
+  asked to prove the following:
+  </p>
+  <theorem xml:id="thm_gen_assoc"><title>Generalized
+  associativity</title>
+  <statement>
+    Any messy product can be turned into a nice product by a sequence
+    of appliations of the associativity axiom. Furthermore the order
+    the factors is preserved.
+  </statement>
+  </theorem>
+
+  From which the following immediately follows:
+
+  <corollary xml:id="cor_products">
+    <statement>
+      In any group (or any algebraic structure with an assoicative
+      binary operation) long products <me>
+      g_1\cdots g_n = \prod_{i=1}^n g_i; g_i \in G
+    </me>
+    are well-defined.
+    </statement>
+  </corollary>
+
+  <p>
+  Here is why we care. Supose you are given some <m>\varphi:X \to
+  G</m> which maps each letter of the alphabet to arbitrary elements
+  of <m>G</m>, then we can extend this to a function <m>\varphi^*:
+  F(X)\to G</m>. Indeed let <m>w = a_1^{\epsilon_1}\cdots
+  a_n^{\epsilon_n}</m>, where each <m>a_i \in X</m> and each
+  <m>\epsilon_i \in \{1,-1\}</m>, be some arbitrary element of
+  <m>F(X),</m> then we set
+  <men xml:id="eq_free_gp">
+  \varphi^*(w) = \prod_{i=1}^n\varphi(a_i)^{\epsilon_i}, </men> which
+  is a product of elements of <m>G</m>. Generalized associativity
+  ensures that this mapping is <em>well-defined.</em> Showing that this is a
+  homomorphism is is left as an exercise.
+  </p>
+
+  <p>If, so far, our treatment has seemed rather formal, this is
+  because our goal up to now was to a group using nothing but the
+  axioms of group theory and some set of letters we had lying around
+  and then to show it is satisfied a universal property in the
+  category of groups, i.e. <xref ref="thm_free_gp_universal"/>. Such
+  universal constructions in algebra look this way.</p>
+
+  <p>It is also worth noting that everybody just seems to assume
+  generalized associativity. We will do the same in subsequent
+  lectures, in fact we "won't" even mention it again, but at least we
+  are assured that long products are well defined.</p>
+  
+  <p>
+    We end this lecture with the following result which algebraically
+    characterizes free groups.
+  </p>
+  <corollary xml:id="cor_free_gp">
+    <statement>
+      Let <m>G</m> be some group with a subset <m>Y\subset G</m> such
+      for any group <m>H</m> and any map <m>f:Y \to H</m>, there is
+      an extension of <m>f</m> to a homomorpshism <m>f^*:G \to
+      H</m>. Then <m>G</m> is isomorphic to the free group
+      <m>F(Y)</m>.
+    </statement>
+  </corollary>
+  Recall that although we would call the set <m>Y</m> an alphabet and
+  its elements letters, the alphabet can be any set.
+
+  <proof>
+    <p>
+      For clarity let us take <m>X</m> to be a copy of <m>Y</m>,
+      i.e. we have a bijection <m>\psi:X\to Y</m> and we denote its
+      inverse <m>\phi:Y \to X</m>. We consider <m>Y\subset G</m> and
+      <m>X \subset F(X)</m>.
+    </p>
+    <p>      
+      By <xref ref="thm_free_gp_universal"/> there is a homomorphism
+      <m>\psi^*:F(X) \to G</m> which extends <m>\psi</m>. By
+      hypothesis there is also a homomorphism <m>\phi^*:G \to F(X)</m>
+      which extends <m>\phi</m>.
+    </p>
+    <p>
+      Let <m>w = \prod_{i=1}^n x_i</m>, where <m>x_i \in X^{\pm 1}</m>
+      be an arbitrary element of <m>F(X)</m>. Then by the definition
+      of a homomorphism and generalized associativity we have:<me>
+      \phi^*\circ\psi^*\left( \prod_{i=1}^n x_i\right)= \prod_{i=1}^n
+      \phi^*\circ\psi^*(x_i) = \prod_{i=1}^n x_i, </me> since on
+      <m>X</m>, <m>\phi^*\circ\psi^*= \phi\circ\psi = Id.</m> 
+    </p>
+
+    <p>The homomorphisms <m>\psi^*,\phi^*</m> are therefore inverses
+    of each other; thus are isomorphisms.</p>
+  </proof>
+  
+  <exercises><title>Lecture 2 exercises</title>
+  <exercise xml:id="ex_free_gp_inv">
+    <statement>
+      <p>Prove that every element in <m>F(X)</m> has an inverse.</p>
+    <p>
+      Hint: Give the procedure to produce the inverse of a
+      word. sdrawkcab etirw.
+    </p>
+    </statement>
     
-    <section xml:id="presentations"><title>Lecture 3: Group presentations</title>
-    </section> -->
+  </exercise>
+  <exercise xml:id="ex_nice">
+    <statement>
+    <p>It is an important skill to be able to be able to capture an
+    idea with a good definition.</p>
+    <p>
+      There are two parts to this exercise:
+      <ol>
+	<li>Give a precise recursive definition of a nice
+	product.</li>
+	<li>Use this definition to prove <xref
+	ref="thm_gen_assoc"/>.</li>
+      </ol>      
+    </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      Prove <xref ref="thm_free_gp_universal"/>.
+    <p>
+      Hint: This really amounts to verifying that the mapping <xref
+      ref="eq_free_gp"/> is well-defined (which is ensured by
+      generalized associativity) and that it satisfies the
+      requirements of a homomorphism. All the work was really done in
+      showing generalized associativity.
+    </p>
+    </statement>
+  </exercise>
+  </exercises>
+
+    </section>
+    <!-- Generating groups and group presentations -->.
+    <!-- Cayley graphs, paths, labels, group elements. -->
+    <!-- Homomorphisms and Tietze transformations. -->
+    <!-- Algorihtmic problems, cancellation diagrams and solutions in free -->
+    <!-- groups. -->
+    <!-- Nielsen theory. -->
+    <!-- Stallings foldings. -->
   </chapter>
+  <!-- Chapter: Diagrams -->
+  <!-- Lollipops. -->
+  
   <!-- WIP
     <backmatter>
     <title>References</title>
