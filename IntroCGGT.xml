@@ -571,7 +571,9 @@
     </statement>
   </corollary>
   Recall that although we would call the set <m>Y</m> an alphabet and
-  its elements letters, the alphabet can be any set.
+  its elements letters, the alphabet can be any set, even elements of
+  another group. For clarity, however, we make a copies of sets in the
+  proof below.
 
   <proof>
     <p>
@@ -598,6 +600,15 @@
     <p>The homomorphisms <m>\psi^*,\phi^*</m> are therefore inverses
     of each other; thus are isomorphisms.</p>
   </proof>
+
+  <p>
+    Any subset <m>Y</m> of a group <m>G</m> with this universal
+    mapping property is called a <term>basis of <m>G</m></term>, and,
+    since "we're" <em>free</em> to send elements of <m>Y</m> wherever
+    we say that <m>G</m> is a free group with basis <m>Y</m>. As is
+    the case in linear algebra, bases are never unique, but that is
+    for another lecture (not the next one)!
+  </p>
   
   <exercises><title>Lecture 2 exercises</title>
   <exercise xml:id="ex_free_gp_inv">
@@ -640,6 +651,13 @@
   </exercises>
 
     </section>
+    <!-- <section xml:id="generation_and_presentation"><title>Lecture 3: -->
+    <!-- Generation and presentation</title> -->
+    <!-- <p> -->
+      
+    <!-- </p> -->
+    <!-- </section> -->
+    
     <!-- Generating groups and group presentations -->.
     <!-- Cayley graphs, paths, labels, group elements. -->
     <!-- Homomorphisms and Tietze transformations. -->
