@@ -10,6 +10,12 @@
     \newcommand{\into}{\hookrightarrow}
     \newcommand{\onto}{\twoheadrightarrow}
     \newcommand{\QQ}{\mathbb{Q}}
+    \newcommand{\ZZ}{\mathbb{Z}}
+    \newcommand{\GL}[2]{\mathrm{GL(#1,#2)}}
+    \newcommand{\gen}[1]{{\left\langle #1 \right\rangle}}
+    \newcommand{\ncl}[1]{\gen{\gen{#1}}}
+    \newcommand{\pres}[2]{{\left\langle #1 \middle | #2
+    \right\rangle}}
   </macros>
 </docinfo>
 
@@ -23,7 +29,6 @@
       </author>
       <date>Last Modified <today/></date>
     </titlepage>
-    
     <introduction xml:id="chap_intro"><title>Introduction</title>
     <p>
       Because the field of geometric group theory is relatively new,
@@ -71,105 +76,8 @@
 
     </introduction>
 
-    <references>
-      <p>
-      Much of the material in these lectures is covered in <xref
-      ref="book_lyndon-schupp"/>, but this book is difficult to
-      read. Stillwell's book <xref ref="book_stillwell"/> has an
-      excellent treatement of algorithmic problems and covers many
-      crucial interractions between topology and group theory that
-      will not be not covered in this course. Both of these books also
-      give important historical accounts.
-      </p>
-      <p>
-      Although the ideas of small cancellation theory have been around
-      for many decades the paper <xref ref="art_mccammond-wise"/>
-      gives a thorough and modern treatment of the topic. Most
-      material on hyperbolic groups will be taken from <xref
-      ref="notes_hyperbolic"/>.
-      </p>
-
-      <p> The book, which as of 2020, gives the best description of
-      the field is Drutu and Kapovich's <em>Geometric Group
-      Theory</em> <xref ref="book_drutu-kapovich"/>. This book also
-      has many historical references. Many important topics not
-      covered in this book are covered in <xref ref="GGT-park"/> which
-      is also called... <em>Geomeric Group Theory.</em>
-      </p>
 
 
-      <p>
-    	As far as accessible contemporary introductions go, the texts
-    	<xref ref="book_bogopolski"/> and <xref ref="book_loh_ggt"/>
-    	are at a level similar to this course, but cover different
-    	topics.(And yes, so far there are three books with the same
-    	title.) <url
-    	href="https://www.jstor.org/stable/j.ctt1vwmg8g">Office Hours
-    	with a Geometric Group Theorist</url> apparently also gives a
-    	good idea of the field. And finally <xref
-    	ref="book_groups_and_back"/> is another good introductory text
-    	which covers substantially different topics.
-      </p>
-      
-      <biblio xml:id="book_bogopolski">
-    	Oleg Bogopolski. <em>Introduction to Group Theory.</em>
-    	February 2008.
-      </biblio>
-      <biblio xml:id="notes_hyperbolic">
-    	J. M. Alonso, T. Brady, D. Cooper, V. Ferlini, M. Lustig,
-    	M. Mihalik, M. Shapiro, and H. Short. <em>Notes on word hyperbolic
-    	groups. In Group theory from a geometrical viewpoint (Trieste,
-    	1990),</em> pages 3–63. World Sci. Publ., River Edge, NJ, 1991.
-      </biblio>
-
-      <biblio xml:id="GGT-park">
-    	Mladen Bestvina, Michah Sageev, and Karen Vogtmann,
-    	editors. <em>Ge- ometric group theory.</em> Number volume 21
-    	in IAS/Park City math- ematics series. American Mathematical
-    	Society ; Institute for Ad- vanced Studyb, Providence, RI :
-    	[Princeton, N.J.], 2014.
-      </biblio>
-
-      <biblio xml:id="book_drutu-kapovich">
-    	Cornelia Druţu and Michael Kapovich. <em>Geometric Group
-    	Theory.</em> American Mathematical Soc., March
-    	2018.
-      </biblio>
-
-      <biblio xml:id="book_lyndon-schupp">
-    	Roger C. Lyndon and Paul E. Schupp. <em>Combinatorial group
-    	theory.</em> Classics in Mathematics. Springer-Verlag, Berlin,
-    	2001.
-      </biblio>
-
-      <biblio xml:id="book_stillwell">
-    	John Stillwell. <em>Classical topology and combinatorial group
-    	theory,</em> volume 72 of Graduate Texts in
-    	Mathematics. Springer-Verlag, New York, second edition, 1993.
-      </biblio>
-
-      <biblio xml:id="art_mccammond-wise">
-    	Jonathan P. McCammond and Daniel T. Wise. <em>Fans and Ladders
-    	in Small Cancellation Theory.</em>. Proceedings of the London
-    	Mathematical Society, 84(3):599–644, May 2002. Publisher:
-    	Cambridge University Press.
-      </biblio>
-
-      <biblio xml:id="book_ggt_officehours">
-    	Matt Clay and Dan Margalit, editors. <em>Office hours with a
-    	geometric group theorist.</em> Princeton University Press,
-    	Princeton, NJ, 2017.
-      </biblio>
-
-      <biblio xml:id="book_loh_ggt">Clara Löh. <em>Geometric group
-      theory.</em> Universitext. Springer, Cham, 2017.</biblio>
-
-      <biblio xml:id="book_groups_and_back">
-    	Vaughn Climenhaga and Anatole Katok. <em>From Groups to
-    	Geometry and Back.</em> American Mathematical Soc., April 2017
-      </biblio>
-    </references>
-    
   </frontmatter>
 
   <chapter><title>Free groups and presentations</title>
@@ -241,7 +149,7 @@
     <m>X</m></term>.
     </p>
 
-    <p>Let's first consider an analogy with the set <m>\QQ</m> of
+    <p>Let&apos;s first consider an analogy with the set <m>\QQ</m> of
     fractions. We can consider fractions to be formal ratios of
     integers, but two different formal ratios, such as <m>\frac 2 4
     \text{ and } \frac 4 8</m>, can be equal. <m>\QQ</m> is therefore
@@ -421,7 +329,7 @@
     </ul>
     We will always denote a group by simply <m>G</m>, we will almost
     always omit the subscript for the identity element, and we will
-    usually denote multiplication simply by concatenation, i.e. "we'll"
+    usually denote multiplication simply by concatenation, i.e. we&apos;ll
     write stuf like <me>gg^{-1}=1.</me> </p> <p> <m>F(X)</m>, the
     <term>free group on an alphabet <m>X</m></term> consists of the
     set of reduced words in <m>X</m> and multiplication is defined by
@@ -504,7 +412,7 @@
   </me>
   and other wise a product like <me> ((a_1*a_2)*(a_3*a_4))*a_5</me> is
   called <term>messy</term>. This terminology is neither standard nor
-  particuarly good. In fact we "didn't" even give precise
+  particuarly good. In fact we didn&apos;t even give precise
   definitions. In <xerv ref="ex_nice"/> you are asked to give a
   precise recursive definition of a nice product and then you will be
   asked to prove the following:
@@ -554,7 +462,7 @@
 
   <p>It is also worth noting that everybody just seems to assume
   generalized associativity. We will do the same in subsequent
-  lectures, in fact we "won't" even mention it again, but at least we
+  lectures, in fact we won&apos;t even mention it again, but at least we
   are assured that long products are well defined.</p>
   
   <p>
@@ -604,7 +512,7 @@
   <p>
     Any subset <m>Y</m> of a group <m>G</m> with this universal
     mapping property is called a <term>basis of <m>G</m></term>, and,
-    since "we're" <em>free</em> to send elements of <m>Y</m> wherever
+    since we&apos;re <em>free</em> to send elements of <m>Y</m> wherever
     we say that <m>G</m> is a free group with basis <m>Y</m>. As is
     the case in linear algebra, bases are never unique, but that is
     for another lecture (not the next one)!
@@ -651,14 +559,273 @@
   </exercises>
 
     </section>
-    <!-- <section xml:id="generation_and_presentation"><title>Lecture 3: -->
-    <!-- Generation and presentation</title> -->
-    <!-- <p> -->
+    <section xml:id="generation_and_presentation"><title>Lecture 3:
+    Generating and presenting groups</title>
+    <p>
+      Long products are group elements are imporant to us. The
+      following lemma gives us a definition of <term>a subgroup
+      generated by a collection of elements</term>
+    </p>
+      <lemma xml:id="lem_generate">
+	<statmement>
+	  Let <m>H \leq G</m> be a subgroup and let
+	  <m>S=\{h_1,\ldots\} \subset G</m> be a set of
+	  elements. The following are equivalent:
+	  <ul>
+	    <li><m>H</m> is the smallest subgroup of <m>G</m>
+	    containing <m>S</m>, i.e.
+	    <me>
+	      H = \bigcap_{S\subset K \leq G} K,
+	    </me> i.e. the intersection of all subgroups of <m>G</m>
+	    containing <m>S</m>.
+	    </li>
+	    <li>
+	      <m>H</m> consists of all products of elements <m>S^{\pm
+	      1}</m>, i.e. <me> H = \left\{h_{i_1}^{\epsilon_1}\cdots
+	      h_{i_n}^{\epsilon_n} \in G \mid h_{i_j}\in S, \epsilon_j
+	      \in \{\pm 1\}, n \in \ZZ_{\geq 0} \right\}
+	    </me>
+	    </li>
+	  </ul>
+	</statmement>
+      </lemma>
+    <p>
+      We will denote the subgroup generated by
+      <m>S=\{h_1,\ldots\}</m> as <m>\gen S</m> or
+      <m>\gen{h_1,\ldots}</m>.
+    </p>
+    <proof>
+      <p>
+      Let us denote by <m>H</m> the smallest subgroup containing
+      <m>S</m> and by <m>\gen S</m> set of products of elements in
+      <m>S^{\pm 1}</m>. <m>\gen S</m> is closed under multiplication
+      and taking inverses so it&apos;s a subgroup of <m>G</m>. By
+      definition, it&apos;s therefore immediate that <m>H \subset \gen S</m>.
+      </p>
+
       
-    <!-- </p> -->
-    <!-- </section> -->
+      <p>
+      To see that <m>H \supset \gen S</m>, we procede by induction on
+      the length of a product. By definition any product of length 1,
+      being an elment of <m>S^{\pm 1}</m>, is in <m>H</m>. If every
+      product of length at most <m>n</m> is in <m>H</m>, then, because
+      a product of length <m>n+1</m> is a product of a product of
+      length <m>n</m> and a product of length <m>1</m> and because
+      <m>H</m>, being a subgroup, is closed under multiplication,
+      every product of length <m>n+1</m> is also in
+      <m>H</m>. Therefore, by induction, <m>H \supset \gen S</m> and
+      equality follows.
+      </p> 
+    </proof>
+    <p>
+    Any set <m>S \subset G</m> such that <m>G = \gen S</m> is
+    called a <term>generating set of G</term>.  If <m>G</m> has a
+    finite generating subset <m>\{g_1,\cdots,g_k\}\subset G</m> then
+    we way <m>G</m> is <term>finitely generated.</term>
+
+    The <term>rank</term> of a group <m>G</m> is the minimal
+    cardinality achieved by its generating sets, though this
+    terminology is less standard and typically has other meanings in
+    different group theoretical contexts.
+    </p>
+
+    <p> Since <m>G = \gen G</m>, every finite group is finitely
+    generated and it is a standard fact that every symmetric group
+    <m>S_n</m> has rank 2. It&apos;s already more impressive when an
+    infinite group has finite rank. Here are three examples:
+    <ul>
+      <li>
+	If <m>X = \{a,b,c\}</m> then the free group <m>F(X)</m> has
+	rank 3. In general if <m>|X|=n</m> then we will say that
+	<m>F(X)</m> is a <term>free group of rank <m>n</m>.</term>
+      </li>
+      <li>
+	<m>\GL 2 \ZZ</m>, the group of <m>2\times 2</m> invertible
+	matrices with <m>\ZZ</m> coefficients also has rank 2, indeed
+	it is generated by elementary matrices:
+	<me>
+	  \GL 2 \ZZ = \gen{
+	  \begin{bmatrix}
+	  0&amp;1\\
+	  1&amp;0
+	  \end{bmatrix},
+	  \begin{bmatrix}
+	  1&amp;1\\
+	  0&amp;1
+	  \end{bmatrix}
+	  }.
+	</me>
+      </li>
+      <li>
+	<m>\pi_1(M)</m>, where <m>M</m> is a compact finite
+	dimensional manifold is also finitely generated.
+      </li>
+    </ul>
+    </p>
+
+    <p>If <m>\gen S =G</m>, then by <xref
+    ref="thm_free_gp_universal"/>, there is an epimorphism, or a
+    surjective homomorphism, <m>\varphi:F(S) \onto G</m>. So it is immediate
+    that if <m>G</m> has rank <m>n</m> then it is the homomorphic
+    image of a free group of rank <m>n</m>.</p>
+
+    <p>
+      In any case if <m>G = \gen S</m> and <m>X</m> is any alphabet
+      such that <m>|X| = |S|</m>, by the First Isomorphism Theorem for
+      groups we have
+      <me>
+	F(X)/\ker(\varphi) \approx G.
+      </me>     
+    </p>
+
+    <p>
+      Let us fix some more terminology before continuing. If <m>g,h
+      \in G</m>, then the <term>conjugate of <m>g</m> by
+      <m></m>h</term> is
+      <me>
+	g^h = h^{-1} g h.
+      </me> Some people write <m>g^h = h g h^{-1}</m>, but they are
+      <em>wrong</em> because we should have <m>(g^h)^k =
+      g^{hk}</m>. Although it looks weird, it makes more sense to write
+      <me>
+	{~}^h g = h gh^{-1} = g^{h^{-1}}.
+	</me> The correct notation is
+	consistent with the concepts of left and right actions.
+    </p>
+
+    <p>
+      Recall that a normal subgroup <m>N \triangleleft G</m> is a
+      subgroup that is closed under conjugation by arbitrary elements
+      in <m>G</m>, and the class of normal subgroups coincides with
+      the kernels of homomorphisms from <m>G</m>. Consider now the
+      concept of <term>normal generation</term>:
+    </p>
+    <proposition xml:id="prop_normal_gen">
+      <statement>
+	Let <m>R\subset G</m> be some subset. Then
+	the smallest normal subgroup of <m>G</m> containing <m>R</m>
+	coincides with
+	<me>
+	  \ncl R = \left\{\prod_{i=1}^n c_i^{-1}r_i^{\epsilon_i} c_i
+	  \middle |
+	  r_i \in R,\epsilon_i \in \{\pm 1\}, c_i \in G, n \in
+	  \ZZ_{\geq 0}\right\},
+	</me> the set of products of conjugates of elements in
+	<m>R^{\pm 1}</m>.
+      </statement>
+    </proposition>
+    <p>
+    We leave the proof to <xref ref="ex_normal_gen"/>.
+    </p>
+
+    <p>
+      So if <m>R \subset F(X)</m> is a subset then we call we call the
+      the pair <m>\pres X R</m> a <term>presentation</term> for the
+      group
+      <me>
+	F(X)/\ncl R.
+      </me> For the rest of the course we will make the following
+      abuse of notation. If there is an epimorphisms <m>f:F(X) \onto
+      G</m> and <m>\ker(f) = \ncl R</m> then we will just go ahead and
+      write
+      <me>
+	G = \pres X R.
+      </me>
+      There will come a time we will need to be subtle about the fact
+      that <m>\pres X R</m> is just a set of letters and a set of
+      strings separated by a pipe inside angled brackets and that in
+      fact <m> G \approx F(X)/\ncl R</m>. When that time comes we will
+      say so. If there exists some <m>R \subset F(X)</m> such that
+      <m>G = \pres X R</m> and <m>|R|\lt\infty</m>, then we will say
+      that <m>G</m> is <term>finitely presentable</term> and if the set
+      <m>R</m> is explicitly given, then <m>G</m> is said to be
+      <term>finitely presented</term>. We will not usually make a
+      distinction between these two terms and <em>we will usually just
+      say that <m>G</m> is finitely presented.</em>
+    </p>
+
+
+    <p>
+      By expressing <m>G = \pres X R</m>, we are identifying <m>G</m>
+      with the set of words in <m>X</m> modulo the equivalence
+      relation generated by the following rewriting rules
+      <ul>
+	<li>
+	  Elementary cancellations, and their inverses.
+	</li>
+	<li>
+	  Insertion of subwords from <m>R</m>, i.e. write <m>w</m> as
+	  a word and "splice in" <m>r</m> somewhere:
+	  <me>
+	    w = w_1*w_2 \to w_1*r*w_2,
+	  </me>
+	  for some <m>r \in R</m>, and the inverse operation: deleting
+	  a subword that lies in <m>R</m>
+	</li>
+      </ul>
+      The group multiplication operation is again concatenation of
+      words. The last two exercises are about this group of strings
+      with this rewriting system.
+    </p>
     
-    <!-- Generating groups and group presentations -->.
+    <exercises>
+      <exercise xml:id="ex_normal_gen">
+	<statement>
+	  <p>Prove <xref ref="prop_normal_gen"/>.</p>
+	  <p>Hint: This is similar to the proof of <xref
+	  ref="lem_generate"/> the only issue is that if you take a
+	  conjugate of a product of conjugates, i.e. <me>
+	  g^{-1} \left(\prod_{i=1}^n \left(c_i^{-1}r_i c_i\right) \right)g,
+	</me> then it&apos;s not clear that the result is again a product
+	of conjugates. See what happens when you conjugate each factor
+	of the product by <m>g</m>.
+	  </p>	
+	</statement>
+      </exercise>
+      <exercise>
+	<statement>
+	  <p>
+	  Let <m>w \in F(X)</m> be written as a word, let <m>R</m> be
+	  a subset of <m>F(X)</m> and consider the new word
+	  <m>w&apos;</m> obtained by inserting some element <m>r \in
+	  R</m>, i.e.
+	  <me>
+	    w = w_1*w_2 \to w_1*r*w_2.
+	  </me>
+	  Show that there are elements <m>h,k \in \ncl R</m> such
+	  that:
+	  <me>
+	    hw = w&apos; = wk.
+	  </me>
+	  </p>
+	  <p>
+	    Hint: conjugate <m>r</m> by a prefix or suffix of of
+	    <m>w</m>.
+	  </p>
+ 	</statement>
+      </exercise>
+
+      <exercise>
+	<statement>
+	  <p>
+	    For this exercise, formally define <m>\pres X R</m> to be
+	    the group of words in <m>X</m> modulo the equivalence
+	    relation generated by the rewriting rule given at the end
+	    of the lecture and multiplication given by concatenation.
+	    <ol>
+	      <li> Prove that <m>\pres X R</m> is a
+	      group. (Optional)</li>
+	      <li> Assuming the previous item, prove <me> \pres X R
+	      \approx F(X)/\ncl R.
+	    </me>
+	      </li>
+	    </ol>
+	  </p>
+	</statement>
+      </exercise>
+    </exercises>
+  </section>
+    
     <!-- Cayley graphs, paths, labels, group elements. -->
     <!-- Homomorphisms and Tietze transformations. -->
     <!-- Algorihtmic problems, cancellation diagrams and solutions in free -->
@@ -668,12 +835,107 @@
   </chapter>
   <!-- Chapter: Diagrams -->
   <!-- Lollipops. -->
+
+  <backmatter>
+    <references>
+      <p>
+      Much of the material in these lectures is covered in <xref
+      ref="book_lyndon-schupp"/>, but this book is difficult to
+      read. Stillwell&apos;s book <xref ref="book_stillwell"/> has an
+      excellent treatement of algorithmic problems and covers many
+      crucial interractions between topology and group theory that
+      will not be not covered in this course. Both of these books also
+      give important historical accounts.
+      </p>
+      <p>
+      Although the ideas of small cancellation theory have been around
+      for many decades the paper <xref ref="art_mccammond-wise"/>
+      gives a thorough and modern treatment of the topic. Most
+      material on hyperbolic groups will be taken from <xref
+      ref="notes_hyperbolic"/>.
+      </p>
+
+      <p> The book, which as of 2020, gives the best description of
+      the field is Drutu and Kapovich&apos;s <em>Geometric Group
+      Theory</em> <xref ref="book_drutu-kapovich"/>. This book also
+      has many historical references. Many important topics not
+      covered in this book are covered in <xref ref="GGT-park"/> which
+      is also called... <em>Geomeric Group Theory.</em>
+      </p>
+
+
+      <p>
+    	As far as accessible contemporary introductions go, the texts
+    	<xref ref="book_bogopolski"/> and <xref ref="book_loh_ggt"/>
+    	are at a level similar to this course, but cover different
+    	topics.(And yes, so far there are three books with the same
+    	title.) <url
+    	href="https://www.jstor.org/stable/j.ctt1vwmg8g">Office Hours
+    	with a Geometric Group Theorist</url> apparently also gives a
+    	good idea of the field. And finally <xref
+    	ref="book_groups_and_back"/> is another good introductory text
+    	which covers substantially different topics.
+      </p>
+      
+      <biblio xml:id="book_bogopolski">
+    	Oleg Bogopolski. <em>Introduction to Group Theory.</em>
+    	February 2008.
+      </biblio>
+      <biblio xml:id="notes_hyperbolic">
+    	J. M. Alonso, T. Brady, D. Cooper, V. Ferlini, M. Lustig,
+    	M. Mihalik, M. Shapiro, and H. Short. <em>Notes on word hyperbolic
+    	groups. In Group theory from a geometrical viewpoint (Trieste,
+    	1990),</em> pages 3–63. World Sci. Publ., River Edge, NJ, 1991.
+      </biblio>
+
+      <biblio xml:id="GGT-park">
+    	Mladen Bestvina, Michah Sageev, and Karen Vogtmann,
+    	editors. <em>Ge- ometric group theory.</em> Number volume 21
+    	in IAS/Park City math- ematics series. American Mathematical
+    	Society ; Institute for Ad- vanced Studyb, Providence, RI :
+    	[Princeton, N.J.], 2014.
+      </biblio>
+
+      <biblio xml:id="book_drutu-kapovich">
+    	Cornelia Druţu and Michael Kapovich. <em>Geometric Group
+    	Theory.</em> American Mathematical Soc., March
+    	2018.
+      </biblio>
+
+      <biblio xml:id="book_lyndon-schupp">
+    	Roger C. Lyndon and Paul E. Schupp. <em>Combinatorial group
+    	theory.</em> Classics in Mathematics. Springer-Verlag, Berlin,
+    	2001.
+      </biblio>
+
+      <biblio xml:id="book_stillwell">
+    	John Stillwell. <em>Classical topology and combinatorial group
+    	theory,</em> volume 72 of Graduate Texts in
+    	Mathematics. Springer-Verlag, New York, second edition, 1993.
+      </biblio>
+
+      <biblio xml:id="art_mccammond-wise">
+    	Jonathan P. McCammond and Daniel T. Wise. <em>Fans and Ladders
+    	in Small Cancellation Theory.</em>. Proceedings of the London
+    	Mathematical Society, 84(3):599–644, May 2002. Publisher:
+    	Cambridge University Press.
+      </biblio>
+
+      <biblio xml:id="book_ggt_officehours">
+    	Matt Clay and Dan Margalit, editors. <em>Office hours with a
+    	geometric group theorist.</em> Princeton University Press,
+    	Princeton, NJ, 2017.
+      </biblio>
+
+      <biblio xml:id="book_loh_ggt">Clara Löh. <em>Geometric group
+      theory.</em> Universitext. Springer, Cham, 2017.</biblio>
+
+      <biblio xml:id="book_groups_and_back">
+    	Vaughn Climenhaga and Anatole Katok. <em>From Groups to
+    	Geometry and Back.</em> American Mathematical Soc., April 2017
+      </biblio>
+    </references>
+  </backmatter>
   
-  <!-- WIP
-    <backmatter>
-    <title>References</title>
-    <section><title>Things to read</title>
-    Books here</section>
-    </backmatter> -->
   </book>
 </pretext>
