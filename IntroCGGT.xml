@@ -60,9 +60,9 @@
     </p>
 
     <p>
-      We will start with a rigourous exploration of the <m>F(X)</m>,
+      We will start with a rigorous exploration of the <m>F(X)</m>,
       the free group on a set <m>X</m> of letters and touch on the
-      clasical subject of combinatorial group theory, which is the
+      classical subject of combinatorial group theory, which is the
       study of groups given by generators and relations. One driving
       question will be: <i>Which calculations can we perform, or which
       algorithmic problems can we solve, in a group given by a certain
@@ -159,7 +159,7 @@
     integers, but two different formal ratios, such as <m>\frac 2 4
     \text{ and } \frac 4 8</m>, can be equal. <m>\QQ</m> is therefore
     best thought of the set of ratios of formal ratios of integers
-    modulo some eqivalence relation. Furthermore every equivalence
+    modulo some equivalence relation. Furthermore every equivalence
     class of ratios has a reduced element. In <m>\QQ</m> a ratio is
     reduced if the numerator and denominator are relatively prime.</p>
 
@@ -326,7 +326,7 @@
       i.e. for all <m>g,h,k \in G</m> we have <me>(g\star h)\star k =
       g\star(h \star k).</me></li>
       <li>There exists an element <m>1_G\in G</m> called the
-      <term>identity elment</term> such that for every <m>g\in ,
+      <term>identity element</term> such that for every <m>g\in ,
       1_G \star g = g</m>.</li>
       <li>For every <m>g \in G</m> there exists an inverse <m>g^{-1}
       \in G</m> such that <m>g\star g^{-1}=1_G.</m>
@@ -335,18 +335,18 @@
     We will always denote a group by simply <m>G</m>, we will almost
     always omit the subscript for the identity element, and we will
     usually denote multiplication simply by concatenation, i.e. we&apos;ll
-    write stuf like <me>gg^{-1}=1.</me> </p> <p> <m>F(X)</m>, the
+    write stuff like <me>gg^{-1}=1.</me> </p> <p> <m>F(X)</m>, the
     <term>free group on an alphabet <m>X</m></term> consists of the
     set of reduced words in <m>X</m> and multiplication is defined by
     concatenation and reduction, i.e.  <me> u\star v = \overline{u*v},
-    </me> where <m>*</m> denotes concatentation of strings.  The
+    </me> where <m>*</m> denotes concatenation of strings.  The
     identity <m>1_{F(X)}</m> is the empty word (i.e. the word with
     zero symbols in it.) Associativity amounts to showing that
     <me>
       (u\star v)\star w = \overline{\overline{u * v} * w} = \overline{
       u* \overline{v * w}} = u\star (v\star w),
     </me>
-    which immidiately follows from <xref
+    which immediately follows from <xref
     ref="thm_unique_reduced"/>. We leave the third group axiom as
     <xref ref="ex_free_gp_inv"/>.
   </p>
@@ -417,7 +417,7 @@
   </me>
   and other wise a product like <me> ((a_1*a_2)*(a_3*a_4))*a_5</me> is
   called <term>messy</term>. This terminology is neither standard nor
-  particuarly good. In fact we didn&apos;t even give precise
+  particularly good. In fact we didn&apos;t even give precise
   definitions. In <xerv ref="ex_nice"/> you are asked to give a
   precise recursive definition of a nice product and then you will be
   asked to prove the following:
@@ -426,7 +426,7 @@
   associativity</title>
   <statement>
     Any messy product can be turned into a nice product by a sequence
-    of appliations of the associativity axiom. Furthermore the order
+    of applications of the associativity axiom. Furthermore the order
     the factors is preserved.
   </statement>
   </theorem>
@@ -435,7 +435,7 @@
 
   <corollary xml:id="cor_products">
     <statement>
-      In any group (or any algebraic structure with an assoicative
+      In any group (or any algebraic structure with an associative
       binary operation) long products <me>
       g_1\cdots g_n = \prod_{i=1}^n g_i; g_i \in G
     </me>
@@ -444,7 +444,7 @@
   </corollary>
 
   <p>
-  Here is why we care. Supose you are given some <m>\varphi:X \to
+  Here is why we care. Suppose you are given some <m>\varphi:X \to
   G</m> which maps each letter of the alphabet to arbitrary elements
   of <m>G</m>, then we can extend this to a function <m>\varphi^*:
   F(X)\to G</m>. Indeed let <m>w = a_1^{\epsilon_1}\cdots
@@ -478,7 +478,7 @@
     <statement>
       Let <m>G</m> be some group with a subset <m>Y\subset G</m> such
       for any group <m>H</m> and any map <m>f:Y \to H</m>, there is
-      an extension of <m>f</m> to a homomorpshism <m>f^*:G \to
+      an extension of <m>f</m> to a homomorphisms <m>f^*:G \to
       H</m>. Then <m>G</m> is isomorphic to the free group
       <m>F(Y)</m>.
     </statement>
@@ -567,7 +567,7 @@
     <section xml:id="generation_and_presentation"><title>Lecture 3:
     Generating and presenting groups</title>
     <p>
-      Long products are group elements are imporant to us. The
+      Long products are group elements are important to us. The
       following lemma gives us a definition of <term>a subgroup
       generated by a collection of elements</term>
     </p>
@@ -610,9 +610,9 @@
 
       
       <p>
-      To see that <m>H \supset \gen S</m>, we procede by induction on
+      To see that <m>H \supset \gen S</m>, we proceed by induction on
       the length of a product. By definition any product of length 1,
-      being an elment of <m>S^{\pm 1}</m>, is in <m>H</m>. If every
+      being an element of <m>S^{\pm 1}</m>, is in <m>H</m>. If every
       product of length at most <m>n</m> is in <m>H</m>, then, because
       a product of length <m>n+1</m> is a product of a product of
       length <m>n</m> and a product of length <m>1</m> and because
@@ -852,7 +852,7 @@
     Given a generating set <m>S\subset G</m> of a group <m>G</m> we
     can form a <term>Cayley graph</term>, denoted <m>\cay S G</m>, by
     taking the vertex set be the set <m>G</m> itself and for each <m>a
-  \in S</m> and each <m>g \in G</m> we draw the directed edge labeled
+  \in S</m> and each <m>g \in G</m> we draw the directed edge labelled
   <m>a</m> from <m>g</m> to <m>ga</m>:
     <image width="15%" xml:id="cayley_edge">
       <latex-image>
@@ -908,7 +908,7 @@
     <me>
       \ZZ^2= \{(n,m) \mid n,m \in \ZZ\}
     </me>
-    equipped with componentwise addition. If we take generators <m>a =
+    equipped with component-wise addition. If we take generators <m>a =
     (1,0)</m> and <m>b=(0,1)</m> then <m>\cay{\{a,b\}}{\ZZ^2}</m> looks
     like:
     <figure xml:id="fig_cay_ZZ2">
@@ -939,7 +939,7 @@
   the vertex <m>\iota(e_1)</m> and the <term>terminal vertex</term> is
   the vertex <m>\tau(e_n)</m>. We say that the path <m>\alpha</m>
   <term>goes from its initial vertex to its terminal
-  verticex</term>. Here&apos;s an example:
+  vertex</term>. Here&apos;s an example:
   <image width="15%" xml:id="graph_path">
       <!-- picture of a path in a graph -->
   </image>
@@ -1033,7 +1033,7 @@
 	<p>
 	  It is well-known that <m>D_{2\times 3} \approx S_3</m>, the
 	  group of permutations of the set
-	  <m>\{1,2,3\}</m>. <m>S_3</m>, like any symmtric group, is
+	  <m>\{1,2,3\}</m>. <m>S_3</m>, like any symmetric group, is
 	  generated by permutations. Using cycle notation we have
 	  <me>
 	    \gen{(1,2),(2,3)} = S_3.
@@ -1094,12 +1094,13 @@
 
 
   
-  <section xml:id="sec_homs_tietze"><title>Lecture 5: Homomorphisms and Tieze transformations</title>
+<section xml:id="sec_homs_tietze">
+  <title>Lecture 5: Homomorphisms and Tietze transformations</title>
   <p>  Let&apos;s return to group presentations. In the previous lectures
-  we drew Cayley graphs for <m>D_{6 \times 3}</m> and <m>\ZZ^2</m>, we
+we drew Cayley graphs for <m>D_{6 \times 3}</m> and <m>\ZZ^2</m>, we
   will now try to compute presentations. Before continuing <em>a word
   of caution:</em> in general, working with presentations is very
-  tricky. Specificaly (and we will discuss this properly in a couple
+  tricky. Specifically (and we will discuss this properly in a couple
   lectures) there is not general procedure which determines if a
   finite presentation gives a nontrivial group.</p>
 
@@ -1133,66 +1134,199 @@ element as
 <men xml:id="eq_d6_nf">
   w(r,\rho) =_H \rho^i r^j; 0\leq i \leq 2, 0\leq j \leq 1
 </men>
-so that <m>H</m> has only 6 elements and there fore the maping <xref
+so that <m>H</m> has only 6 elements and there fore the mapping <xref
 ref="eq_d6_pres"/> is not only surjective, but also injective and
 therefore and isomorphism.
   </p>
 
   <p>
-    The relations <m>\rho\rho\rho=1</m> and <m>rr=1</m> that any word
-    <m>w(\rho,r)</m> in <m>H</m> can be written as an alternation of
-    powers of <m>\rho</m> of exponent between 0 and 2, and of the
-    letter <m>r</m>, for example <me>
-    \rho^2 r \rho^2 r \rho r \rho.
+    The relations <m>\rho\rho\rho=1</m> and <m>rr=1</m> imply that any
+    word <m>w(\rho,r)</m> in <m>H</m> can be written as an alternation
+    of powers of <m>\rho</m> of exponent between 0 and 2, and of the
+    letter <m>r</m>, for example <me> \rho^2 r \rho^2 r \rho r \rho.
     </me>
     We now want to show that any word can be brought to the desired
-    form. Suppose first that the final factor was of the form
-    <m>\rho^m</m> so that<me>
-    w = \cdots r \rho^m</me> then we can splice-in the inverse of a
-    relation so that:<me>
-    w = \cdots r \rho \rho^{m-1} = \cdots r \rho
-    (\rho^{-1}r^{-1}\rho^{-1}r^{-1})\rho^{m-1} = \cdots
-    \rho^{-1}r^{-1} \rho^{m-1}</me> and since <me>
-    r^{-1} = r^{-1}(rr) =r</me> we have <me> w = \cdots\rho^{-1}r
-    \rho^{m-1}</me> repeating this process removes the last
-    <m>\rho</m> power syllable.
+    form.
   </p>
 
   <p>
-    Now splicing in and deleting relations, applying elementary
-    reductions and their inverses, is all quite nice but here is a
-    fabulous shortcut. In <m>H</m> we have <me> r \rho r \rho =1
-    \Rightarrow r \rho = \rho^{-1}r^{-1} = \rho^2 r </me> which means
-    we can can simply replace any subword <m>\cdots r\rho \cdots</m>
-    by <m> \cdots \rho^2r\cdots </m>. In this manner, we can "commute"
-    all the <m>\rho</m> symbols to the left of the word, giving <m>w =
-    \rho^k r^j</m>, and since all powers of <m>\rho</m> or <m>r</m>
-    are only actually equal to a finite number of exponents, we can
-    rewrite any word in <m>H</m> as in <xref
-    ref="eq_d6_nf"/>. Thererfore the 3 relations <m>\rho\rho\rho, rr,
-    r\rho r\rho</m> ensure the group has 6 elements.
+    Suppose that the final factor was of the form <m>\rho^m</m>
+    so that<me> w = \cdots r \rho^m</me> then we can splice-in the
+    inverse of a relation so that:<me> w = \cdots r \rho \rho^{m-1} =
+    \cdots r \rho (\rho^{-1}r^{-1}\rho^{-1}r^{-1})\rho^{m-1} = \cdots
+    \rho^{-1}r^{-1} \rho^{m-1}</me> and since <me> r^{-1} = r^{-1}(rr)
+    =r</me> we have <me> w = \cdots\rho^{-1}r \rho^{m-1}</me>
+    repeating this process removes the last <m>\rho</m> power
+    syllable. This is progress, but the argument is tiresome!
   </p>
 
-
-  We were able 
+  <p>
+    Although we could do everything by splicing in and deleting
+    relations, applying elementary reductions and their inverses, we
+    can also just use group theory to replace subwords by equal
+    elements.
+  </p>
+  <p>
+   In <m>H</m> we have <men xml:id="eq_d6_commute"> r \rho r \rho =1
+   \Rightarrow r \rho = \rho^{-1}r^{-1} = \rho^2 r </men> which means
+   we can can simply replace any subword <m>\cdots r\rho \cdots</m> by
+   <m> \cdots \rho^2r\cdots </m>. In this manner, we can "commute" all
+   the <m>\rho</m> symbols to the left of the word, giving <m>w =
+   \rho^k r^j</m>, and since <m>\rho^3=r^2=1</m> the exponents
+   <m>k,j</m> can be taken to be division remainders so we can rewrite
+   any word in <m>H</m> as in <xref ref="eq_d6_nf"/>. Therefore the 3
+   relations <m>\rho\rho\rho, rr, r\rho r\rho</m> ensure the group has
+   6 elements.
+  </p>
+  
+  <p> Let us now consider homomorphisms given from groups with
+  presentations.</p>
   <lemma xml:id="lem_pres_hom">
     <statement>
       Let <m>G</m> be some group and let <m>H = \pres X R</m> be a
       group given by a presentation. A mapping <m>\varphi^*:X \to
-      G</m> extends to homomorphism <m>\varphi:H \to G</m> if an only
-      if for each <m>r(X) = x_1\cdots x_n \in R</m>, where <m>x_i \in
-      X^{\pm 1}</m> upon substituting
+      G</m> extends to homomorphism <m>\varphi:H \to G</m> if and only
+      if for each <m>r(X) = x_1^{\epsilon_1}\cdots x_n^{epsilon_n} \in
+      R</m>, where <m>x_i \in X, \epsilon_i \in \{\pm 1\}</m> upon
+      substitution in <m>G</m> we get:
+      <me>
+	\varphi^*(x_1)^{\epsilon_1} \cdots \varphi^*(x_n)^{\epsilon_n}
+	=_G 1.
+      </me>
     </statement>
   </lemma>
+  <p>
+    One consequence of this equations. Let <m>G</m> be a group, let
+    <m>x_1,\ldots,x_n</m> be a collection of unknowns and consider a
+    system of equations:
+    <me>
+      \mathcal{E} :\left\{
+      \begin{array}{l}
+      r_1(X) = x_{i_{11}}^{\epsilon_{11}}\cdots
+      x_{i_{1c_1}}^{\epsilon_{1c_1}}=_G 1\\
+      \cdots\\
+      r_m(X) = x_{i_{m1}}^{\epsilon_{m1}}\cdots x_{i_{mc_m}}^{\epsilon_{mc_m}}=_G 1\\
+      \end{array}
+      \right.,
+    </me>
+    where <m>x_{i_{jk}} \in X</m> and <m>\epsilon_{jk} \in \{\pm
+    1\}</m>. Then the solutions of <m>\mathcal E</m> are precisely the
+    given by the homomorphisms
+    
+    <me>
+      \pres{x_1,\ldots,x_n}{r_1,\cdots,r_m} \to G.
+    </me>
+  </p>
 
+  
+  <p>
+    As we saw in the previous lecture, different choices of generating
+    sets gave different Cayley graphs. We will now describe all
+    possible presentations of a group.
+  </p>
+
+  <p>
+    Let <m>\mathcal P = \pres X R</m> be a presentation (not a group,
+    but a formal presentation) and consider the following three
+    <term>Tietze</term> transformations.
+    <ul>
+      <li><term>T1: The dictionary transformation.</term><me>
+      \pres X R \to \pres{X \cup \{y\}}{R\cup\{y^{-1}w(X)\}},
+    </me>
+    where <m>y \not\in X</m> and <m>w(X)</m> is a word in <m>X</m>.
+    Informally, add a new symbol for an element <m>y</m> and say that
+    <me>
+      y = w(X) \Leftrightarrow y^{-1}w(X)=1.
+    </me>
+    So that they new symbol <m>y</m> is just "shorthand" for the
+    element <m>w(X)</m>.
+      </li>
+      <li><term>T2: Add a redundant relation.</term><me>
+      \pres X R \to \pres{X}{R\cup\{r'\}},</me> where <m>r' \in \ncl
+      R</m>. Informally, add a relation <m>r'</m> which is already a
+      consequence of the relations in <m>R</m>.</li>
+      <li><term>T3: Rename a symbol.</term> Take some symbol <m>z
+      \not\in X</m>, take <m>X'=(X\setminus \{x\})\cup\{z\}</m> and do
+      <me>\pres X R \to \pres{X'}{R'},</me> where <m>R'</m> is
+      obtained by replacing every instance of <m>x</m> by <m>z</m> in
+      every word in <m>R.</m></li>
+    </ul>
+    <xref ref="ex_tietze_1"/> is to show that these transformations
+    yield presentations defining isomorphic groups. Note that the
+    inverse of T1 involves deleting a generator and a very specific
+    type of relation and the inverse of T2 involves removing a
+    relation that is a consequence of the remaining relations. 
+  </p>
+
+  <p>
+    As promised we have the following:
+    <theorem xml:id="thm_tietze_trans">
+      <statement>
+	<p>
+	  Two presentations <m>\pres X R</m> and <m>\pres Y S</m>
+	  define isomorphic groups if and only if <m>\pres Y S</m> can
+	  be obtained from <m>\pres X R</m> by a sequence of Tietze
+	  transformations and their inverses.
+	</p>
+      </statement>
+    </theorem>
+    The proof is deferred to <xref ref="ex_tietze_2"/>.
+  </p>
   <exercises>
     <exercise xml:id="ex_ZZ2_pres">
+      <statement>
+	<p>Prove that <me>\ZZ^2 = \pres{a,b}{a^{-1}b^{-1}ab}</me>.</p>
+	<p>Hint: Use the same approach as for <m>D_{2\times 3}</m>,
+	use the normal forms <m>a^nb^m, n,m \in \ZZ</m>.</p>
+      </statement>
     </exercise>
     <exercise xml:id="ex_lem_hom">
+      <statement>
+	<p>Prove <xref ref="lem_pres_hom"/>.</p>
+      </statement>
     </exercise>
-  </exercises>
-  
-  
+    <exercise xml:id="ex_d6_commute">
+      <statment>
+	Deduce the result of <xref ref="eq_d6_commute"/>, namely that
+	we can substitute <m>r\rho</m> by <m>\rho^2 r</m>, only by
+	using insertions and deletions of relations, elementary
+	cancellations or their inverses. <em>Or at least try and
+	appreciate how useful the axioms of group theory and
+	generalized associativity are.</em>
+      </statment>
+    </exercise>
+    <exercise xml:id="ex_tietze_1">
+      <statement>
+	<p>
+	  Prove that all three Tietze transformations give
+	  isomorphisms.
+	</p>
+      </statement>
+    </exercise>
+    <exercise xml:id="ex_tietze_2">
+      <statement>
+	<p>
+	  Prove <xref ref="thm_tietze_trans"/>.
+	</p>
+	<p>
+	  Hint: One direction is obvious. To show the converse one
+	  approach is to construct an intermediate presentation <me>
+	  \pres{X \cup Y}{ R \cup S \cup D}</me> which is obtainable
+	  from <m>\pres X R</m> and from <m>\pres Y S</m> by a
+	  sequence of Tietze transformations. <m>D</m> will be a bunch
+	  of dictionary relations.
+	</p>
+	<p>
+	  Some dictionary relations will be needed. To find them
+	  consider an isomorphism <m>\varphi: \pres X R \to \pres Y
+	  S.</m> This will map each <m>x \in X</m> to some word in
+	  <m>Y</m>. You will also need <m>\varphi^{-1}</m> and add
+	  relations.
+	</p>
+      </statement>
+    </exercise>
+    
+  </exercises>  
   </section>
   
     <!-- Homomorphisms and Tietze transformations. -->
@@ -1210,8 +1344,8 @@ therefore and isomorphism.
       Much of the material in these lectures is covered in <xref
       ref="book_lyndon-schupp"/>, but this book is difficult to
       read. Stillwell&apos;s book <xref ref="book_stillwell"/> has an
-      excellent treatement of algorithmic problems and covers many
-      crucial interractions between topology and group theory that
+      excellent treatment of algorithmic problems and covers many
+      crucial interactions between topology and group theory that
       will not be not covered in this course. Both of these books also
       give important historical accounts.
       </p>
@@ -1228,7 +1362,7 @@ therefore and isomorphism.
       Theory</em> <xref ref="book_drutu-kapovich"/>. This book also
       has many historical references. Many important topics not
       covered in this book are covered in <xref ref="GGT-park"/> which
-      is also called... <em>Geomeric Group Theory.</em>
+      is also called... <em>Geometric Group Theory.</em>
       </p>
 
 
