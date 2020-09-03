@@ -12,7 +12,7 @@ First you need to go to the image directory and convert all the .svg files to .p
 cd images
 sh svgtopng.sh
 ```
-Assuming all prerequisite software packages are there, to produce html output:
+Assuming all prerequisite software packages are installed, to produce html output:
 ```
 make html-all
 ```
