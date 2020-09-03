@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pretext>
   <docinfo>
-    <brandlogo source="images/CGGT.svg"/>
+    <brandlogo source="images/CGGT.png"/>
     
     <latex-image-preamble>
     \usepackage{tikz}
@@ -885,7 +885,7 @@
     <figure xml:id="fig_cay_d6">
       <caption>The Cayley graph <m>\cay{\{\rho,r\}}{D_{2\times
       3}}</m></caption>
-      <image width="75%" xml:id="D6_gens" source="images/Cay_D6.svg"/>
+      <image width="75%" xml:id="D6_gens" source="images/Cay_D6.png"/>
     </figure>
     Note that our left action convention means that, say, the element
     <m>r\rho</m>, mean "first rotate, then reflect. The result is that
@@ -913,7 +913,7 @@
     like:
     <figure xml:id="fig_cay_ZZ2">
       <caption>A Cayley graph for  <m>\ZZ^2</m></caption>
-      <image width="75%" xml:id="cay_ZZ2" source="images/Cay-Z2.svg">
+      <image width="75%" xml:id="cay_ZZ2" source="images/Cay-Z2.png">
       </image>
     </figure>
   </p>
@@ -1263,7 +1263,7 @@ therefore and isomorphism.
     <theorem xml:id="thm_tietze_trans">
       <statement>
 	<p>
-	  Two presentations <m>\pres X R</m> and <m>\pres Y S</m>
+	  Two finite presentations <m>\pres X R</m> and <m>\pres Y S</m>
 	  define isomorphic groups if and only if <m>\pres Y S</m> can
 	  be obtained from <m>\pres X R</m> by a sequence of Tietze
 	  transformations and their inverses.
@@ -1328,16 +1328,205 @@ therefore and isomorphism.
     
   </exercises>  
   </section>
+
+  <!-- UP TO HERE -->
+  <section xml:id="sec_alg_prob"><title> Lecture 6: Algorithmic
+  problems in group theory and elements of recursion theory</title>
+  <p>
+    Our combinatorial approach to group theory naturally turns groups
+    into computational objects: sets of strings with rewriting
+    rules. In the 1920s Max Dehn proposed the following three
+    algorithmic problems:
+    <ul>
+      <li>
+	<term>The word problem:</term> Given a group presentation <m>G
+	= \pres X R</m> and word <m>w(X)</m> in the alphabet <m>X</m>
+	determine if <m>w(X)=_G 1</m>.
+      </li>
+      <li>
+	<term>The conjugacy problem:</term> Given a group presentation
+	<m>G = \pres X R</m> and words <m>w(X),u(X)</m> in the
+	alphabet <m>X</m> determine if <em>there exists</em> some <m>g
+	\in G</m> such that <m>g^{-1}w(X)g=_G u(X).</m>
+      </li>
+      <li>
+	<term>The isomorphism problem:</term> Given two group
+	presentations <m>\pres X R</m> and <m>\pres Y S</m> determine
+	if they define isomorphic groups.
+      </li>
+    </ul>    
+  </p>
+  <p>
+    First the bad news:
+    <theorem xml:id="thm_novikov_boone"><title>The Novikov-Boone
+    theorem</title>
+    <statement>
+      <p>There exists a finitely presented group
+      <m>G=\pres{x_1,\ldots,x_n}{r_1,\ldots,r_m}</m> for which the
+      word problem is undecidable.</p>
+    </statement>
+    </theorem>
+
+    Let's explain this result in more detail. There exists a group
+    presentation which you can actually write out so that for any
+    algorithm you come up with, for example a computer program written
+    in Python, to determine <em>correctly</em> whether words are equal
+    to the trivial element, there will be a word (in fact many, many
+    words) for which your algorithm will never terminate.    
+  </p>
+
+  <p> We say a set <m>S</m> is <term>recursively enumerable</term> or
+  <term>r.e.</term> if there is some algorithm <m>\mathfrak A</m>
+  which enumerates the elements of <m>S</m>.
+  <proposition xml:id="prop_trivial_re"><title>Trivial elements are
+  recursively enumerable</title>
+  <statement>
+    <p>
+      Let <m>G=\pres {x_1,\ldots,x_n}{r_1,\ldots,r_m}</m> be a
+      finitely presented group. Then the set
+      <me>
+	\mathcal E = \left\{w(X) \mid w(X) \textrm{ is reduced and }
+	w(X)=_G 1\right\} </me> of reduced words equal to <m>1</m> is
+	recursively enumerable.
+    </p>
+  </statement>
+  <proof>
+    <p>
+      By <xref ref="prop_normal_gen"/> the set <m>\mathcal E</m>
+      consists of taking all products
+      <me>
+	\prod_{i=1}^n c_i^{-1}r_{j_i}^{\epsilon_i}c_i
+      </me>
+    </p> where <m>r_{j_i} \in \{r_1,\cdots,r_m\}, \epsilon_i \in \{\pm
+    1\}</m> and then performing free reduction. Consider the sets
+    <m>\mathcal E_N</m> consisting of all products consisting of at
+    most <m>N</m> factors <m>c_i^{-1}r_{j_i}c_i</m>, and where each
+    conjugator also has length at most <m>N</m>. Then <m>\mathcal
+    E_N</m> is recursively enumerable for each <m>N</m> therefore so
+    must the countable union<me> \mathcal E = \bigcup_{N=1}^{\infty}
+    \mathcal E_N.
+  </me>
+  </proof>
+  </proposition>
+  </p>
+  <p>
+    Although enumeration seems somewhat contrived, it is fact
+    equivalent the more mathematically natural concept of set
+    membership.
+    <proposition xml:id="prop_re_membership">
+      <statement>
+	<p> Let <m>S</m> be a set of strings of symbols in some
+	alphabet <m>X</m>. The following are equivalent:
+	<ul>
+	  <li>There exists a <term>membership algorithm</term>
+	  <m>\mathfrak A</m> which takes as inputs strings in <m>X</m>
+	  with the following property: <m>s \in S</m> if and only if
+	  <m>\mathfrak A</m> terminates on the input <m>s</m>.</li>
+	  <li> <m>S</m> is recursively enumerable. </li>
+	</ul>
+	</p>
+      </statement>
+      <proof>
+	<p>
+	  Suppose first you are given the algorithm <m>\mathfrak A</m>
+	  as in the statement of the proposition. Let
+	  <m>w_1,w_2,\ldots</m> be an enumeration of the strings in
+	  <m>X</m> and let <m>\mathfrak M_N</m> be a program which
+	  performs the <m>N</m> first steps of <m>\mathfrak A</m> on
+	  the inputs <m>w_1,\ldots,w_N</m>. If one of the parallel
+	  processes terminates then <m>\mathfrak N</m> outputs the
+	  string <m>w_j</m> of the corresponding terminating
+	  process. Then our enumeration algorithm is an algorithm
+	  which sequentially runs
+	  <m>\mathfrak N_{1},\mathfrak N_2,\ldots</m>.
+	</p>
+
+	<p>
+	  Conversely suppose <m>S</m> is <m>r.e.</m> and let
+	  <m>\mathfrak B</m> be the enumeration algorithm. Then we can
+	  make our membership algorithm <m>\mathfrak A</m> a follows:
+	  gien an input <m>s</m>, run <m>\mathfrak B</m> and wait
+	  until <m>s</m> appears, if it ever does, stop.
+	</p>
+      </proof>
+    </proposition>
+  </p>
+  <p>
+    Now, in general, when asking <me> x \stackrel{?}{\in} S</me> we
+    expect a definitive yes or no answer. So consider the finitely
+    presented group <m>G = \pres X R</m>, then the word problem is
+    decidable if and only if <m>\mathcal E</m>, the set of reduced
+    words representing <m>1</m> in <m>G</m> is r.e. and the set
+    <m>F(X)\setminus \mathcal E</m> of reduced words not representing
+    the identity is also recursively enumerable. Indeed, in this case,
+    there is a procedure which is guaranteed to terminate on any
+    reduced word and correctly say whether or not the word is trivial.
+  </p>
+  <p>
+    So how does this work with <xref ref="thm_novikov_boone"/>? Well
+    <xref ref="prop_trivial_re"/> says that all trivial elements can
+    be enumerated, so what is difficult is to show that some reduced
+    word represents a non-trivial element. This is equivalent to
+    saying that some word <em>cannot</em> be written as a product of
+    conjugates of the relations. Thus, asserting that a word is
+    non-trivial, is a <em>non-existence</em> statement: there does not
+    exist a product of conjugates of relators that is freely equal to
+    some word.
+  </p>
+  <p>
+    It is a common theme in mathematics that non-existence proofs are
+    difficult. One of the triumphs of geometric group theory is that
+    we can solve all three of Dehn's problems for many interesting
+    classes of groups. Next lecture we will do this for free groups.
+  </p>
   
-    <!-- Homomorphisms and Tietze transformations. -->
-    <!-- Algorihtmic problems, cancellation diagrams and solutions in free -->
-    <!-- groups. -->
-    <!-- Nielsen theory. -->
-    <!-- Stallings foldings. -->
+  <exercises>
+    <!-- word problem for free groups. -->
+    <!-- conjugacy problem v.s. conjuacy search problem. -->
+    <!-- enumerate isomorphic presentations. -->
+    <!-- equality -->
+    <!-- recursive presentations -->
+  </exercises>
+  </section>
+  <!-- Dehn's problems in free groups. -->
+  <!-- Nielsen theory. -->
+  <!-- Stallings foldings. -->
   </chapter>
   <!-- Chapter: Diagrams -->
   <!-- Lollipops. -->
 
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  <!-- END OF LECTURES -->
+  
+  
   <backmatter>
     <references>
       <p>

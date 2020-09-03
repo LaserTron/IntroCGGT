@@ -6,8 +6,16 @@ html: IntroCGGT.xml
 tikz: IntroCGGT.xml
 	./mathbook/pretext/pretext -vv -c latex-image -f svg -d ./images ./IntroCGGT.xml
 
-latex: IntroCGGT.xml
+html-all: IntroCGGT.xml
+	make html
+	make tikz
+	make html
+png: images/svgtopng.sh
+	cd images
+	sh svgtopng.sh
+
+pdf: IntroCGGT.xml
 	xsltproc mathbook/xsl/pretext-latex.xsl IntroCGGT.xml > IntroCGGT.tex
 	rubber --pdf IntroCGGT	
-clean:
+pdf-clean:
 	rubber --clean IntroCGGT
