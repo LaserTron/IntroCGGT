@@ -7,11 +7,14 @@ Source in [PreTeXt](http://mathbook.pugetsound.edu) format for open source [GFDL
  Once this repository has been cloned you need to update the `mathbook` submodule. [See here for instructions](https://git-scm.com/book/en/v2/Git-Tools-Submodules). Or simply:
 `git clone --recurse-submodules https://github.com/LaserTron/IntroCGGT.git`
 
-Assuming all prerequisites are there, to produce html output:
+First you need to go to the image directory and convert all the .svg files to .png.
 ```
-make html
-make tikz
-make html
+cd images
+sh svgtopng.sh
+```
+Assuming all prerequisite software packages are there, to produce html output:
+```
+make html-all
 ```
 For latex:
 `make latex`
