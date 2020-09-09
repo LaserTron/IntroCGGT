@@ -1481,14 +1481,77 @@ therefore and isomorphism.
   </p>
   
   <exercises>
-    <!-- word problem for free groups. -->
-    <!-- conjugacy problem v.s. conjuacy search problem. -->
-    <!-- enumerate isomorphic presentations. -->
-    <!-- equality -->
-    <!-- recursive presentations -->
+    <exercise xml:id="ex_free_gp_wp">
+      <statement>
+	<p>Show that the word problem is solvable for <m>F(X)</m>, the
+	free group on the alphabet <m>X</m>.</p>
+	<p>Hint: This problem is not difficult.</p>
+      </statement>
+    </exercise>
+    <exercise xml_id="ex_equality_problem">
+      <statement>
+	<p> The <term>equality problem</term> for <m>G = \pres X R</m>
+	is do decide, given two words, whether:
+	<me>
+	   u \stackrel ? = w.
+	</me>
+	Show that solvability of the equality problem is equivalent to
+	solvability of the word problem.
+	</p>
+      </statement>
+    </exercise>
+    <exercise xml:id="ex_conjugacy_search">
+      <statement>
+	<p> The <term>conjugacy search problem</term> is a variation
+	of the conjugacy problem which, given elements <m>h,k</m>, not
+	only outputs YES or NO to the question of whether they are
+	conjugate, but, if YES, will also produce an element such that
+	<me>
+	  g^{-1}hg = k
+	</me>
+	</p>
+	<p>
+	  Show that solvability of the conjugacy search problem is
+	  equivalent to solvability of the conjugacy problem.
+	</p>
+      </statement>
+    </exercise>
+    <exercise xml:id="ex_pres_re">
+      <statement>
+	<p>
+	  Let <m>G = \pres X R</m> be a finite presentation.
+	</p>
+	<p>
+	  Show that (up to relabeling the generators) the set of all
+	  finite presentations which define groups isomorphic to
+	  <m>G</m> is recursively enumerable.
+	</p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex_recursively_presented">
+      <statement>
+	<p>
+	  We say that <m>G = \pres X R </m> is <term>recursively
+	  presented</term> if there are algorithms <m>\mathfrak{X}</m>
+	  and <m>\mathfrak{R}</m> which enumerate the sets
+	  <m>X=\{x_1,x_2,\ldots\}</m> and <m>R=\{r_1,r_2,\ldots\}</m>
+	  (respectively.)	  
+	</p>
+	<p> Show that if <m>G = \pres X R</m> is a recursive
+	presentation, then the set of finite words is recursively
+	enumerable.</p> 
+      </statement>
+    </exercise>
   </exercises>
-  </section>
-  <!-- Dehn's problems in free groups. -->
+</section>
+
+
+<!-- Dehn's problems in free groups. -->
+  <!-- Quasi-siometries -->
+  <!-- Ends, 0,1,2,continuum, trees -->
+  <!-- 2 ended groups are virtually cyclic  -->
+  
   <!-- Nielsen theory. -->
   <!-- Stallings foldings. -->
   </chapter>
