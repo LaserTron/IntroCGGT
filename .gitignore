@@ -1,3 +1,10 @@
+## Files produced by the  output
+*~ #emacs fluff
+html_output/images/*
+html_output/*.html
+
+
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

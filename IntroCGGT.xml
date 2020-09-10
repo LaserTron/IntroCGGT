@@ -177,8 +177,13 @@
 	</p>
 	<p> If <m>u</m> is obtained from <m>w</m> by an elementary
 	cancellation, i.e. <m>w \stackrel{c}{\to}u</m>, then we say
-	that <m>u</m> is obtained from <m>w</m> by an <term>elementary
-	insertion</term>. </p>	
+	that <m>w</m> is obtained from <m>u</m> by an <term>elementary
+	insertion</term>. </p>
+	<p>
+	  We the identity operation <m>w \to w</m> to simultaneously
+	  be a <term>trivial cancellation</term> and a <term>trivial
+	  insertion.</term>
+	</p>
       </statement>
     </definition>
     <p>
@@ -186,6 +191,7 @@
     <me>
       bca^{-1}ac \stackrel{c}{\to} bcc.
     </me>
+    Is an elementary cancellation.
     </p>
     
     <p>
@@ -242,9 +248,9 @@
 	      Suppose we have two elementary cancellations of a word
 	      <m>w</m> <me>w_1 \stackrel c \leftarrow w \stackrel c
 	      \to w_2</me>, then there exists some <m>w'</m> such that
-	      there are cancellations <me> w_1 \stackrel c \to w'
-	      \stackrel c \leftarrow w_2.
-	    </me> See <xref ref="fig_diamond"/>.
+	      there are (possibly trivial) cancellations <me> w_1
+	      \stackrel c \to w' \stackrel c \leftarrow w_2.  </me>
+	      See <xref ref="fig_diamond"/>.
 	    </statement>
 	  </lemma>
 	    <figure xml:id="fig_diamond">
