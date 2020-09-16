@@ -363,11 +363,11 @@
   </p>
 
   <theorem xml:id="thm_free_gp_universal"><title>The universal
-  property of free groups.</title>
+  property of free groups</title>
     <statement>Let <m>G</m> be any group and let <m>F(X)</m> be the
     free group on the alphabet <m>X</m>. Then for any function
     <me>
-      \varphi*:X \to G
+      \varphi:X \to G
     </me>
     there exists a unique group homomorphism
     <me>
@@ -1092,6 +1092,21 @@
 	</p>
       </statement>
     </exercise>
+    <exercise>
+      <statement>
+	<p>
+	  Let <m>X</m> be a finite alphabet, let <m>F(X)</m> be the
+	  free group on <m>X</m> and consider <m>X</m> as a generating
+	  set of <m>F(X)</m>. Prove that <m>\cay{X}{F(X)}</m> is a tree.
+	</p>
+	<p>
+	  Hint: A tree is a connected graph without any cycles. The
+	  label of a cycle in a group's Cayley graph must be reduced
+	  product that equals the identity.
+	</p>
+      </statement>
+    </exercise>
+
     
   </exercises>
 </section>
@@ -1335,7 +1350,7 @@ therefore and isomorphism.
   </exercises>  
   </section>
 
-  <!-- UP TO HERE -->
+
   <section xml:id="sec_alg_prob"><title> Lecture 6: Algorithmic
   problems in group theory and elements of recursion theory</title>
   <p>
@@ -1552,7 +1567,215 @@ therefore and isomorphism.
   </exercises>
 </section>
 
+<section xml:id="sec_free_group_dehn"><title>Lecture 7: Solving Dehn's
+algorithmic problems in the class of finitely generated free
+groups.</title>
+<p>
+  We already saw that the isomorphism class of <m>F(X)</m> was
+  determined by the cardinality <m>n=|X|</m>, so we'll fix the
+  following notation <me>
+  F_n = \pres{a_1,\ldots,a_n}{}.
+</me>
+Solving the word problem in <m>F_n</m> is straightforward: bring a
+word to reduced form and make the obvious conlcusion.
+</p>
 
+<p>
+  Although the isomorphism problem is undecidable if you're working
+  over arbitrary finite presentations. In practice we usually consider
+  the isomorphism problem resricted to a class of groups. For finitely
+  generated free groups we are asking whether it is possible that
+  <m>m\neq m</m> but that <m>F_n \approx F_m</m>. We will see that the
+  answer is "no", but before doing so a couple observations are in
+  order.
+</p>
+<p>
+  First of all, we will see later on that for any <m>m,n</m> (in fact
+  we could even take the countably infinite cardinal
+  <m>m=\aleph_0</m>) there is an injective homomorphisms
+  <me>
+    F_m \into F_n.
+  </me>
+  In fact in the early 2000s it was proved that all finite rank free
+  groups have the same elementary theory. All this to say that
+  directly showing that free groups of different rank are
+  non-isomorphic is difficult.
+</p>
+<p>
+  Given any group <m>G</m> we can consider the <term>commutator
+  subgroup</term><me>[G,G] = \ncl{\{g^{-1}h^{-1}gh\mid g,h \in
+  G\}}.</me> The quotient:
+  <me>
+    G \onto G/[G,G]
+  </me> is called the <term>abelianization</term> of <m>G</m> and it
+  is an abelian group since
+  <me>
+    g^{-1}h^{-1}gh=1 \Rightarrow gh=hg.
+  </me>
+  Fans of category theory will rejoice to observe that the
+  abelianization map is a functor from the category fo groups to the
+  category of abelian groups.
+</p>
+<p>
+  For free groups, the abelianization is
+  <me>
+    F_n \onto F_n/[F_n,F_n] \approx \ZZ^n. 
+  </me>
+  Now if this were linear algebra we would have <m>\dim(\ZZ^n)=n</m>
+  and vector spaces are isomorphic if and only if they have the same
+  dimension. Thus
+  <me>
+    F_n \approx F_m \Leftrightarrow F_n/[F_n,F_n] \approx F_m/[F_m,F_m]
+    \Leftrightarrow \ZZ^n \approx \ZZ^m \Leftrightarrow m = n.
+  </me>
+ Unfortunately <m>\ZZ</m> isn't a field. However, there is a canonical
+ algebraic constructions which embeds <m>\ZZ^n</m> into <m>\QQ^n</m>
+ (or any <m>\ZZ</m>-module into a <m>\QQ</m>-vector space) is called
+ <term>extension of scalars</term> and we get can use linear algebra
+ again:
+ <me>
+   \dim_\QQ\left(\left(F_n/[F_n,F_n]\right)\otimes_{\ZZ}\QQ\right)=n.
+ </me>
+ So the number <m>n</m> in <m>F_n</m> is determined by algebraic
+ structure, and that solves the isomorphism problem.
+</p>
+<p>
+  Actually there is a name for this group invariant.
+  <definition xml:id="def_first_betti_number">
+    Let <m>G</m> be a finitely generated group then <m>b_1(G)</m>, the
+    <term>first Betti number</term> of <m>G</m> is the torsion-free
+    rank of the the abelianization <m>G/[G,G]</m>, viewed as a
+    <m>\ZZ</m>-module or
+    <me>
+      b_1(G) = \dim_\QQ\left(G/[G,G]\otimes_\ZZ\QQ\right)
+    </me>
+  </definition>
+</p>
+
+<p>
+  Let's now tackle the conjugacy problem. A useful tool for free
+  groups is cancellation diagrams. Note that for the remainder of the
+  section we will sometimes put a <m>\cdot</m> to denote
+  multiplication for emphasis. Let <m>w_1</m> and <m>w_2</m> be
+  reduced words then we have the cancellation diagram:
+  <figure xml:id="fig_canc_diag">
+    <caption>The cancellation bewteen two words.</caption>
+    <image width="75%" xml:id="canc_diag" source="images/canc_diag.png"/>
+  </figure>
+</p>
+<p>
+And we denote by <m>p(w_1,w_2)</m> the maximal co-terminal subword of
+<m>w_1</m> that cancels in the product <m>w_1\cdot w_2</m>. We will
+call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
+</p>
+<p>
+  When conjugating <m>u^{-1}\cdot w \cdot u</m> we can obtain different
+  combinatorial types of cancellation diagrams.
+    <figure xml:id="fig_conj_canc_diag">
+    <caption>The cancellations in a conjugation.</caption>
+    <image width="75%" xml:id="conj_canc_diag" source="images/conj_canc.png"/>
+  </figure>
+</p>
+
+<p>
+  Let's now solve the conjugacy problem. The conjugacy class of
+  <m>w</m> consists of the set <m>\{g^{-1}w g \mid g \in G\}</m>.
+  <definition xml:id="def_cyclically_reduced">
+    <statement>
+      A reduced word <m>w=x_1\cdots x_{m} \in F_n</m>, <m>x_i \in
+      \{a_1,\ldots,a_n\}^{\pm 1}</m> is <term>cyclically reduced</term>
+      if <m>x_1 \neq x_m^{-1}.</m>
+    </statement>
+  </definition>
+  <lemma xml:id="lem_cr_algo">
+    <statement>
+      <p>
+	Given a reduced word <m>w \in F_n</m>, there is an algorithm to find a
+	word <m>u</m> such that <m>uwu^{-1}</m> is cyclically reduced.
+      </p>
+    </statement>
+  </lemma>
+  <lemma xml:id="lem_cr_min">
+    <statement>
+      In <m>F_n</m>, a cyclically reduced word has minimal length
+      within its conjugacy class.
+    </statement>
+  </lemma>
+  <lemma xml:id="lem_cyclic_perm">
+    <statement>
+      Given any cyclically reduced word <m>w=x_1\cdots x_{m} \in
+      F_</m>, 
+      <ul>
+	<li>any cyclic permutation <m>w'=x_j\cdots x_m x_1\cdots
+	x_{j-1} \in F_n</m> of <m>w</m> can be obtained by
+	conjugation, and </li>
+	<li> all cyclically reduced conjugates of <m>w</m> are cyclic
+	permutations.
+	</li>
+      </ul>
+    </statement>
+  </lemma>
+  <corollary xml:id="cor_conj_problem">
+    <statement>
+      The conjugacy problem in <m>F_n</m> is solvable.
+    </statement>
+    <proof>
+      Given two words <m>u,w \in F_n</m>, by <xref ref="lem_cr_algo"/>
+      we can algorithmically conjugate them to cyclically reduced
+      forms <m>u',w'</m> respectively. By <xref ref="lem_cr_min"/> and
+      <xref ref="lem_cyclic_perm"/> <m>u</m> and <m>w</m> are
+      conjugate if and only if <m>u'</m> is equal to one of the
+      finitely many cyclic permutations of <m>w'.</m>
+    </proof>
+  </corollary>
+</p>
+<exercises>
+  <exercise>
+    <statement>
+      <p>
+	Let <m>G = \pres{a,b,c}{aa,abc,bab^{-1}a^{-1}}</m>. Compute
+	<m>b_1(G)</m>.
+      </p>
+      <p>
+	Hint: Work in abelianizations. Let <m>a,b,c</m> be the vectors
+	<m>\pmatrix{1\\0\\1},\pmatrix{0\\1\\0},\pmatrix{0\\0\\1}</m>
+	respectively. The relations also correspond to vectors,
+	e.g. <m>abc=\pmatrix{1\\1\\1}</m>. Now
+	<m>G/[G,G]\otimes_\ZZ\QQ</m> is the vector space
+	<me>
+	  V=\QQ^3/U
+	</me>
+	where <m>U</m> is the subspace spanned by the relation
+	vectors, and <m>\dim(V)=3-\dim(U)</m>.
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+	Prove <xref ref="lem_cr_algo"/>
+      </p>
+    </statement>
+  </exercise>
+    <exercise>
+    <statement>
+      <p>
+	Prove <xref ref="lem_cr_min"/>
+      </p>
+    </statement>
+    </exercise>
+    <exercise>
+    <statement>
+      <p>
+	Prove <xref ref="lem_cyclic_perm"/>
+      </p>
+    </statement>
+    </exercise>
+</exercises>
+
+</section>
+
+  <!-- UP TO HERE -->
 <!-- Dehn's problems in free groups. -->
   <!-- Quasi-siometries -->
   <!-- Ends, 0,1,2,continuum, trees -->
