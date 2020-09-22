@@ -1207,7 +1207,7 @@ therefore and isomorphism.
       Let <m>G</m> be some group and let <m>H = \pres X R</m> be a
       group given by a presentation. A mapping <m>\varphi^*:X \to
       G</m> extends to homomorphism <m>\varphi:H \to G</m> if and only
-      if for each <m>r(X) = x_1^{\epsilon_1}\cdots x_n^{epsilon_n} \in
+      if for each <m>r(X) = x_1^{\epsilon_1}\cdots x_n^{\epsilon_n} \in
       R</m>, where <m>x_i \in X, \epsilon_i \in \{\pm 1\}</m> upon
       substitution in <m>G</m> we get:
       <me>
@@ -1772,8 +1772,244 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
     </statement>
     </exercise>
 </exercises>
-
 </section>
+</chapter>
+
+<chapter>
+  <title>First elements of geometric group theory</title>
+
+  <section xml:id="sec_qi_fg">
+    <title>The quasi isometries.</title>
+    <p>
+      Back in <xref ref="lec_cayley_graphs"/> we saw that a choice of
+      generating set <m>G = \gen A</m> gave rise to a Cayley graph
+      <m>\cay A G</m> which in turn endows <m>G</m> with a metric
+      <m>d_{\cay A G}</m>. However, the subject matter in the previous
+      sections should have reinforced the fact that there should be no
+      expectation that such a metric be <em>canonical</em> for the
+      group. A surprisingly successful strategy has been to
+      simlutaneously consider all possible metrics on <m>G</m> that
+      arise from choices of finite generating sets. This motivates the
+      following definitinon.
+    </p>
+
+    <definition xml:id="def_qi_embedding">
+      <title>Quasi isometric embedding</title> Let <m>(X,d_X)</m> and
+      <m>(Y,d_Y)</m> be metric spaces. We say a function <m>f:X \to
+      Y</m> is a <term><m>(K,C)</m>-quasi isometric embedding</term>
+      where <m>K,C</m> are strictly positive real numbers and we have
+      <men xml:id="eq_qi_i">
+	\frac{1}{K}d_y(f(x_1),f(x_2))-C \leq d_X(x_1,x_2) \leq
+	Kd_Y(f(x_1,f(x_2)) + C,
+      </men> for every <m>x_1,x_2 \in X</m>.
+    </definition>
+    <p> We note that we can always make the numbers bigger:</p>
+    <lemma xml:id="lem_bigger">
+      <statement>
+	<p>
+	  If <m>f:X \to Y</m> is a <m>(K,C)</m>-quasi isometric
+	  embedding and <m>K'>K, C'>C</m> then <m>f</m> is also a
+	  <m>(K',C')</m>-quasi isometric embedding.
+	</p>
+      </statement>
+      <proof>
+	<xref ref="ex_bigger"/>.
+      </proof>
+    </lemma>
+    <p>
+      Often we will omit the bounds <m>(K,C)</m> and simply talk of a
+      quasi isometric embedding, i.e. we'll say that <m>f:X \to Y</m>
+      is a <term>quasi isometric embedding</term> if there exist
+      numbers <m>(K,C)</m> that satisfy the requirement of <xref
+      ref="def_qi_embedding"/>.
+    </p>
+    <definition xml:id="def_coarsely_dense">
+      <title>Coarsely dense</title>
+      <p>
+	Let <m>(X,d_x),(Y,d_y)</m> be metric spaces and let <m>f:X \to
+	Y</m> be a quasi-isometric embedding. We'll say its image is
+	<term><m>D</m>-coarsely dense</term> if there is some
+	<m>D>0</m> such that for every <m>y\in Y</m> there exists some
+	<m>x_y \in X</m> such that:
+	<me>
+	  d_Y(y,f(x_y))\leq D.
+	</me>
+      </p>
+    </definition>
+    <p> As before, we will say that the image of a quasi isometry is
+    <term>coarsely dense</term>, if it is <m>D</m>-coarsely dense for
+    some <m>D>0</m>. In this business, the actual parameters don't
+    always matter.</p>
+    <definition xml:id="def_qi">
+      <title>Quasi isometry</title>
+      <p>
+	Let <m>(X,d_X),(Y,d_Y)</m> be metric spaces and let <m>f:X \to
+	Y</m> be a quasi isometric embedding. We say that <m>f</m> is
+	a quasi-isometry if there exists a quasi-isometry <m>g:X \to
+	Y</m> called a <term>quasi-inverse</term> such that there is
+	some number <m>D</m> such that:
+	<ul>
+	  <li>For all <m>x \in X</m>, <m>d_X(x,g(f(x))\leq D</m>,
+	  and</li>
+	  <li>For all <m>y \in Y</m>, <m>d_Y(y,f(g(y))\leq D</m>.
+	  </li>
+	</ul>
+      </p>
+    </definition>
+    <p>
+      Another way to say this is that the compositions <m>g\circ f</m>
+      and <m>f\circ g</m> are <term><m>D</m>-close to the
+      identity</term>.
+    </p>
+    <p>
+      We will finally state two results and leave proofs and examples
+      as exercises.
+    </p>
+    <proposition xml:id="prop_cay_qi_invariance">
+      <satement>
+	<p>
+	  Let <m>A,B</m> be two different finite generating sets of a
+	  group <m>G</m>, then the Cayley graphs <m>\cay A G</m> and
+	  <m>\cay B G</m> are quasi isometric.
+	</p>	
+      </satement>
+      <proof>
+	<xref ref="ex_cay_qi_invariance"/>
+      </proof>
+    </proposition>
+
+    <proposition xml:id="prop_quasi_dense_qi">
+      <statement>
+	<p>
+	  Let <m>(X,d),(Y,d)</m> be metric spaces. Prove that if
+	  <m>f:X \to Y</m> is quasi isometric embedding with a
+	  coarsely dense image, then <m>f</m> is a quasi-isometry.
+	</p>
+      </statement>
+      <proof>
+	<xref ref="ex_quasi_dense_qi"/>.
+      </proof>
+    </proposition>
+    
+    <exercises>
+      <exercise xml:id="ex_qi_1">
+	<statement>
+	  <p>
+	    Prove that with the standard Euclidean metric that the
+	    mapping
+	    <md>
+	      <mrow> \RR \amp \to \RR^2</mrow>
+	      <mrow> x \amp \mapsto (x,0)</mrow>
+	    </md>
+	    Is a quasi-isometric embeding, but not a quasi-isometry.
+	  </p>
+	</statement>
+      </exercise>
+      <exercise xml:id="ex_bigger">
+	<statement>
+	  Prove <xref ref="lem_bigger"/>.
+	</statement>
+      </exercise>
+      <exercise>
+	<statement>
+	  <p>Show that quasi isometry gives an equialence relation
+	  between metric spaces.</p>
+	</statement>
+      </exercise>
+
+      <exercise>
+	<statement>
+	  <p>The following question is stated in the context of
+	  function <m>f:X\to Y</m> between metric space.
+	  </p>
+	  <p>
+	    By a <term>linear function</term> we mean a linear
+	    function <m>\ell(x) = mx +b</m> where <m>m,b \in \RR</m>
+	    (like in Calculus 1.) Show the following:
+	    <ol>
+	      <li> If there is a linear function <m>\ell_r(x)</m> such
+	      that <me>d_Y(f(x),f(y)) \leq \ell_r(d_X(x,y))</me>, then
+	      there is a linear function <m>\ell_l(x)</m> such that
+	      <me>
+		\ell_l(d_Y(f(x),f(y))) \leq d_X(x,y)
+	      </me></li>
+	      <li>
+		Show that if there are linear functions
+		<m>\ell_1,\ell_2</m> such that for all <m>x,y \in
+		X</m> we have <me> d_X(x,y) \leq \ell_1(d_Y(f(x),f(
+		y))) </me> and
+		<me>
+		  d_Y(f(x),f(y)) \leq \ell_2(d_X(x,y)),
+		</me>
+		then <m>f:X\to Y</m> is a quasi isometric embedding.
+	      </li>
+	    </ol>
+	  </p>
+	</statement>
+      </exercise>
+
+      <exercise>
+	<statement>
+	  <p>
+	    Let <m>\Gamma</m> be a graph and let <m>V(\Gamma)</m> be
+	    it's vertex set. Let <m>V(\Gamma)</m> be equipped with the
+	    metric induced by <m>\Gamma</m>. Suppose every edge has
+	    length <m>1</m> and consider the retraction <me>r:\Gamma
+	    \to V(\Gamma)</me> where each edge interior is mapped to
+	    some adjacent vertex. Show that <m>r</m> is a
+	    quasi-isometry.
+	  </p>
+	</statement>
+      </exercise>
+      
+      <exercise xml:id="ex_cay_qi_invariance">
+	<statement>
+	  <p>Prove <xref ref="prop_cay_qi_invariance"/>.</p>
+	  <p>Hint: Look back at <xref ref="ex_tietze_2"/></p>
+	</statement>
+      </exercise>
+      <exercise xml:id="ex_quasi_dense_qi">
+	<statement>
+	  <p> Prove <xref ref="prop_quasi_dense_qi"/>.</p>
+	  <p> Hint: Although the statement of <xref
+	  ref="prop_quasi_dense_qi"/> doesn't have any parameters, you
+	  should start by fixing parameters.</p>
+	  <p>Other hint: for a quasi-inverse define <m>g(y)</m> to be
+	  some <m>x\in X</m> such that <m>d_Y(f(x),y)</m> is
+	  minimal, or at least unifomly bouded for all <m>y</m> (this
+	  is where <m>D</m>-coarsely dense becomes important.)
+	  </p>
+	</statement>
+      </exercise>
+      <exercise>
+	<statement>
+	  <p>
+	Consider the graph <m>\Gamma= \cay{\{1\}} \ZZ</m>, i.e. the
+	real line with vertices at integer points. Let's conisider
+	what happens when we change the lengths of edges.
+	<ol>
+	  <li> Fix <m>0\lt a\lt b\in \RR </m>. Show that if for each edge
+	  <m>e</m> of <m>\Gamma</m>
+	  we randomly change its length to some number
+	  <m>a\lt\ell_e\lt b</m> then the resulting metric space
+	  <m>\Gamma'</m> is quasi-isometric to <m>\Gamma</m>.</li>
+	  <li> Show that if we let the length of edges be any <m>0 \lt
+	l_e \leq 1</m>, then the resulting graph may not be
+	  quasi-isometric to <m>\Gamma</m></li>
+	</ol>
+	  </p>
+	  <p>
+	    Hint: if edges schrink too much maybe the graph will have
+	    finite diameter.
+	  </p>
+	</statement>
+      </exercise>
+    </exercises>
+    
+  </section>
+
+  
+</chapter>
 
   <!-- UP TO HERE -->
 <!-- Dehn's problems in free groups. -->
@@ -1783,7 +2019,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
   
   <!-- Nielsen theory. -->
   <!-- Stallings foldings. -->
-  </chapter>
+
   <!-- Chapter: Diagrams -->
   <!-- Lollipops. -->
 
