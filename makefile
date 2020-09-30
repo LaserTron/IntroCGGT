@@ -1,6 +1,7 @@
 html: IntroCGGT.xml
 	xsltproc mathbook/xsl/pretext-html.xsl IntroCGGT.xml
 	mv *.html html_output
+	mv knowl html_output
 	cp -r -f images html_output
 
 tikz: IntroCGGT.xml

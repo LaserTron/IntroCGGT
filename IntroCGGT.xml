@@ -1585,7 +1585,7 @@ word to reduced form and make the obvious conlcusion.
   over arbitrary finite presentations. In practice we usually consider
   the isomorphism problem resricted to a class of groups. For finitely
   generated free groups we are asking whether it is possible that
-  <m>m\neq m</m> but that <m>F_n \approx F_m</m>. We will see that the
+  <m>m\neq n</m> but that <m>F_n \approx F_m</m>. We will see that the
   answer is "no", but before doing so a couple observations are in
   order.
 </p>
