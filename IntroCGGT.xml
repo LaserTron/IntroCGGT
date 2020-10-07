@@ -2153,6 +2153,33 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
     </p>
 
     <p>
+      From now on we will asssume our spaces <m>X</m> are path
+      connected metric spaces, the readier at this point is free to
+      assume that <m>X</m> is a connected graph, all of whose edges
+      have a given length (usually they have unit length). A
+      <term>path</term> is a continuous mapping
+      <me>
+	p: \underbrace{[0,L]}_{\subset \RR} \to X.
+      </me>
+      and we can define its speed at <m>s</m> as
+      <me>
+	|\dot p(s)| = \lim_{h \to 0^+}\frac{d(p(s+h),p(s))}{h}.
+      </me>
+    If <m>X</m> is a graph, viewing edges as isometric copies of
+    intervals of <m>\RR</m> we can make sense of this for almost all
+    values of <m>s \in [0,L]</m>.
+    </p>
+    <p>
+    Integrating speed gives <term>arc length</term> and we say that
+    <m>p</m> is <term>arc length parameterized</term> if <m>|\dot
+    p(s)| =1</m> for all <m>s \in [0,L]</m>. We say that a path is a
+    <term>geodesic</term> if it is a shortest path between its
+    endpoints <m>p(0)</m> and <m>p(L)</m> and we can define the
+    <term>path metric</term> to be given by the minimal length of all
+    paths joining two points. A metric space is called a geodesic
+    metric space if its metric coincides with the path metric.
+    </p>
+    <p>
       We assume the reader knows what a left group action
       <md>
 	<mrow> G \times X \amp \to X</mrow>
@@ -2204,7 +2231,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       <statement>
 	If a group <m>G</m> acts properly, cocompactly and by
 	isometries on a graph <m>X</m>, then <m>X</m> is locally
-	finite, i.e. all verrices are adjacent to only finitely many
+	finite, i.e. all vertices are adjacent to only finitely many
 	edges. In particular balls of finite radius only contain
 	finitely many elements.
       </statement>
@@ -2552,7 +2579,53 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
     <!-- Only Z and Z^2?-->
   </section>
 
+  <section xml:id="sec_ends">
+    <title>Lecture 10: Ends and rigidity</title>
+
+  <p>
+    We say that two groups <m>G_1,G_2</m> are <term>virually
+    isomorphic</term> if they contain finite index subgroups <m>G_i'
+    \stackrel{\mathrm{f.i.}}{\leq} G_i</m> and such that there are
+    finite normal subgroups <m>K_i \triangleleft G_i'</m>
+    (<m>i=1,2</m>) such that: 
+    <me>
+      G_1'/K_1 \approx G_2'/K_2.
+    </me>
+  </p>
+  <p>
+    In the previous lecture, we saw that quasi isometry could not
+    distinguish between virtually isomorphic groups. The question
+    still remains: <em>Can quasi isometry determine a group up to
+    virtual isomorphism?</em> The short answer is: no, not always.
+  </p>
+
+  <p>
+    The longer answer is <em>sometimes, and even negative results in
+    this matter tend to be non-trivial.</em> The phenomenon where
+    quasi isometry (purely geometric/metric) determines a group
+    property up to virtual isomorphism (purely algebraic) is known as
+    <term>quasi isometric rigidity</term>. In this lecture we will
+    prove the simplest possible such result.
+  </p>
+  <theorem xml:id="thm_Z_rigid">
+    <statement>
+      <p> <m>\ZZ</m> is quasi isometrically rigid. That is to say if
+      <m>H</m> is some group that is quasi isometric to <m>\ZZ</m> then
+      <m>H</m> contains a finite index subgroup <m>H'
+      \stackrel{\mathrm{f.i.}}{\leq} H</m> such that <m>H' \approx
+      \ZZ.</m>
+      </p>
+    </statement>
+  </theorem>
+
+  We first note that all non trivial subgroups of <m>\ZZ</m> are
+  isomorphic, so there is no need to pass to finite index subgroups of
+  <m>\ZZ</m>. We should also note that there exist infinite finitely
+  generated groups all of whose elements have finite order, or put
+  differently, none of their subgroups are isomorphic to <m>\ZZ</m>
+  (these groups take effort to construct).
   
+  </section>
 </chapter>
 
   <!-- UP TO HERE -->
