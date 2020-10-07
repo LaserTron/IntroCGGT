@@ -347,7 +347,7 @@
     concatenation and reduction, i.e.  <me> u\star v = \overline{u*v},
     </me> where <m>*</m> denotes concatenation of strings.  The
     identity <m>1_{F(X)}</m> is the empty word (i.e. the word with
-    zero symbols in it.) Associativity amounts to showing that
+    zero symbols in it). Associativity amounts to showing that
     <me>
       (u\star v)\star w = \overline{\overline{u * v} * w} = \overline{
       u* \overline{v * w}} = u\star (v\star w),
@@ -406,7 +406,7 @@
   defined:<me> \frac{1}{12} = (12\div 12) \div 12 \neq 12\div(12\div
   12) = 12.</me> Different bracketings give different results. In the
   previous lecture associativity was used to say that a product of
-  three elements <m>w_1\star w_2 \star w_3</m> was well-defined, which
+  three elements <m>w_1\star w_2 \star w_3</m> is well-defined, which
   in turn enables us to define subwords. So what about arbitrary
   products such as
   <me>
@@ -461,13 +461,13 @@
   \varphi^*(w) = \prod_{i=1}^n\varphi(a_i)^{\epsilon_i}, </men> which
   is a product of elements of <m>G</m>. Generalized associativity
   ensures that this mapping is <em>well-defined.</em> Showing that this is a
-  homomorphism is is left as an exercise.
+  homomorphism is left as an exercise.
   </p>
 
   <p>If, so far, our treatment has seemed rather formal, this is
-  because our goal up to now was to a group using nothing but the
-  axioms of group theory and some set of letters we had lying around
-  and then to show it is satisfied a universal property in the
+  because our goal up to now was to construct a group using nothing
+  but the axioms of group theory and some set of letters we had lying
+  around and then to show it is satisfied a universal property in the
   category of groups, i.e. <xref ref="thm_free_gp_universal"/>. Such
   universal constructions in algebra look this way.</p>
 
@@ -483,8 +483,8 @@
   <corollary xml:id="cor_free_gp">
     <statement>
       Let <m>G</m> be some group with a subset <m>Y\subset G</m> such
-      for any group <m>H</m> and any map <m>f:Y \to H</m>, there is
-      an extension of <m>f</m> to a homomorphisms <m>f^*:G \to
+      that for any group <m>H</m> and any map <m>f:Y \to H</m>, there is
+      an extension of <m>f</m> to a homomorphism <m>f^*:G \to
       H</m>. Then <m>G</m> is isomorphic to the free group
       <m>F(Y)</m>.
     </statement>
@@ -517,16 +517,16 @@
     </p>
 
     <p>The homomorphisms <m>\psi^*,\phi^*</m> are therefore inverses
-    of each other; thus are isomorphisms.</p>
+    of each other; and thus are isomorphisms.</p>
   </proof>
 
   <p>
     Any subset <m>Y</m> of a group <m>G</m> with this universal
-    mapping property is called a <term>basis of <m>G</m></term>, and,
-    since we&apos;re <em>free</em> to send elements of <m>Y</m> wherever
-    we say that <m>G</m> is a free group with basis <m>Y</m>. As is
-    the case in linear algebra, bases are never unique, but that is
-    for another lecture (not the next one)!
+    mapping property is called a <term>basis of <m>G</m></term>, and
+    since we&apos;re <em>free</em> to send elements of <m>Y</m>
+    wherever we want, we say that <m>G</m> is a free group with basis
+    <m>Y</m>. As is the case in linear algebra, bases are never
+    unique, but that is for another lecture (not the next one)!
   </p>
   
   <exercises><title>Lecture 2 exercises</title>
@@ -535,14 +535,14 @@
       <p>Prove that every element in <m>F(X)</m> has an inverse.</p>
     <p>
       Hint: Give the procedure to produce the inverse of a
-      word. sdrawkcab etirw.
+      word.<em>sdrawkcab etirw.</em>
     </p>
     </statement>
     
   </exercise>
   <exercise xml:id="ex_nice">
     <statement>
-    <p>It is an important skill to be able to be able to capture an
+    <p>It is an important skill to be able to capture an
     idea with a good definition.</p>
     <p>
       There are two parts to this exercise:
@@ -1980,7 +1980,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  should start by fixing parameters.</p>
 	  <p>Other hint: for a quasi-inverse define <m>g(y)</m> to be
 	  some <m>x\in X</m> such that <m>d_Y(f(x),y)</m> is
-	  minimal, or at least unifomly bouded for all <m>y</m> (this
+	  minimal, or at least unifomly bounded for all <m>y</m> (this
 	  is where <m>D</m>-coarsely dense becomes important.)
 	  </p>
 	</statement>
@@ -2187,7 +2187,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       </me>
       and is itself a graph. The action of <m>G</m> on <m>X</m> is
       <term>cocompact</term> if <m>G\backslash X</m> is finite and a
-      <term>coarse fundamental domain</term> is compact subste set
+      <term>coarse fundamental domain</term> is compact subset
       <m>K \subset X</m> whose <m>G</m> translates cover <m>X</m>,
       i.e.
       <me>
@@ -2530,6 +2530,20 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  <p>Hint: If <m>K_1,K_2\leq G</m> are finite index subgroups
 	  of <m>G</m>, then the intersection <m>K_1\cap K_2</m> is a
 	  finite index subgroup of <m>K_1,K_2,</m> and <m>G</m>.
+	  </p>
+	</statement>
+      </exercise>
+
+      <exercise>
+	<statement>
+	  <p>Let <m>f:G \to H</m> be a group homorphism such that
+	  <m>\ker(f)</m> is finite. Prove that <m>G</m> is quasi
+	  isometric to <m>H</m></p>
+	  <p>
+	    Hint: <m>G</m> acts on the Cayley graph of <m>H</m> via
+	    the action <m>g\cdot x = f(g)\cdot_H x</m> where
+	    <m>\cdot_H</m> is the standard action of <m>H</m> on its
+	    Cayley graph.
 	  </p>
 	</statement>
       </exercise>
