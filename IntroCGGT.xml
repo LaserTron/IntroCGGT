@@ -1851,8 +1851,8 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       <p>
 	Let <m>(X,d_X),(Y,d_Y)</m> be metric spaces and let <m>f:X \to
 	Y</m> be a quasi isometric embedding. We say that <m>f</m> is
-	a quasi-isometry if there exists a quasi-isometry <m>g:X \to
-	Y</m> called a <term>quasi-inverse</term> such that there is
+	a quasi-isometry if there exists a quasi-isometry <m>g:Y \to
+	X</m> called a <term>quasi-inverse</term> such that there is
 	some number <m>D</m> such that:
 	<ul>
 	  <li>For all <m>x \in X</m>, <m>d_X(x,g(f(x))\leq D</m>,
@@ -2617,14 +2617,16 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       </p>
     </statement>
   </theorem>
-
+  <p>
   We first note that all non trivial subgroups of <m>\ZZ</m> are
   isomorphic, so there is no need to pass to finite index subgroups of
   <m>\ZZ</m>. We should also note that there exist infinite finitely
   generated groups all of whose elements have finite order, or put
   differently, none of their subgroups are isomorphic to <m>\ZZ</m>
-  (these groups take effort to construct).
-  
+  (these groups take effort to construct). In particular we will need
+  to show that such a group <m>H</m> actually contains an infinite
+  order element.
+  </p>
   </section>
 </chapter>
 
