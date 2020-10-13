@@ -1916,18 +1916,18 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  function <m>f:X\to Y</m> between metric space.
 	  </p>
 	  <p>
-	    By a <term>linear function</term> we mean a linear
+	    By a <term>linear growing function</term> we mean a linear
 	    function <m>\ell(x) = mx +b</m> where <m>m,b \in \RR</m>
-	    (like in Calculus 1.) Show the following:
+	    and <m>m>0</m> (like in Calculus 1.) Show the following:
 	    <ol>
-	      <li> If there is a linear function <m>\ell_r(x)</m> such
+	      <li> If there is a linear growing function <m>\ell_r(x)</m> such
 	      that <me>d_Y(f(x),f(y)) \leq \ell_r(d_X(x,y))</me>, then
-	      there is a linear function <m>\ell_l(x)</m> such that
+	      there is a linear growing function <m>\ell_l(x)</m> such that
 	      <me>
 		\ell_l(d_Y(f(x),f(y))) \leq d_X(x,y)
 	      </me></li>
 	      <li>
-		Show that if there are linear functions
+		Show that if there are linear growing functions
 		<m>\ell_1,\ell_2</m> such that for all <m>x,y \in
 		X</m> we have <me> d_X(x,y) \leq \ell_1(d_Y(f(x),f(
 		y))) </me> and
