@@ -1947,7 +1947,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	    Let <m>\Gamma</m> be a graph and let <m>V(\Gamma)</m> be
 	    it's vertex set. Let <m>V(\Gamma)</m> be equipped with the
 	    metric induced by <m>\Gamma</m>. Suppose every edge has
-	    length <m>1</m> and consider the retraction <me>r:\Gamma
+	    length <m>1</m> and consider a retraction <me>r:\Gamma
 	    \to V(\Gamma)</me> where each edge interior is mapped to
 	    some adjacent vertex. Show that <m>r</m> is a
 	    quasi-isometry.
@@ -2251,7 +2251,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	    <li xml:id="it_proper_2"> The subset
 	    <me>
 	      R_s=\{g \in G \mid g\cdot B(p_0,s)\cap B(p_0,s)\neq \emptyset\} \subset G
-	    </me> for all radii <m>s>0</m>.
+	    </me> is <em>finite</em> for all radii <m>s>0</m>.
 	    </li>
 	    <li xml:id="it_proper_3">
 	      Let <m>r_0</m> be as in <xref ref="it_proper_1"/>. Then
@@ -2563,9 +2563,9 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 
       <exercise>
 	<statement>
-	  <p>Let <m>f:G \to H</m> be a group homorphism such that
-	  <m>\ker(f)</m> is finite. Prove that <m>G</m> is quasi
-	  isometric to <m>H</m></p>
+	  <p>Let <m>f:G \to H</m> be a surjective group homorphism
+	  such that <m>\ker(f)</m> is finite. Prove that <m>G</m> is
+	  quasi isometric to <m>H</m></p>
 	  <p>
 	    Hint: <m>G</m> acts on the Cayley graph of <m>H</m> via
 	    the action <m>g\cdot x = f(g)\cdot_H x</m> where
