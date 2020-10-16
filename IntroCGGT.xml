@@ -2580,8 +2580,8 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
   </section>
 
   <section xml:id="sec_ends">
-    <title>Lecture 10: Ends and rigidity</title>
-
+    <title>Lecture 10: Many ended graphs</title>
+    <introduction><title>Our motivation: quasi isometric rigidity</title>
   <p>
     We say that two groups <m>G_1,G_2</m> are <term>virually
     isomorphic</term> if they contain finite index subgroups <m>G_i'
@@ -2604,8 +2604,8 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
     this matter tend to be non-trivial.</em> The phenomenon where
     quasi isometry (purely geometric/metric) determines a group
     property up to virtual isomorphism (purely algebraic) is known as
-    <term>quasi isometric rigidity</term>. In this lecture we will
-    prove the simplest possible such result.
+    <term>quasi isometric rigidity</term>. Our goal for the next few
+    lectures is will be to prove the simplest possible such result.
   </p>
   <theorem xml:id="thm_Z_rigid">
     <statement>
@@ -2625,8 +2625,218 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
   differently, none of their subgroups are isomorphic to <m>\ZZ</m>
   (these groups take effort to construct). In particular we will need
   to show that such a group <m>H</m> actually contains an infinite
-  order element.
+  order element. The way we will achieve this is via group actions,
+  and a quasi isometry invariant known as ends.
   </p>
+  </introduction>
+  <subsection>
+  <title>Essential disconnecting sets and many endedness</title>
+  
+  <p>
+    In graph theory, a <term>cutset</term> is a minimal (w.r.t
+    inclusion) set of edges whose removal disconnects a graph. Such
+    sets of edges abound, for example the set of edges incident to a
+    vertex contains a cutset. For infinite graphs we have something
+    more interesting: a subset of a graph is an <term>essential
+    disconnecting set</term> if its removal disconnets the graph into
+    two <em>infinite</em> components. Of most interest to us will be
+    <term>finite essential disconnecting sets.</term>
+  </p>
+  <example xml:id="eg_ess_cutsets">
+    <statement>
+      <ul>
+	<li>In an infinite tree, any finite subset is an essential
+	disconnecting set.</li>
+	<li> The grid
+	<m>\cay{\{\pmatrix{1\\0},\pmatrix{0\\1}\}}{\ZZ^2}</m> doesn't
+	admit any finite essential disconnecting sets.</li>
+      </ul>
+    </statement>
+  </example>
+  
+  <p>
+    Before defining what an <term>end</term> is we have the following.
+    <definition xml:id="def_many_ended">
+      <statement>
+	<p>We say a graph <m>X</m> is
+	<ul>
+	  <li>zero ended if it is finite,</li>
+	  <li>many ended if it admits a finite essential disconnecting
+	  set</li>
+	  <li>one ended if it none of the above are satisfies, i.e. it
+	  is infinte but withuot an essential disconnecting set.
+	  </li>
+	</ul>
+	</p>
+	<p>
+	  We say a finitely generated group <m>G</m> is zero, one, or
+	  many ended if it has a Cayley graph (w.r.t. a finite
+	  generating set) which is zero, one, or many ended,
+	  respectively. 
+	</p>
+      </statement>
+    </definition>
+    We should pause to ponder whether this definition is even
+    well-defined: <em>Why couldn't a group have two Cayley graphs, one
+    of which is one ended and the other one isn't?</em>
+  </p>
+  </subsection>
+  <subsection><title>A digression about paths</title>
+  <p>
+    At this point we want to provide a perspective on compact
+    essential disconnecting sets that is compatible with
+    quasi-isometry.
+  </p>
+  <p>
+    If <m>X</m> is a path connected space (e.g. a connected graph)
+    then we already encountered the notion of a geodesic <me>p:[0,L] \to
+    X.</me> We can relax this notion to that of a <term>quasi
+    geodesic</term> <me>q:[0,L] \to X</me> where <m>q</m> is a
+    <m>(K,C)</m>-quasi isometric embedding (where we are equipping the
+    interval <m>[0,L]</m> with the standard metric of length on
+    <m>\RR</m>.) Now <m>q</m> is not necessarily continuous and can do
+    all kinds of strange things. However we can do the following:
+  </p>
+  <lemma xml:id="lem_pw_geod">
+    <statement>
+      <p>
+	Let <m>q:[0,L] \to X</m> be a <m>(K,C)</m>-quasi geodesic, where <m>L \in
+	\ZZ_{>0}</m>, and consider a path <m>q_p:[0,L]\to X</m>
+	satisfying the following:<ul>
+	<li>For <m>i \in [0,L] \cap \ZZ</m> <m>q_p(i)=q_i</m></li>
+	<li>On the open intervals <m>(i,i+1)</m>,
+	<m>i=0,\ldots,L-1</m> the restriction <m>q_p|_{(i,i+1)}</m> is
+	a geodesic joining <m>q_p(i)</m> and <m>q_p(i+1),</m>
+	</li>
+      </ul>
+      i.e. <m>q_p</m> is a <term>piecewise geodesic</term>.
+      </p>
+      <p>
+	Then for every <m>z\in [0,L]</m> we have<me>
+	d_X(q(x),q_p(x))\leq 2(K+C).
+      </me>
+      </p>
+    </statement>
+  </lemma>
+  
+  <p>
+    The concept of a geodesic path is a global notion, and is a bit
+    too restrictive. The right notion we want is
+    <term>rectifiability</term>, but that takes too much work to
+    properly define and justify. If we restrict ourselves to the case
+    where <m>X</m> is a graph, then we can make the following
+    assumption: <em>every path in <m>X</m> is a piecewise geodesic path,
+    specifically it travels through every edge at constant unit
+    speed.</em> This way we can ignore analysis and focus on
+    combinatorics. 
+  </p>
+  </subsection>
+  <subsection><title>Many endedness as a quasi-isometry invariant</title>
+  <p>
+    Now let us give a more metric characterization of a finite
+    essential cut set.
+  </p>
+  <proposition xml:id="prop_metric_essential">
+    <statement>
+      <p>
+	A locally finite graph <m>X</m> admits a finite essential
+	cutset if and only if there is:
+	<ul>
+	  <li>some point <m>x_0 \in V(X)</m> and a fixed number
+	  <m>D>0</m>, </li>
+	  <li>two sequences of vertices <m>(x_n),(y_n)</m> with <me>
+	  \lim_{n\to \infty}d(x_n,y_n)=\lim_{n\to \infty} d(x_0,x_n) =
+	  \lim_{n\to \infty} d(x_0,y_n) = \infty, and </me></li>
+	  <li>
+	    the following property: every path <m>p_n</m> from
+	    <m>x_n</m> to <m>y_n</m> intersects the ball
+	    <m>B(x_0,D).</m>
+	  </li>
+	</ul>
+      </p>
+    </statement>
+  </proposition>
+
+  <p>
+    In particular this result says that a finite essential
+    disconnecting set is a "bottleneck in the graph". 
+  </p>
+  
+  <corollary xml:id="cor_many_ended_qi">
+    <statement>
+      <p>
+	If <m>X</m> and <m>Y</m> are quasi isometric graphs, then
+	<m>X</m> is many ended if and only if <m>Y</m> is many ended.
+      </p>
+      <p>
+	In particuar, being 0, 1, or many ended is a quasi isometric
+	invariant.
+      </p>
+    </statement>
+  </corollary>
+  
+  </subsection>
+  <exercises>
+    <exercise>
+      <statement>
+	<p>
+	  Work out the two examples in <xref
+	  ref="eg_ess_cutsets"/>. It's best to use pictures and to be
+	  informal. 
+	</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+	<p>
+	  Prove <xref ref="lem_pw_geod"/>
+	</p>
+	<p>
+	  Hint: Use the triangle inequality, don't try to be optimal.
+	</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+	<p>
+	  Prove <xref ref="prop_metric_essential"/>
+	</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+	<p>
+	  Use <xref ref="prop_metric_essential"/> to give a rigourous
+	  argument that <m>\ZZ^2</m> is one ended. 
+	</p>
+	<p>
+	  Hint: Fix some <m>x_0,D</m> take sequences
+	  <m>(x_n),(y_n)</m> satisfying the requrements of and show
+	  how to construct <m>B(x_0,D)</m>-avoiding paths from
+	  <m>x_n</m> to <m>y_n</m>, provided <m>n</m> is sufficiently
+	  large.
+	</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+	<p>
+	  Prove <xref ref="cor_many_ended_qi"/>
+	</p>
+	<p>
+	  Hint: Let <m>q:X\to Y</m> be a <m>(K,C)</m>
+	  quasi-isometry. The piecewise geodesic paths <m>p:[0,L] \to
+	  X</m> are sent via <m>q \circ p</m> to piecewise
+	  quasigeodesic paths, which can then be turned by <xref
+	  ref="lem_pw_geod"/> into piecewise geodesics which stay
+	  close to <m>q\circ p</m>. Assume that <m>X</m> is many-ended
+	  and <m>Y</m> is one ended and use  <xref
+	  ref="prop_metric_essential"/> to derive a contradiction.
+	</p>
+      </statement>
+    </exercise>
+
+  </exercises>
   </section>
 </chapter>
 
