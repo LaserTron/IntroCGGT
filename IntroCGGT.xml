@@ -2620,13 +2620,28 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
   <p>
   We first note that all non trivial subgroups of <m>\ZZ</m> are
   isomorphic, so there is no need to pass to finite index subgroups of
-  <m>\ZZ</m>. We should also note that there exist infinite finitely
-  generated groups all of whose elements have finite order, or put
-  differently, none of their subgroups are isomorphic to <m>\ZZ</m>
-  (these groups take effort to construct). In particular we will need
-  to show that such a group <m>H</m> actually contains an infinite
-  order element. The way we will achieve this is via group actions,
-  and a quasi isometry invariant known as ends.
+  <m>\ZZ</m>. The example below shows that there are infnite groups
+  (called periodic groups) which do not contain subgroups isomorphic
+  to <m>\ZZ</m>.
+  <example>
+    <statement>
+      The Burnside Problem is related to this issue. Consider the
+      group
+      <me>
+	\pres{a,b,c}{w^n;w\in F(a,b,c)}
+      </me>
+      obtained by declaring every <m>n^{\mathrm{th}}</m> power to be
+      trivial. For <m>n=2,3,4,6</m> this group is known to be
+      finite. For <m>n=10^{10}</m> it is known to be infinite, for
+      <m>n=5</m>, it is unknown. In particular, infinite Burnside
+      groups (which exist) do not contain subgroups isomorphic to
+      <m>\ZZ</m>.
+    </statement>
+  </example>
+    In particular we will need to show that such a group <m>H</m>
+    actually contains an infinite order element. The way we will
+    achieve this is via group actions, and a quasi isometry invariant
+    known as ends.
   </p>
   </introduction>
   <subsection>
@@ -3060,7 +3075,8 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
   </p>
 </subsection>
 <subsection>
-  <title>The quasi-isometric rigidity of <m>\ZZ</m></title>
+  <title>2 endedness and the quasi isometric rigidity of
+  <m>\ZZ</m></title>
   <p> We have now developed just enough machinery to show that
   <m>\ZZ</m> is quasi isometrically rigid, what we will prove is
   precisely the following:
