@@ -1851,7 +1851,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       <p>
 	Let <m>(X,d_X),(Y,d_Y)</m> be metric spaces and let <m>f:X \to
 	Y</m> be a quasi isometric embedding. We say that <m>f</m> is
-	a quasi-isometry if there exists a quasi-isometry <m>g:Y \to
+	a quasi-isometry if there exists a quasi isometric embedding <m>g:Y \to
 	X</m> called a <term>quasi-inverse</term> such that there is
 	some number <m>D</m> such that:
 	<ul>
@@ -2448,8 +2448,8 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       <corollary xml:id="cor_fg_qi">
       <statement>
 	<p>
-	  Any group <m>G</m> is quasi isometric to all its finite
-	  index subgroups.
+	  Any finitely generated group <m>G</m> is quasi isometric to
+	  all its finite index subgroups.
 	</p>
       </statement>
       </corollary>
@@ -2529,7 +2529,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  <p>
 	  Let <m>G</m> be a finitely generated group  and let <m>K \leq
 	  G</m> be a finite index subgroup. Let <m>A</m> be a finite
-	  generating set of <m>A</m>. 
+	  generating set of <m>G</m>. 
 	  </p>
 	  <p>
 	    Prove that the induced action of <m>K</m> on <m>\cay A
@@ -2837,7 +2837,347 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
     </exercise>
 
   </exercises>
-  </section>
+</section>
+
+<section>
+  <title>Lecture 11: What is an end, anyway?</title>
+  <introduction>
+    <p>
+      In the previous lecture we presented the notion of a <term>many
+      ended graph</term>, but didn't quite define what an end was. We
+      will do this in this lecture and apply the concept to
+      quasi-isometric rigidity.
+    </p>
+  </introduction>
+  <subsection><title>Ends are like essential components at infinity.</title>
+  <p>
+    Previously we defined a locally finite connected graph <m>X</m> to
+    be many ended if there was some point <m>x_0</m> such that the
+   deletion of some ball <m>B(x_0,r)</m> in <m>X</m> produced multiple
+   infinite components.
+  </p>
+
+  <p>
+    Consider some sequence <m>0\lt r_1 \lt r_2 \lt \ldots</m> of radii
+    growing to infinity and denote by
+    <me>
+      \mathcal{K^i}=\{K^i_{j} \subset X; 1\leq j \leq N_i\}
+    </me>
+    the infinite connected components of <m>X \setminus
+    B(x_0,r_i)</m>. Common sense about sets implies that since we have
+    <m>B(x_0,r_1)\subset B(x_0,r_2)\subset \cdots</m> then if
+    <m>n>m</m> then each element of <m>\mathcal{K}^n</m> is contained
+    in a unique element of <m>\mathcal{K}^m</m> which gives a well
+    defined surjective function <m>f_{nm}:\mathcal K^n \to \mathcal K
+    ^m</m>.
+  </p>
+  <p>
+    If you want you can make a rooted tree where level <m>i</m> is a
+    component in <m>\mathcal K^i</m> and the ancestor of each
+    component is the element of <m>\mathcal K^{i-1}</m> which contains
+    it.
+  </p>
+  <figure xml:id="fig_inverse_limit">
+    <caption>Essential components</caption>
+    <image width="50%" xml:id="img_inverse_limit">
+      <latex-image>
+	\begin{tikzpicture}[scale=2]
+	\node (X) at (0,0) {$X$};
+	\node (K11) at (-1,-1) {$K^1_1$};
+	\node (K12) at (0,-1) {$K^1_2$};
+	\node (L1d) at (1,-1) {$\cdots$};
+	\node (K1n) at (2,-1) {$K^1_n$};
+	\node (K21) at (-2,-2) {$K^2_1$};
+	\node (K22) at (-1.5,-2) {$K^2_2$};
+	\node (L2d) at (-1,-2) {$\cdots$};
+	\node (K2n21) at (-0.5,-2) {$K^2_{n_{12}}$};
+	\draw[->] (K11) --node[sloped,above]{$\subset$}(X);
+	\draw[->] (K12) --node[sloped,above]{$\subset$}(X);
+	\draw[->] (K1n) --node[sloped,above]{$\supset$}(X);
+	\draw[->] (K21) --node[sloped,above]{$\subset$}(K11);
+	\draw[->] (K22) --node[sloped,above]{$\subset$}(K11);
+	\draw[->] (K2n21) --node[sloped,above]{$\supset$}(K11);
+	\draw (K12) node[below]{$\vdots$};
+	\draw (K1n) node[below]{$\vdots$};
+	\draw (K21) node[below]{$\vdots$};
+	\draw (K22) node[below]{$\vdots$};
+	\draw (K2n21) node[below]{$\vdots$};
+	\end{tikzpicture}
+      </latex-image>
+    </image>
+  </figure>
+  <p>
+    The <term>ends of the graph <m>X</m></term> correspond to the
+    infinite sequences <m>K^1_1 \supset K^2_{n_2} \supset K^3_{n_3}
+    \supset \cdots</m> of nested components. Formally the set of ends
+    is the defined as the set of inverse limits of components
+    <me>
+      \mathrm{Ends}(X) = \lim_{\leftarrow} \mathcal K^n
+    </me>
+    with respect to the system of functions <m>f_{nm}, n>m</m>. The
+    elements of the inverse limit are formally sequences of infinite
+    connected components, and so can be seen as "components" at
+    infinity and they are in bijective correspondence with the
+    infinite branches of the tree shown in <xref
+    ref="fig_inverse_limit"/>.
+  </p>
+  <p>
+    We suppress the concern that ends seem to be highly dependent on
+    the choice of growing balls (we will confront this momentarily)
+    and will consider two examples.
+    <example xml:id="eg_z_and_F_ends">
+      <statement>
+	<p>
+	  Let <m>L</m> be the infinite line (i.e. the standard Cayley
+	  graph for <m>\ZZ</m>) and let <m>T_4</m> be the infinite
+	  regular tree of valence 4 (i.e. <m>T_4 =
+	  \cay{\{a,b\}{F(a,b)}</m>.) In both metric spaces consider
+	  the balls <m>B(x_0,1)\subset B(x_0,2) \subset
+	  B(x_0,3)\subset \cdots</m>. 
+	</p>
+	<p>
+	  <ul>
+	    <li>For <m>L</m> we always have that <m>L\setminus
+	    B(x_0,n)</m> has exactly two components, so as the balls
+	    grow we get the following containements of components
+	    <me>
+	      \cdots \subset K^2_1 \subset K^1_1 \subset L \supset
+	      K^1_2 \supset K^2_2 \supset \cdots
+	    </me>
+	    so the diagram given in figure <xref
+	    ref="fig_inverse_limit"/> has precisely two infinite
+	    branches and, so <m>L</m> has two ends, which we should
+	    think of as being <m>\pm \infty</m>.
+	    </li>
+	    <li>
+	      In <m>T_4</m>, the complement <m>T_4 \setminus
+	      B(x_0,n)</m> has precisely <m>4 \cdot 3^n</m>
+	      components. In particular each <m>K^n_j \in \mathcal K^n
+	      = T_4 \setminus B(x_0,n)</m> contains exactly 3
+	      components in <m>\mathcal K^{n+1}</m>. It follows that
+	      the ends of <m>T_4</m> are in bijective correspondence
+	      with infinite strings of the form:<me>
+	      ab_1b_2b_3\cdots, a\in\{1,2,3,4\}, b\in\{1,2,3\}
+	    </me> and therefore form an infinite set of continuum size.
+	    </li>
+	  </ul>
+	</p>
+      </statement>
+    </example>
+  </p>
+</subsection>
+<subsection>
+  <title>Ends are robust</title>
+  <p>A <term>compact (or finite)</term> exhaustion of a set <m>X</m>
+  is a sequence of compact (or finite) subsets <m>K_1 \subset K_2
+  \subset \cdots</m> such that:
+  <me>
+    X = \bigcup_{i=1}^\infty K_i.
+  </me>
+  A sequence of balls with a common center whose radii grow to
+  infinity is an example of a compact exhaustion.
+  </p>
+  <p>
+    The main issue about our definition of ends is that it seems to
+    depend on our choice of compact exhaustion. We will state our main
+    robustness result, but only sketch a proof. The first item is a
+    straightforward, yet non trivial exercise in inverse limits, which
+    are beyond the scope of the prerequisites, and the second item is
+    obvious given the material that was previously covered, but also
+    ultimately depends on inverse limits.
+    <theorem xml:id="thm_ends_robust">
+      <statement>
+	Let <m>X</m> be connected locally finite graph. Then
+	<ul>
+	<li> the set <m>\mathrm{Ends}(X)</m> does not depend on the
+	choice of compact exhaustion, and</li>
+	<li>
+	  if <m>f:X\to Y</m> is a quasi-isometry, then there is a
+	  natural induced bijection
+	  <me>
+	    \hat f: \mathrm{Ends}(X) \to \mathrm{Ends}(Y).
+	  </me>
+	</li>
+	</ul>
+      </statement>
+      <proof><title>sketch</title>
+      <p>We first sketch the proof of the first point. Let <m>A_1
+      \subset A_2 \subset \cdots </m> and <m>B_1 \subset B_2 \subset
+      \cdots</m> be two different compact exhaustions of <m>X</m> and
+      denote by <m>\mathcal A^i</m> and <m>\mathcal B^j</m> the sets of
+      infinite components of <m>X\setminus A_i</m> and <m>X \setminus
+      B_i</m> we want to show an identification between the inverse
+      limits <me> \lim_{\leftarrow} \mathcal A^n, \lim_{\leftarrow}
+      \mathcal B^n </me> but the difficulty is that we may not have a
+      well defined map <m>\mathcal A^n \to \mathcal B^m</m> where we
+      want to send <m>Z \in \mathcal A^n</m> to the unique component
+      <m> W \in \mathcal B^m</m> such that <m>Z \subset W</m> even if
+      <m>n>m</m>.</p>
+      <p>
+	The issue is resolved by observing that for some sufficiently
+	large <m>N(m)</m> such maps <m>\mathcal A^k \to \mathcal
+	B^m</m> will exist provided <m>k> N(m)</m> and then applying
+	the abstract nonsense of inverse limits which enables us to
+	consider the inverse limits of the union <m>\{\mathcal
+	A^n\}\cup\{\mathcal B^n\}</m> equipped with a compatible
+	system of surjective functions.
+      </p>
+      <p>
+	We now sketch a proof of the second point. If <m>K \subset
+	X</m> is a finite essential disconnecting set, then it's quasi
+	isometric image <m>f(K)\subset Y</m> can be enlarged (by a
+	uniformly bounded amount) to a finite essential disconnecting
+	set. Furthermore the quasi isometric image of a compact <m>A_1
+	\subset A_2 \subset \cdots </m> exhaustion of <m>X</m> gives
+	rise (perhaps after bounded enlargement) to a compact
+	exhaustion <m>\widehat{f(A_1)} \subset \widehat{f(A_2)}
+	\subset \cdots </m>of <m>Y</m>. Again, the image
+	<m>f(K^i_j)\subset Y</m> of an infinite component of <m>K^i_j
+	\subset X\setminus A_i</m> may not quite lie in a component of
+	the counterpart <m> Y \setminus \widehat{f(A_i)}</m>, but if
+	<m>n  \gt\gt m</m> then we will have <m>f(K^n_j)\subset
+	Y\setminus \widehat{f(A_m)}</m>. The bijection then follows
+	from the universal property of inverse limits. !
+      </p>
+      </proof>
+    </theorem>
+    Here's an even more informal explanation:<ul>
+    <li>given different compact exhaustions of a space, we can always
+    find a way to eventually match things up so that we have the same
+    ends, and</li>
+    <li>Quasi isometries sent compact exhaustions to compact
+    exhaustions and finite essential disconnecting sets to finite
+    essential disconnecting sets, and everything works out great.</li>
+  </ul>
+  The main point of all this is that we get a quasi-isometric
+  invariant of groups.
+  <corollary xml:id="cor_ends_qi">
+    <statement>
+      Any finitely generated group <m>G</m> has a well defined (up to
+      bijection) set of ends <m>\mathrm{Ends}(G)</m>.
+    </statement>
+  </corollary>
+  </p>
+</subsection>
+<subsection>
+  <title>The quasi-isometric rigidity of <m>\ZZ</m></title>
+  <p> We have now developed just enough machinery to show that
+  <m>\ZZ</m> is quasi isometrically rigid, what we will prove is
+  precisely the following:
+  <theorem xml:id="thm_two_ended">
+    <statement>
+      <p>
+	If <m>G</m> has two ends then it contains a subgroup of finite
+	index isomorphic to <m>\ZZ</m>.
+      </p>
+    </statement>
+  </theorem>  
+  </p>
+  <p>
+    Here's the first step in the proof. Note that in this proof, quasi
+    isometry is not used, but rather action by isometries.
+    <lemma xml:id="lem_2_ended_Z2">
+      <statement>
+	<p>
+	  Let <m>G</m> be two ended and let <m>X = \cay A G</m> be
+	  some Cayley graph of <m>G.</m> Then <m>G</m> permutes the
+	  set <m>\mathrm{Ends}(G) = \{\pm \infty\}</m> and <m>H\leq
+	  G</m>, the kernel of this permutation representation is a
+	  subgroup of index at most 2.
+	</p>
+	<p>
+	  Furthermore, if <m>C\subset X</m> is a finite essential
+	  disconnecting such that <m>E^+,E^- \subset X\setminus C</m>
+	  are the two infinite components then there is no <m>h \in
+	  H</m> such that <m>h \cdot E^+ \subset E^-</m>.
+	</p>
+      </statement>
+      <proof>
+	<p>
+	  Since <m>G</m> acts on <m>X</m> by isometries, then in
+	  particular it acts on <m>X</m> by quasi isometries, and
+	  every compact exhaustion is sent to another compact
+	  exhaustion. By <xref ref="thm_ends_robust"/>, this implies
+	  that <m>G</m> acts on <m>\mathrm{Ends}(G)</m>. Now if <m>G
+	  \onto F</m> is a homomorphism to a finite group then the
+	  kernel has index <m>|F|</m>, an the first point follows from
+	  the action of <m>G</m> on the two element set <m>\{\pm
+	  \infty\}</m>.</p>
+	<p>
+	  Suppose now that we passed to <m>H</m> (note that we allow
+	  <m>H=G</m>) and let <me> \cdots \subset K^2_1 \subset K^1_1
+	  \subset L \supset K^1_2 \supset K^2_2 \supset \cdots </me>
+	  be some nested sequence of components of complements of sets
+	  in a compact exhaustion starting with <m>C</m>. Without loss
+	  of generality (reversing <m>E^+</m> and <m>E^-</m> if
+	  necessary) we may assume that <m>K^n_1 \subset E^-</m> and
+	  <m>K^n_2 \subset E^+</m>, for all <m>n</m>. Then in
+	  particular the point <m>\infty</m> corresponds to the chain
+	  of inclusions <m> L \supset K^1_2 \supset K^2_2 \supset
+	  \cdots</m>. Now if for some <m>h \in H</m> we have <m>h
+	  \cdot E^+ \subset E^-</m> then this means that the
+	  translated chain <me> <m> L \supset h\cdot K^1_2 \supset h
+	  \cdot K^2_2 \supset \cdots</m> is contained in <m>E^-</m>
+	  and its terms converge to <m>-\infty</m> so we get <m>h
+	  \cdot \infty = -\infty</m> contradicting our assumption that
+	  <m>H \leq G</m> didn't permute the ends of <m>G</m>.
+	  </me>
+	</p>
+      </proof>
+    </lemma>
+  </p>
+</subsection>
+  <exercises>
+    <exercise>
+      <statement>
+	<p>
+	  Draw the complements of the first three balls in <m>T_4</m>
+	  as described in <xref ref="eg_z_and_F_ends"/>.
+	</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+	<p> Prove <xref ref="thm_two_ended"/></p>
+	<p> Hint: Follow these steps.<ol>
+	<li>
+	  Start with <m>G</m> and take <m>X = \cay A G</m> for some
+	  finite generating set.
+	</li>
+	<li>
+	  Take <m>H\leq G</m> as in <xref ref="lem_2_ended_Z2"/>.
+	</li>
+	<li>
+	  Let <m>C \subset X</m> be a finite essential cutset and
+	  prove that there exists some <m>h \in H</m> such that <m>h
+	  \cdot C \cap C = \emptyset</m>.
+	</li>
+	<li>
+	  Using the fact that every translate <m>h^n \cdot C, n \in \ZZ
+	  </m> cuts <m>X</m> into two components argue that all
+	  translates <m>h^n \cdot C</m> are pairwise disjoint. Use the
+	  fact that <m>h</m> is an isometry and that <m>h</m> isn't
+	  allowed to ("essentially") interchange components of
+	  <m>X\setminus C</m>.
+	</li>
+	<li>
+	  Argue that <m>\gen h</m> is finite index in <m>G</m> by
+	  showing that the action of <m>\gen h</m> on <m>X</m> is
+	  co-compact. This can be done by showing that every component
+	  of <me> X \setminus\left(\bigcup_{n\in \ZZ} h^n\cdot
+	  C\right) </me> is finite, so that every <m>g \in G</m> can
+	  be joined to an element of <m>\gen h</m> by a finite
+	  path. Show that if this is not the case, then it is possible
+	  to find an essential finite disconnecting set whose
+	  complement has at least 3 infinite components, contradicting
+	  2-endedness.
+	</li>
+      </ol>
+      </p>
+      </statement>
+    </exercise>
+  </exercises>
+</section>
 </chapter>
 
   <!-- UP TO HERE -->
