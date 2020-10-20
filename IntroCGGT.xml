@@ -2504,8 +2504,8 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  <p> Look at the proof of <xref
 	  ref="prop_z2_not_qi_z"/>. Informally explain whether or not
 	  the argument could be generalized to distinguish
-	  <m>\ZZ^n</m> and <m>\ZZ^m</m> for general <m>m,n \in
-	  \ZZ_{\geq 0}</m>
+	  <m>\ZZ^n</m> and <m>\ZZ^m</m> for general distinct <m>m,n
+	  \in \ZZ_{\geq 0}</m>
 	  </p>
 	</statement>
       </exercise>
