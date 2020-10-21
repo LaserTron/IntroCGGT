@@ -2453,13 +2453,101 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	</p>
       </statement>
       </corollary>
+    </p>
+
+    <p>
+      The result above seems trivial for the following reason. If
+      <m>(X,d)</m> is a metric space and have a subset <m>S \subset
+      X</m> and we equip <m>S</m> with the subspace metric
+      <m>d|_S</m>, then <m>S</m> is isometrically embedded into
+      <m>X</m> with respect to this metric. In particualr if <m>S</m>
+      is coarsely dense in <m>X</m>, as is the case with a finite
+      index subgroup, then <m>(S,d|_S)</m> will be quasi isometric to
+      <m>(X,d_X)</m>. Let us call this the <term>extrinsic</term>
+      metric on <m>S</m> from the embedding <m>S\subset
+      X</m>. <em>Above corollary is stronger than that.</em> In
+      particular any finite index subgroup of <m>H</m> is finitely
+      generated so a finite generating set <m>\gen A = H</m> endows
+      <m>H</m> with an <term>intrinsic</term> quasi isometry class.
+    </p>
+    <p>
+      The above corollary states that if <m>H\leq G</m> is a finite
+      index subgroup of of a finitely generated group. Then <m>H</m>
+      and <m>G</m> are quasi isometric with respect to their
+      respective <em>intrinsic</em> quasi isometry classes.
+    </p>
+    <p>
+      Now it may happen that we have an injective homomorphism <m>H
+      \into G</m> where both <m>H</m> and <m>G</m> are finitely
+      generated but given aword metric <m>d</m> on <m>G</m> the
+      induced extrinsic metric <m>d|_H</m> induced on <m>H</m> is not
+      quasi isometric to any (intrinsic) word metric on <m>H</m>. In
+      this case we say <m>H</m> is a <term>distorted subgroup.</term>
+      We illustrate this with an example
+    </p>
+    <example xml:id="eg_BS12_1">
+      <title><m>BS(1,2)</m> the simplest weird group</title>
+      <p>
+      <m>BS(1,2)</m>, the Baumslag-Solitar group is a weird group. It
+      has the following presentation:
+      <me>
+	BS(1,2) = \pres{a,t}{tat^{-1}a^{-2}}.
+      </me>
+      Notice that the single relation gives the following commutation
+      relation:
+      <me>
+	ta = a^2t
+      </me>
+      which means that every element can be expressed as a word of the
+      form:
+      <me>
+	a^nt^m; n,m \in \ZZ.
+      </me>
+      So far that doesn't seem weird, but its Caley graph looks like
+      this:
+    </p>
+      <p>
+	<image width="50%" xml:id="img_BS12-cay" source="images/BS12-cay.png"/> .
+      </p>
+      <p>
+	Consider the homomorphism <m>\phi:\ZZ \into BS(1,2)</m> given
+	by <m>\psi(n) = a^n</m>. In the next chapter we will see that
+	<m>\phi</m> is injective. For now we can see this as <m>\gen a
+      \leq BS(1,2)</m> as being a copy of <m>\ZZ</m> sitting in
+      <m>BS(1,2)</m>.
+      </p>
+      <p>
+	We can now compare the standard metric <m>d_\ZZ</m> on
+	<m>\ZZ</m> to the extrinsic metric <m>d|_{\gen a}</m> induced
+	by its inclusion into <m>BS(1,2)</m>.
+      </p>
+      <p>
+	On the one hand we have <m>d_\ZZ(1,a^n) = |n|</m>, which is
+	straightforward. Now the relation lets us rewrite, for
+	example,
+	<me>
+	  a^2 = tat^{-1} \Rightarrow a^{2^3} = aaaaaaaa =
+	  tttat^{-1}t^{-1}t^{-1}.
+	</me>
+	More generally we have <m>a^{2^n} = t^nat^{-n}</m>, so on the
+	other hand we have two different metrics:
+	<me>
+	  d_\ZZ(1,a^{2^n}) = 2^n, d|_{\gen a}(1,a^{2^n})=2n+1.
+	</me>
+	In other words this embedding <m>\phi:\ZZ \into BS(1,2)</m>
+	exponentially distorts the intrinsic metric on <m>\ZZ</m>. In
+	particular this embedding is not a quasi isometric embedding,
+	as the latter only allows linear distortion.
+      </p>
+    </example>
+    <p>
       We will say that groups <m>G</m> and <m>H</m> are
       <term>abstractly commensurable</term> if they have finite index
       subgroups <m>K\leq G</m> and <m>K'\leq H</m> which are
       isomorphic, i.e <m>K \approx K'</m>. <xref ref="cor_fg_qi"/>
       tells us that <em>commensurable groups are quasi-isometric</em>
       therefore we have the limitation that <em>quasi isometry</em>
-      cannot distinguish between groups in a commensurability class.      
+      cannot distinguish between groups in a commensurability class.
     </p>
     
     <exercises>
@@ -3194,6 +3282,159 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
     </exercise>
   </exercises>
 </section>
+<section>
+  <title>Appendix: Some final facts about quasi-isometry</title>
+  <introduction>
+  <p>
+    Although we will now move on to other topics, there are a few
+    facts the author cannot continue to ignore.
+  </p>
+  </introduction>
+  <subsection>
+    <title> Counting ends, easy as <m>0, 1, 2, 2^{\aleph_0}</m>
+    </title>
+    <p> Although it's easy to come up with graphs that hany number of
+    ends, take for example an infinite tripod, for groups the
+    situation is more restrictive. Suppose that <m>G</m> has more than
+    two ends, then for some Cayley graph <m>X = \cay A G</m> there is
+    some finite ball <m>B = B(1,r_0)</m> about the identity such that
+    <m>X \setminus B</m> has at least three infinite components:
+    <figure xml:id="fig_ess_disco">
+      <caption>A finite essential disconnecting ball in a Cayley
+      graph</caption>
+      <!--image width="75%" xml:id="D6_gens"
+           source="images/Cay_D6.png"/-->
+    </figure>
+    </p>
+    <p>
+    Because a finitely generated group alway acts freely (and
+    therefore properly) on its own Cayley graphs we find that we can
+    always find elments that will "push" <m>B</m> off itself and we
+    have the following tree-like structure:
+        <figure xml:id="fig_ess_disco_trans">
+      <caption>Disjoint translates of an essential disconecting
+      ball.</caption>
+      <!--image width="75%" xml:id="D6_gens"
+           source="images/Cay_D6.png"/-->
+    </figure>
+    </p>
+    <p>
+      Given this picture, it is immediate that as we take compact
+      exhaustions of <m>X</m> the number of infinite components goes
+      to infinity, therefore if <m>|\mathrm{Ends}(G)|>2</m>, then
+      <m>|\mathrm{Ends}(G)|=\infty,</m> and it is easy to see that
+      this infinite cardinality must be continuum or
+      <m>2^{\aleph_0}.</m>
+    </p>
+  </subsection>
+
+  <subsection>
+    <title>The topology of <m>\mathrm{Ends}(G)</m></title>
+    <p>
+    As we saw, ends correspond to an infinite chains <m> K_1\supset
+    K_2 \supset \cdots</m> of infinite components. Since these are
+    complements of <em>exhaustions</em> we must have for a given end
+    <me>
+      \bigcap_{i=1}^\infty K_i = \emptyset.
+    </me>
+    The inverse limit construction, is what lets us get "something
+    from nothing". Nonetheless, given some compact essential
+    disconnecting set <m>C \subset X</m> it makes sense to think of an
+    end as lying in some component of <m>X\setminus C</m>, formally we
+    can think of some decreasing sequence of infinte components
+    eventually lying in some component of <m>X \setminus C</m>. This
+    lets us put a topology on <m>\mathrm{Ends}(X)</m>, for some
+    graph. Let <m>C \subset X</m> be a compact set and let <m>K
+    \subset X\setminus C</m> be an infinite component. Then we have an
+    open set <m>U_C \subset \mathrm{Ends}(X)</m> consisting of all
+    ends that "lie" in <m>C</m>. The topology can be informally, yet
+    accurately, described as follows: two ends are "close" only if
+    they are separated by a "large" ball about the identity.  </p> <p>
+    Here are interesting facts:
+    <ul>
+      <li>
+	A quasi isometry <m>f: X\to Y</m> induces not only a
+	bijection, but in fact, homeomorphism <m>\hat
+	f:\mathrm{Ends}(X) \to \mathrm{Ends}(Y)</m>
+    </li>
+    <li>
+      In the case where <m>X = \cay A G</m>, then the topology on
+      <m>\mathrm{Ends}(X)</m> is that of a Cantor set.
+    </li>
+    <li>
+      When <m>X</m> is an infinite tree <m>X \cup \mathrm{Ends}(X)</m>
+      can be topologized as a compactification of <m>X</m>, which is
+      natural in the context of metric spaces. An example we say is
+      compactifying <m>\RR</m> with the points <m>\pm \infty</m>.
+    </li>
+    <li>
+      Certain groups admit refinements of ends which are also quasi
+      isometric invariants, known as boundaries, which enable many
+      stronger quasi isometric rigidity results.
+    </li>
+    </ul>
+    </p>
+  </subsection>
+  <subsection>
+    <title>Gromov's polynomial growth theorem</title>
+    <p>Let us denote the commutator <m>[x,y] = x^{-1}y^{-1}x,y</m>,
+    and the <m>n</m>-fold commutator <me>[x_1,x_2,\cdots,x_m] =
+    [x_1,[x_2,\cdots,x_n]]</me>. A group <m>N</m> is said to be
+    nilpotent of class <m>c</m> if every <m>(c+1)</m>-fold commutator
+    is trivial. For example ableian groups are precisely nilpotent of
+    class 1.
+    </p>
+    <p>
+      The reader may have seen the class of solvable groups before and
+      it would be natural to think that solvable and nilpotent are the
+      same thing, but they're not. Nilpotent implies solvable, but not
+      the other way around.
+    </p>
+    <p>
+      Previously we saw that for the abelian groups <m>\ZZ^n</m>, the
+      amount group elements contained in a ball <m>B(1,r)</m> with
+      respect to some word metric grew like a polynomial. Since quasi
+      isometries distort distances linearly and that the composition
+      <m>f\circ l</m> of a degree <m>d</m> polynomial <m>f</m> and a
+      linear function <m>\ell</m> is still adegree <m>d</m>
+      polynomial, it can be shown that the <em>degree</em> of
+      polynomial growth of balls is a quasi isometric invariant of
+      groups. This phenomenon is called <term>polynomial
+      growth.</term>
+    </p>
+    <p>
+      Not all groups have polynomial growth, for example, the number
+      of elements a ball of radius <m>r</m> in <m>F(a,b)</m> grow
+      <em>exponentially.</em> 
+    </p>
+    <p>
+      So far we have focussed on quasi isometry as applied to a single
+      group, and asked to which extent does a quasi isometry class
+      determine the algebraic properties of the group. There are many
+      other results about classes of groups such as the following.
+    </p>
+    <theorem xml:id="thm_gromov_poly_growth">
+      <statement>
+	<p>If <m>G</m> has polynomial growth, then <m>G</m> contains a
+	finite index subgroup <m>H \leq G</m> which is nilpotent of
+	some class <m>c \in \ZZ_{\geq 0}</m>.</p>
+	<p>Equivalently, if <m>G</m> has polynomial growth, the
+	<m>G</m> is virtually nilpotent.
+	</p>
+      </statement>
+    </theorem>
+    <p>
+      We first note that due to the fundamental limitations of quasi
+      isometry, it is impossible to make such a statement without the
+      "virtually" qualification. Secondly, we note that this is a very
+      strong algebraic conlusion based solely geometry. Finally, the
+      way this is proved uses very cool machinery that is unlike
+      anything that will be covered in this course.
+    </p>
+  </subsection>
+  
+</section>
+
 </chapter>
 
   <!-- UP TO HERE -->
