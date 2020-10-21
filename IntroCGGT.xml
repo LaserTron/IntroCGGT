@@ -3300,10 +3300,10 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
     some finite ball <m>B = B(1,r_0)</m> about the identity such that
     <m>X \setminus B</m> has at least three infinite components:
     <figure xml:id="fig_ess_disco">
-      <caption>A finite essential disconnecting ball in a Cayley
-      graph</caption>
-      <!--image width="75%" xml:id="D6_gens"
-           source="images/Cay_D6.png"/-->
+      <caption>A finite essential disconnecting ball in a Cayley graph
+      with more than two infinite complementary components</caption>
+      <image width="75%" xml:id="ess_disco"
+           source="images/ess_disco.png"/>
     </figure>
     </p>
     <p>
@@ -3314,14 +3314,16 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
         <figure xml:id="fig_ess_disco_trans">
       <caption>Disjoint translates of an essential disconecting
       ball.</caption>
-      <!--image width="75%" xml:id="D6_gens"
-           source="images/Cay_D6.png"/-->
-    </figure>
+      <image width="75%" xml:id="ess_disco_trans"
+           source="images/ess_disco_trans.png"/>
+	</figure>
+	
     </p>
     <p>
       Given this picture, it is immediate that as we take compact
-      exhaustions of <m>X</m> the number of infinite components goes
-      to infinity, therefore if <m>|\mathrm{Ends}(G)|>2</m>, then
+      exhaustions of <m>X</m> the number of infinite components of
+      complements goes to infinity, therefore if
+      <m>|\mathrm{Ends}(G)|>2</m>, then
       <m>|\mathrm{Ends}(G)|=\infty,</m> and it is easy to see that
       this infinite cardinality must be continuum or
       <m>2^{\aleph_0}.</m>
