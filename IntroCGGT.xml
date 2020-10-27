@@ -2797,7 +2797,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	Let <m>q:[0,L] \to X</m> be a <m>(K,C)</m>-quasi geodesic, where <m>L \in
 	\ZZ_{>0}</m>, and consider a path <m>q_p:[0,L]\to X</m>
 	satisfying the following:<ul>
-	<li>For <m>i \in [0,L] \cap \ZZ</m> <m>q_p(i)=q_i</m></li>
+	<li>For <m>i \in [0,L] \cap \ZZ</m> <m>q_p(i)=q(i)</m></li>
 	<li>On the open intervals <m>(i,i+1)</m>,
 	<m>i=0,\ldots,L-1</m> the restriction <m>q_p|_{(i,i+1)}</m> is
 	a geodesic joining <m>q_p(i)</m> and <m>q_p(i+1),</m>
@@ -3219,6 +3219,37 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	</p>
       </proof>
     </lemma>
+
+    We also have the following useful fact.
+    <lemma xml:id="lem_only_infinte">
+      <statement>
+	<p>
+	  Suppose that <m>X</m> admits an essential finite
+	  disconnecting set <m>K</m>, then <m>X</m> also admits an
+	  essential finite disconecting set <m>K&apos;\supset K</m>
+	  such that all the components of <m>X \setminus K&apos;</m>
+	  are infinite.
+	</p>
+      </statement>
+      <proof><title>sketch</title>
+	<p>
+	  Let <m>F_1,\ldots, F_m</m> be the the finite components of
+	  <m>X \setminus K</m> and let <m>I_1,\ldots,I_n</m> be the
+	  infinite components of <m>X \setminus K</m>. Then every
+	  component <m>F_i</m> touches <m>K</m> (actually, to be
+	  accurate the closure of each component intersects <m>K</m>
+	  in a non-empty set.) Take the set
+	  <me>
+	    K&apos;  = K \cup F_1 \cup \cdots \sup F_m.
+	  </me>
+	  It is an exercise in point-set topology to see that
+	  <m>K&apos;</m> is also compact. Graph theoretically, finiteness
+	  of <m>K&apos;</m> s obvious. Either the complement <m>X\setminus
+	  K&apos;</m>  consists of a finite union of infintie components.
+	</p>
+      </proof>
+    </lemma>
+
   </p>
 </subsection>
   <exercises>
@@ -3247,24 +3278,34 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  \cdot C \cap C = \emptyset</m>.
 	</li>
 	<li>
-	  Using the fact that every translate <m>h^n \cdot C, n \in \ZZ
-	  </m> cuts <m>X</m> into two components argue that all
-	  translates <m>h^n \cdot C</m> are pairwise disjoint. Use the
-	  fact that <m>h</m> is an isometry and that <m>h</m> isn&apos;t
-	  allowed to ("essentially") interchange components of
-	  <m>X\setminus C</m>.
+	  By Lemma <xref ref="lem_only_infinte"/> we can assume that
+	  <m>X \setminus C</m> consists of precisely two
+	  <em>infinite</em> components.
+	</li>
+	<li>
+	  If <m>K_1,K_2</m> are the infinite components of <m>X
+	  \setminus C</m>, argue that <m>g\cdot C</m> must lie in one
+	  of these components an by the assumption that <m>g</m>
+	  doesn't permute ends that (w.l.og. )<m>g\cdot K_1 \subset
+	  K_1</m>. 
+	</li>
+	<li>
+	  Iterate this nesting, i.e <m>K_1 \supset g\cdot K_1 \supset
+	  g^2\cdot K_1 \supset \cdots</m>, to argue that <m>g</m> has
+	  infinite order so that <m>\gen g \approx \ZZ.</m>
 	</li>
 	<li>
 	  Argue that <m>\gen h</m> is finite index in <m>G</m> by
 	  showing that the action of <m>\gen h</m> on <m>X</m> is
 	  co-compact. This can be done by showing that every component
 	  of <me> X \setminus\left(\bigcup_{n\in \ZZ} h^n\cdot
-	  C\right) </me> is finite, so that every <m>g \in G</m> can
-	  be joined to an element of <m>\gen h</m> by a finite
+	  C\right) = Y </me> is finite, so that every <m>g \in G</m>
+	  can be joined to an element of <m>\gen h</m> by a finite
 	  path. Show that if this is not the case, then it is possible
 	  to find an essential finite disconnecting set whose
-	  complement has at least 3 infinite components, contradicting
-	  2-endedness.
+	  complement has at least 3 infinite components (one of these
+	  components must lie in a connected component of <m>Y</m> ),
+	  contradicting 2-endedness.
 	</li>
       </ol>
       </p>
@@ -3480,7 +3521,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       F(X)</m> we have:<me>
       H=K \Leftrightarrow \Stal H=\Stal K.
     </me>
-    In particalar, we will also be able to solve the subgroup equality
+    In particular, we will also be able to solve the subgroup equality
     problem.
     </p>
     </introduction>
@@ -3506,7 +3547,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  <li>For each <m>h_i \in S</m> make a directed labelled
 	  segment whose label is <m>h_i</m></li>
 	  <li>Take a distinguished vertex <m>v_0</m> and attach the
-	  endppoints of the segments to this vertex.</li>
+	  endpoints of the segments to this vertex.</li>
 	</ol>
 	An example is shown in <xref ref="fig_bouquet1"/> below.
 	<figure xml:id="fig_bouquet1">
@@ -3599,14 +3640,14 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       <image width="100%" xml:id="sfp" source="images/sfp.png"/>
       </figure>
       <p>We have three fundamental lemmas: </p>
-      <lemma>
+      <lemma xml:id="lem_folded_reduced">
 	<statement>
 	 <p> <m>\Gamma</m> is folded if and only if the label 
 	  <m>\lab(\gamma)</m> of any reduced path is a reduced
 	  word.</p>
 	</statement>
       </lemma>
-      <lemma>
+      <lemma xml:id="lem_folding_preservation">
 	<statement>
 	  <p>
 	    If <m>\Gamma \stackrel{f}{\to} \Gamma&apos;</m> is a
@@ -3621,32 +3662,223 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  </p>
 	</statement>
       </lemma>
-      <lemma>
+      <theorem xml:id="thm_folded_language">
 	<statement>
 	  <p>
-	    If <m>\Gamma</m> is folded and obtained from an initial
-	    bouquet <m>\mathcal B_S</m>, viewing <m>F(X)</m> as a set
-	    of reduced words we have <me> \gen{\lang{\Gamma}{v_0}}
-	    =_{F(X)} \gen{S}, </me>i.e. the labels of paths of
-	    closed loops correspond precisely to the reduced words
+	    If <m>\Gamma</m> is folded and obtained via the
+	    Stallings's folding process from an initial bouquet
+	    <m>\mathcal B_S</m>, viewing <m>F(X)</m> as a set of
+	    reduced words we have <me> \gen{\lang{\Gamma}{v_0}}
+	    =_{F(X)} \gen{S}, </me>i.e. the labels of paths of closed
+	    loops correspond precisely to the reduced words
 	    representing elements of the subgroup <m>\gen S</m>
 	  </p>
 	</statement>
-      </lemma>
+      </theorem>
+      <exercises>
+	<exercise>
+	  <statement>
+	    <p>
+	      Pick at least 4 reduced words in <m>F(a,b)</m> of
+	      average length at least 4, and perform a Stallings's
+	      folding process.
+	    </p>
+	  </statement>
+	</exercise>
+	<exercise>
+	  <statement>
+	    <p>
+	      Prove <xref ref="lem_folded_reduced"/>
+	    </p>
+	    <p>
+	      Hint: Suppose  <m>\Gamma</m> is not folded, then come up
+	      with a reduced path with unreduced label.
+	    </p>
+	  </statement>
+	</exercise>
+	<exercise>
+	  <statement>
+	    <p>
+	      Prove <xref ref="lem_folding_preservation"/>
+	    </p>
+	    <p>
+	      Hint: First note that any non-reduced path <m>\gamma</m>
+	      in <m>\Gamma</m> has a non-reduced label, and that by
+	      removing the "pinch" in <m>\gamma</m> to obtain a
+	      shorter path <m>\gamma&apos;</m> and we preserve:
+	      <me>
+		\lab(\gamma) =_{F(X)} \lab(\gamma').
+	      </me>
+	      Take a reduced loop <m>\ell</m> in <m>\Gamma</m>
+	      starting at <m>v_0</m> and look at its image via the
+	      folding morphism. It's image may no longer be reduced,
+	      examine the effect of removing pinches.
+	    </p>
+	  </statement>
+	</exercise>
+	<exercise>
+	  <statement>
+	    <p>
+	      Apply <xref ref="lem_folded_reduced"/> and <xref
+	      ref="lem_folding_preservation"/> to prove <xref
+	      ref="thm_folded_language"/>.
+	    </p>
+	  </statement>
+	</exercise>
+      </exercises>
+    </subsection>
+    <subsection>
+      <title>The canonicity of folded graphs.</title>
+      <p>
+	Previously, we presented an algorithm which takes the
+	generating set <m>S</m> of some subgroup <m>\gen S \leq
+	F(X)</m> and constructs an <m>X</m>-digraph <m>\Gamma</m>
+	which recognizes the reduced words in <m>S</m>. The following
+	question remains: <em> it the <m>X</m>-digraph <m>\Gamma</m>
+	canonically associated to the subgroup <m>\gen S</m>, or does
+	it depend on the choice of generating set or the order of the
+	folding?
+	</em>
+      </p>
+      <p>
+	We first note the the litterature in computer science on
+	deterministic finite automata, which covers how labeled
+	digraphs produce sets of words, doesn't give a simple answer
+	to this question. There is a natural proof that the answer is
+	"yes" by noting that this folded graph is the
+	<term>core</term> of a covering space associated to <m>\gen S
+	\leq F(X)</m>, where
+
+	<m>F(x) = \pi_1(\textrm{some graph})</m>.
+
+	
+	Here however, we will opt for direct proof, which secretly
+	contains all the elements of a covering space argument.
+      </p>
+      <theorem xml:id="thm_folded_canonical">
+	<statement>
+	  <p>
+	    Let <m>S,S' \subset F(X)</m> be generating sets of the
+	    subgroup <m>H = \gen S = \gen S' \leq F(X)</m> and let
+	    <m>\Gamma,\Gamma'</m> be the respective results of
+	    applying a Stallings's folding process to the bouquets
+	    <m>\mathcal B_{S},\mathcal B_{S'}</m>, respectively. Then
+	    there is a unique isomorphsm (i.e. an invertible morphism)
+	    <me>
+	      \Gamma' \stackrel\sim\to \Gamma.
+	    </me>
+	  </p>
+	  <p>
+	    In particular the end result does not depend on the order
+	    of foldings.
+	  </p>
+	</statement>
+	<proof>
+	  <p>
+	    We will construct a morphism <m>f:\Gamma \to \Gamma'</m>
+	    which we shall see is invertible. We already know that
+	    <m>\lang \Gamma {v_0} = \lang \Gamma'{u_0} = H\subset
+	    F(X)</m> some vertices <m>v_0,u_0</m> in the respective
+	    graphs, so we start by setting <m>f(v_0) = u_0</m>.
+	  </p>
+	  <p>
+	    Because <m>\Gamma,\Gamma'</m> are folded, any reduced word
+	    <m>w</m> gives rise to at most one path
+	    <m>\gamma,\gamma'</m>(or zero if no such path exists) in
+	    <m>\Gamma,\Gamma'</m> respectively starting at
+	    <m>v_0,u_0</m> respectively such that <me> \lab(\gamma) =
+	    \lab(\gamma')=w.
+	    </me>
+	  </p>
+	  <p>
+	    We define <m>f:V(\Gamma) \to V(\Gamma')</m> as
+	    follows:
+	    <ul>
+	      <li><m>f(v_0)=u_0</m></li>
+	      <li>If <m>v \in V(\Gamma)</m>, then pick a reduced path
+	      <m>\alpha</m> starting at <m>v_0</m> and ending at
+	      <m>v</m>, and set <m>f(v)=u</m> where <m>u \in
+	      V(\Gamma')</m> is the enpoint of the path <m>\alpha'</m>
+	      starting at <m>u_0</m> with
+	      <me>
+		\lab(\alpha) = \lab(\alpha').
+	      </me></li>
+	    </ul>
+	    We note <m>\lab(\alpha)</m> is the prefix of some reduced
+	    word in <m>H</m>, therefore such a path <m>\alpha'</m> in
+	    <m>\Gamma'</m> must exist.
+	  </p>
+	  <p>
+	    We must now show that <m>f(v)</m> is well-defined. The
+	    only source of ambiguity is the choice of path joining
+	    <m>v_0</m> to <m>v</m>. Suppose towards a contradiction
+	    that there was a failure of well-definedness, i.e that
+	    there were reduced two paths <m>\alpha,\beta</m> in
+	    <m>\Gamma</m> joining <m>v_0,v</m> but whose counterparts
+	    <m>\alpha',\beta'</m> had different endpoints. See <xref
+	    ref="fig_diff_endpts"/>.
+
+	    <figure xml:id="fig_diff_endpts">
+	      <caption>When <m>f:\Gamma \to \Gamma'</m> is
+	      undefined. </caption>
+	      <image width="100%" xml:id="diff_endpts" source="images/diff_endpts.png"/>
+	    </figure>
+	  </p>
+	  <p>
+	    On the one hand, by minimality,
+	    <m>w=\lab(\alpha)*\lab(\beta)^{-1}</m> is reduced as
+	    written (see <xref ref="fig_minimal_failure"/> and note
+	    that if <m>\alpha_1',\beta_1'</m> have the same endpoint
+	    if and only if <m>\alpha',\beta'</m> have the same
+	    endpoints) and since it is the label of a reduced loop in
+	    <m>\Gamma</m> based at <m>v_0</m>, it must be a reduced
+	    word repreenting an element of <m>H</m> by <xref
+	    ref="thm_folded_language"/>. On the other hand since
+	    <m>\alpha'</m> and <m>\beta'</m> have different endpoints,
+	    we have that <m>\lab(\alpha)*\lab(\beta)^{-1} =w \not \in
+	    \lang{\Gamma'}{u_0} =H</m> which is a contradiction. It
+	    follows that <m>f</m> is well-defined on the vertex set.
+	  </p>
+	  
+	    <figure xml:id="fig_minimal_failure">
+	      <caption>If <m>\lab(\alpha_1)*\lab(\beta_1)^{-1}</m> is not
+	      reduced then we can find shorter paths that
+	      fail.</caption>
+	      <image width="100%" xml:id="minimal_failure" source="images/minimal_failure.png"/>
+	    </figure>
+	  
+	  <p>
+	    We can now extend the domain of <m>f</m> do include edges,
+	    since (by foldedness) every vertex sees at most one edge
+	    with a given label and incidence <m>f</m> extends
+	    naturally to <m>f:\Gamma \to \Gamma'</m>.
+	  </p>
+	  <p>
+	    By symmetry there also exists a morphism <m>g:\Gamma' \to
+	    \Gamma</m> and it is immediate from the definition that
+	    <m>g\circ f = Id_\Gamma</m>, therefore <m>f</m> is an
+	    <m>X</m>-digraph isomorphism.
+	  </p>	    
+	</proof>
+      </theorem>
+
+      <corollary>
+	<statement>
+	  <p>
+	    There is an algorithm to decide whether two finite sets of
+	    elements of <m>F(X)</m> generate the same subgroup.
+	  </p>
+	</statement>
+      </corollary>
       
     </subsection>
-    <!-- Plan -->
-    <!-- Definitions -->
-    <!-- Subgroups and the initial graph -->
-    <!-- Foldings and preservation of subgroups -->
-    <!-- Rduced paths and reduced labels -->
-    <!-- Does the language determine the graph? -->
-    <!-- Canonicity -->
+    
+    
+</section>
+      
     <!-- Freeness -->
     <!-- Abelian subgroups of free groups. -->
-    
-    
-  </section>
+
 </chapter>
 
   <!-- UP TO HERE -->
