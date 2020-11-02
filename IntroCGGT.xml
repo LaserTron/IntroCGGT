@@ -3872,9 +3872,113 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       </corollary>
       
     </subsection>
-    
-    
-</section>
+  </section>
+
+  <section>
+    <title>Lecture 13: Diagram methods for free groups II</title>
+    <introduction>
+      <p>
+	In the previous lecture we presented a method to solve the
+	<em>subgroup membership problem</em> and the <em>equality
+	problem</em> for subgroup of free groups defined by finite
+	generating sets.
+      </p>
+      <p>
+	In this lecture we will go a step further and use these folded
+	graphs in order to obtain <em>algebraic</em> results about
+	subgroups of free groups.
+      </p>
+      </introduction>
+      <subsection>
+	<title>A spot of applied graph theory</title>
+
+	<p>We have a first definition lemma, that we ask the reader to
+	accept on faith (or to prove to themselves)</p>
+	<lemma xml:id="lem_tree">
+	  <statement>
+	    <p> Let <m>X</m> be a graph, then the following are
+	    equivalent:
+	    <ul>
+	      <li>For any pair of vertices <m>u,v \in V(X)</m> there
+	      is a unique reduced path <m>\gamma(u,v)</m> joining
+	      <m>u</m> and <m>v</m>.</li>
+	      <li><m>X</m> is connected and doesn't contain any
+	      cycles.</li>
+	    </ul>
+	    </p>
+	    <p>
+	      A graph satisfying these properties is called <term> a
+	      tree.</term>
+	    </p>
+	  </statement>
+	</lemma>
+
+	<definition xml:id="defn_max_spanning">
+	  <statement>
+	    <p>
+	      Let <m>\Gamma</m> be a graph and let <m>T \subset
+	      \Gamma</m> be a subgraph which is a tree.
+	      <ol>
+		<li> We say <m>T</m> is <term>a spanning tree</term>
+		if it contains every vertex of the adjacent
+		graph.</li>
+		<li> We say <m>T</m> is a <term>maximal tree</term> if
+		for any other tree <m>T \subset T' \subset G</m>, we
+		have <m>T'=T.</m></li>
+	      </ol>
+	    </p>
+	  </statement>
+	</definition>
+	<figure xml:id="fig_graph_and_spanning_tree">
+      <caption>A graph and a spanning tree</caption>
+      <image width="80%" xml:id="graph_and_tree" source="images/graph_and_tree.png"/>
+	</figure>
+
+	<p>
+	  And finally we have:
+	</p>
+	<lemma>
+	  <statement>
+	    <p>
+	      <m>G</m> is connected if and only if it contains a
+	      spanning tree. If <m>G</m> is connected, then its
+	      spanning subtrees coincide with its maximal subtrees.
+	    </p>
+	  </statement>
+	</lemma>
+      </subsection>
+
+      <subsection>
+	<title>The structure of finitely generated subgroups of free
+	groups.</title>
+
+	<p>Recall that to each finitely generated subgroup <m>H\leq
+	F(X)</m>, we could construct a graph with a distnguished
+	vertex <m>(\Gamma,v_0)</m> so that the set reduced words in
+	<m>H</m> coincides with the set of labels of reduced paths in
+	<m>\Gamma</m> starting and ending at <m>v_0</m>.</p>
+
+	<p>Recall from Chapter 1 that a generating set <m>S</m> of a
+	group <m>G</m> with the property that, in <m>G</m>, every
+	reduced product of elements in <m>S</m> (i.e. no subfactors of
+	the form <m>ss^{-1}, s \in S^{\pm 1}</m>) is non-trivial is
+	called a <term>basis</term> of <m>G</m> and having a basis
+	makes <m>G</m> isomorphic to <m>F(S)</m>. Our goal is, given
+	<m>(\Gamma,v_0)</m>, to construct a basis of <m>H</m>.</p>
+
+	<p>
+	  To this end let <m>T \subset \Gamma</m> be a spanning tree
+	  and let <m>N \subset E(\Gamma)</m> be the edges <em>not</em>
+	  contained in <m>T</m>.
+	  <figure xml:id="fig_tree_and_other_edges">
+      <caption>A graph and a spanning tree</caption>
+      <image width="50%" xml:id="tree_and_other_edges" source="images/tree_and_other_edges.png"/>
+	</figure>
+	</p>
+      </subsection>
+      
+  </section>
+
       
     <!-- Freeness -->
     <!-- Abelian subgroups of free groups. -->
