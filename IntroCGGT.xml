@@ -4197,7 +4197,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	<p>
 	  Furthermore we see that if <m>j>i</m> there is a natural
 	  injective morphism, which we may consider an inclusion so
-	  that <m>\Gamma_i^\infty \subset \Gamma</m>. In this manner
+	  that <m>\Gamma_i^\infty \subset \Gamma_j</m>. In this manner
 	  if <m>H</m> is infinitely generated and we can form the chain
 	  <me>
 	    \Gamma = \bigcup_{i=1}^{\infty}\Gamma_i^\infty.
