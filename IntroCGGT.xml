@@ -3162,8 +3162,9 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
   <theorem xml:id="thm_two_ended">
     <statement>
       <p>
-	If <m>G</m> has two ends then it contains a subgroup of finite
-	index isomorphic to <m>\ZZ</m>.
+	If <m>G</m> is two ended (i.e. <m>|\mathrm{Ends}(G)|=2</m>)
+	then it contains a subgroup of finite index isomorphic to
+	<m>\ZZ</m>.
       </p>
     </statement>
   </theorem>  
@@ -3975,7 +3976,286 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       <image width="50%" xml:id="tree_and_other_edges" source="images/tree_and_other_edges.png"/>
 	</figure>
 	</p>
+
+	<p>
+	  Let <m>T \subset \Gamma</m> be a spanning tree and let <m>N
+	  = E(\Gamma\setminus T)</m>, be the edges of <m>\Gamma</m>
+	  not contained in <m>T</m>. Since <m>\Gamma</m> is an
+	  <m>X</m>-digraph, the edges of <m>N</m> are directed and for
+	  any <m>e \in N</m> we formally define <m>e^{-1}</m> to be
+	  the same edge with reversed orientation and inverted label,
+	  i.e. <m>\lab(e^{-1}) = \lab(e)^{-1}</m>. Now given <m>e \in
+	  N^{\pm 1}</m> we let <m>e^-</m> be the vertex at its origin
+	  and let <m>e^+</m> be the vertex at its terminus.
+	</p>
+	<p>
+	  For each <m>e \in N^{\pm 1}</m> we create a closed path
+	  <m>\beta_e</m> starting and ending at <m>v_0</m> with the
+	  following concatenation,
+	  <me>
+	    \beta_e = \gamma(v_0,e^-) * e * \gamma(e^+,v_0)
+	  </me>
+	  Where <m>\gamma(u,v)</m> is the unique reduced path in the
+	  spanning tree <m>T</m> joining vertices <m>u,v</m>. See
+	  <xref ref="fig_tree_basis"/>.
+	</p>
+	<figure xml:id="fig_tree_basis">
+	  <caption>A loop in a folded graph, goinng through a single
+	  non-tree edge.</caption>
+	  <image width="50%" xml:id="tree_basis" source="images/tree_basis.png"/>
+	</figure>
+	<p>
+	  The closed path <m>\beta_e</m> is reduced and, since
+	  <m>\Gamma</m> is folded, <m>\lab(\beta_e)</m> is a reduced
+	  word and by <xref ref="thm_folded_language"/>
+	  <m>\lab(\beta_e)=h_e \in H</m>.
+	</p>
+
+	<p>
+	  Our task is now to show that <m>\{h_e \mid e \in N\}</m>
+	  forms a basis for <m>H</m>. Note that here we're running
+	  <m>e</m> over <m>N</m> and not <m>N^{\pm 1}</m>. This is
+	  done by two lemmas, which we will skecth below, leaving
+	  details as an exercise.
+	</p>
+	<lemma xml:id="lem_loops_gen">
+	  <statement>
+	    <p>
+	      The set <m>\{h_e \mid e \in N\} \subset F(X)</m>
+	      generates <m>H</m>.
+	    </p>
+	  </statement>
+	  <proof>
+	    <title>sketch</title>
+	    <p>It is important to make use of the
+	    language of paths here. Crucially, we must show that for
+	    any reduced path <m>\gamma</m> in <m>\Gamma</m> starting
+	    and ending at <m>v_0</m> we can find a product
+	    <m>h_{e_1}^{\epsilon_1}\cdots h_{e_k}^{\epsilon_k}</m> so
+	    that although, as words we don't have an equality, after
+	    preforming reductions we have<me>
+	    \lab(\gamma) =_{F(X)}  h_{e_1}^{\epsilon_1}\cdots
+	    h_{e_k}^{\epsilon_k}. 
+	  </me>
+	    </p>
+
+	    <p>
+	      The first two claims are proved, the third needs some
+	      details. With these three claims it is possible to prove
+	      the main result.
+	    </p>
+	    <p>
+	      Claim 1: <em> any non-trivial reduced closed path
+	      <m>\gamma</m> starting and ending at <m>v_0</m> must go
+	      through some edge in <m>N</m></em>. Indeed, otherwise
+	      <m>\gamma</m> stays within the spanning tree <m>T</m>,
+	      and to return to <m>v_0</m>, because we're in a tree,
+	      there must be a backtrack <m>\cdots f f^{-1}\cdots</m>,
+	      contradicting that <m>\gamma</m> is reduced. The claim
+	      follows. 
+	    </p>
+	    <p>
+	      Claim 2: <em>any non-trivial reduced closed path
+	      <m>\gamma</m> starting and ending at <m>v_0</m> fully
+	      determined by the sequence of edges of <m>N^{\pm 1}</m>
+	      it traverses (where the signs of the edges indicate in
+	      which direction they are traversed.)</em> Segments of
+	      <m>\gamma</m> between such edges are in the spanning tre
+	      <m>T</m>, so by <xref ref="lem_tree"/> are fully
+	      defined and this claim also follows.
+	    </p>
+	    <p>
+	      Claim 3: <em> Let <m>\gamma</m> be a reduced path
+	      starting and ending at <m>v_0</m>, and let <m>
+	      e_1,\cdots, e_k</m> be sequence of edges in <m>N^{\pm
+	      1}</m> traversed by <m>\gamma</m>. Then <me>
+	      \lab(\gamma) = h_{e_1}\cdots h_{e_k} .
+	    </me></em>
+	    Look at <xref ref="fig_edge_to_edge"/>.
+	    <figure xml:id="fig_edge_to_edge">
+	      <caption>
+		Paths in <m>T</m> between edges.
+	      </caption>
+	      <image width="50%" xml:id="edge_to_edge"
+		     source="images/edge_to_edge.png"/> 
+	    </figure>
+	    </p>
+	  </proof>
+	</lemma>
+
+	<lemma xml:id="lem_loops_free">
+	  <statement>
+	    <p>
+	      Any reduced product <m>h_{e_1}^{\epsilon_1}\cdots
+	      h_{e_k}^{\epsilon_k}</m> is non-trivial in <m>F(X)</m>.
+	    </p>
+	  </statement>
+	  <proof>
+	    <title>
+	      sketch
+	    </title>
+	  <p>
+	    Take the reduced product, each factor
+	    <m>h_{e_j}^{\epsilon_j}</m> is the label of a path as
+	    given in <xref ref="fig_tree_basis"/>. Each
+	    <m>h_{e_j}^{\epsilon_j}</m>, which is a word in
+	    <m>F(X)</m> contains a le tter coming from an edge in
+	    <m>N</m>. Concatenate these paths/words and look at
+	    the cancellation diagram (which may be seen a being
+	    obtained from Stalling's folding). The the letters coming
+	    from non-tree edges will never cancel out. See <xref
+	    ref="fig_pinch_between_bases"/>.
+	    <figure xml:id="fig_pinch_between_bases">
+	  <caption>Letters from non-tree eges (red) don't get
+	  cancelled.</caption>
+	  <image width="100%" xml:id="pinch_between_bases" source="images/pinch_between_bases.png"/>
+	</figure>
+	  </p>
+	  </proof>
+
+	</lemma>	
+
+	<corollary>
+	  <statement><p>Every finitely generated subgroup of a free group
+	  is free.</p>
+	  </statement>
+	</corollary>
+	
       </subsection>
+
+      <subsection>
+	<title>
+	  Infinitely generated subgroups of a free group.
+	</title>
+	<p>Although finitely generated subgroups of free groups are
+	interesting. Free groups also contain infinitely generated
+	subgroups. In fact whenever you have <m>\varphi:F(X) \onto
+	G</m> where <m>|G|=\infty</m>, then <m>\ker(\varphi)</m> is
+	infinitely generated. We conclude this lecture with a
+	discussion of infinitely generated subgroups of free
+	groups.</p>
+
+	<p>
+	  Suppose we have an infinite generating set
+	  <m>\{h_1,h_2,\ldots\}</m> and we want to consider the
+	  subgroup <m>H = \gen{h_1,h_2,\cdots}</m>. We can start by
+	  defining <me>
+	  H_i = \gen{h_1,\cdots,h_i}
+	</me>
+	and we have <m>i\lt j \Rightarrow H_i \leq H_j</m> and
+	<me>
+	  H = \bigcup_{i=1}^{\infty} H_i.
+	</me>
+	Now it may very well be that for some <m>i, H =H_i</m> which
+	will happen if <m>H</m> is actually finitely generated and we
+	were just enumerating the elements of <m>H</m>.
+	</p>
+	<p>
+	  Now for each <m>H_i</m> we have the folded graph
+	  <m>(\Gamma_i,v_0)</m>. Furthermore <m>\Gamma_{i+1}</m> can
+	  be obtained by attaching a loop
+	  <m>\gamma_{h_{i+1}}</m>labelled <m>h_{{i+1}}</m> to <m>v_0</m> and
+	  then folding wich gives:<me> \Gamma_i \into
+	  \Gamma_i\cup_{v_0}\gamma_{h_{i+1}}
+	  \stackrel{\textrm{fold}}{\longrightarrow} \Gamma_{i+1}.
+	</me>
+	Seeing as this is a composition of morphisms we have a
+	morphism <m>q_{i,i+1}:\Gamma_i \to \Gamma_{i+1}</m>. In
+	<m>\Gamma_{i+1}</m> we define <m>v_0 =
+	q_{i,i+1}(v_0)</m>. Furthermore we can compose these morphisms
+	so that for all <m>j \gt i</m> we have a morphism
+	<m>q_{i,j}:\Gamma_i \to \Gamma_j</m>.
+	</p>
+	<p>
+	  Now the addition of these extra loops will cause extra
+	  foldings so the morphisms <m>q_{i,j}</m> will not
+	  necessarily be injective. Denote <me>\Gamma_i^j =
+	  q_{i,j}(\Gamma_i) \subset \Gamma_j.</me>
+	</p>
+
+	<p>
+	  Since <m>\Gamma_i</m> is finite, so must every image
+	  <m>\Gamma_i^j</m>. Moreover since we have surjections
+	  <m>\Gamma_i^{j} \onto \Gamma_i^{j+1}</m>, we can conclude
+	  that for every <m>i</m> there exists <m>N(i)</m> such that
+	  after this index, the images stabilize, i.e. fir all <m>j
+	  \geq N(i)</m> we have isomorphisms:
+	  <me>
+	    \Gamma_i^{j} \stackrel\sim\to \Gamma_i^{j+1}
+	    \stackrel\sim\to \cdots.
+	  </me>
+	</p>
+	<p>
+	  We the isomorphism class of these stablized graphs
+	  <m>\Gamma_i^\infty</m>. We note that
+	  <m>\Gamma_i^{\infty}</m> is folded and contains a
+	  distinguished vertex <m>v_0</m>. We also not that there is a
+	  morphism <m>q_{i,\infty}:\Gamma_i \to \Gamma_i^{\infty}</m>,
+	  which means that <m>\lang{\Gamma_i}{v_0} \subset
+	  \lang{\Gamma_i^\infty}{v_0}.</m>
+	</p>
+	<p>
+	  Furthermore we see that if <m>j>i</m> there is a natural
+	  injective morphism, which we may consider an inclusion so
+	  that <m>\Gamma_i^\infty \subset \Gamma</m>. In this manner
+	  if <m>H</m> is infinitely generated and we can form the chain
+	  <me>
+	    \Gamma = \bigcup_{i=1}^{\infty}\Gamma_i^\infty.
+	  </me>
+	</p>
+	<p>
+	  On the one hand because every <m>\Gamma_i^{\infty}</m> maps
+	  into some sufficiently large <m>\Gamma_j</m> we an argue
+	  that <m>H</m> which consists of <em>finite</em> products of
+	  elements in <m>\{h_1,h_2,ldots\}</m> consists precisely of
+	  <m>\lang{\Gamma}{v_0}.</m>
+	</p>
+	<p>
+	  On the other hand <m>\Gamma</m> is connected and by Zorn's
+	  lemma contains a maximal subtree, therefore a spanning tree
+	  and the arguments in the previous part carry through
+	  (recalling that we only consider finite paths) to give us a
+	  (possibly infinite) basis for <m>H</m>. We thus have:
+	</p>
+	<corollary xml:id="cor_subgroups_of_free">
+	  <statement>
+	    <p>
+	      If <m>|X|</m> is countable, then every subgroup of
+	      <m>F(X)</m> is isomorphic to a free group of countable
+	      rank.
+	    </p>
+	  </statement>
+	</corollary>
+      </subsection>
+      <exercises>
+	<exercise>
+	  <statement>
+	    <p>Draw a folded graph <m>\Gamma</m> that has diameter at
+	    least 5 and more than one loop and find a basis for the
+	    subgroup <m>H \leq F(X)</m> it represents.</p>
+	  </statement>
+	</exercise>
+	<exercise>
+	  <statement>
+	    Fill in the details in <xref ref="lem_loops_gen"/>
+	  </statement>
+	</exercise>
+	<exercise>
+	  <statement>
+	    Fill in the details in <xref ref="lem_loops_free"/>
+	  </statement>
+	</exercise>
+	<exercise>
+	  <statement>
+	    <p>
+	      A group <m>G</m> is abelian if for every <m>a,b \in
+	      G</m> we have <m>ab = ba</m> or
+	      <m>a^{-1}b^{-1}ab=1</m>. Describe the abelian subgroups
+	      a non-abelian free group.
+	    </p>
+	  </statement>
+	</exercise>
+      </exercises>
       
   </section>
 
