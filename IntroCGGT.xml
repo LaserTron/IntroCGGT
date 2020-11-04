@@ -572,7 +572,7 @@
   </exercises>
 
     </section>
-    <section xml:id="generation_and_presentation"><title>Lecture 3:
+    <section xml:id="sec_generation_and_presentation"><title>Lecture 3:
     Generating and presenting groups</title>
     <p>
       Long products are group elements are important to us. The
@@ -1104,7 +1104,9 @@
 	<p> Hint: A tree is a connected graph without any cycles. The
 	label of a cycle in a group&apos;s Cayley graph must be
 	reduced product that equals the identity.  </p> </statement>
-	  </exercise> </exercises> </section> <section
+      </exercise> </exercises> </section>
+
+      <section
 	  xml:id="sec_homs_tietze"> <title>Lecture 5: Homomorphisms
 	  and Tietze transformations</title> <p> Let&apos;s return to
 	  group presentations. In the previous lectures we drew Cayley
@@ -4211,7 +4213,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  <m>\lang{\Gamma}{v_0}.</m>
 	</p>
 	<p>
-	  On the other hand <m>\Gamma</m> is connected and by Zorn's
+	  On the other hand <m>\Gamma</m> is connected and by Zorn&amp;s
 	  lemma contains a maximal subtree, therefore a spanning tree
 	  and the arguments in the previous part carry through
 	  (recalling that we only consider finite paths) to give us a
@@ -4259,20 +4261,190 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       
   </section>
 
+  <section>
+    <title>Lecture 14: van Kampen diagrams and the geometry of the
+    word problem</title>
+    <introduction>
+      <p>
+	Let us now turn our attention back to finitely generated
+	groups given by relations:<me>
+	G = \pres X R.
+      </me>
+      </p>
+      <p>
+	In <xref ref="sec_generation_and_presentation"/> we say that
+	any word representing the identity in <m>G</m> was equal in
+	<m>F(X)</m> to a product of conjugates of elements of
+	<m>R^{\pm1}</m>. In <xref ref="sec_free_group_dehn"/> in we
+	saw that every element in <m>F(X)</m> was conjugate to a
+	cyclically reduced element and that all cyclic permutations of
+	an element are conjugate. With this in mind we have the
+	following two-dimensional notion: an <term><m>X</m>-directed
+	2-cell</term>, or just briefly <term>a 2-cell</term>, is a
+	cyclic <m>X</m>-digraph enclosing a topological disc.
+      </p>
       
-    <!-- Freeness -->
-    <!-- Abelian subgroups of free groups. -->
+      <figure xml:id="fig_two_cell">
+	  <caption>A 2-cell</caption> <image width="25%"
+	  xml:id="two_cell" source="images/two_cell.png"/>.
+      </figure>
 
-</chapter>
+      <p>
+	As defined, we note that a 2-cell has no preferred orientation
+	or vertex. Thus, for a given boundary word <m>r</m>, the same
+	2-cell represents every cyclic conjugate of <m>r^{\pm
+	1}</m>. A <term>diagram</term> is 2-complex, i.e. a graph to
+	which is attached 2-cells. A <term>planar embedding</term> of
+	a diagram is a specific way of embedding/drawing a diagram in
+	the plane. We will often abuse notation say <term>planar
+	diagram</term> instead of "diagram equipped with a planar
+	embedding". We will say that a planar diagram is <term>simply
+	connected</term> if, informally, it has no holes, or if every
+	cycle in the underlying graph is filled with discs. Noting
+	that a diagram is a CW 2-complex, "simply connected" is
+	perfectly well-defined.
+      </p>
+      <p>
+	We point out that most of graphs shown in the previous section
+	are definitely not simply connected.
+      </p>
+      <figure xml:id="fig_simply_connected">
+	  <caption>Some planar diagrams. Can you pick out the simply
+	  connected one? Note that we will sometimes omit drawing
+	  directions and labels of edges.</caption> <image
+	  width="100%" xml:id="simply_connected"
+	  source="images/simply_connected.png"/>
+      </figure>
+    </introduction>
+    <subsection>
+      <title>van Kampen diagrams</title>
+      <p>
+	A <term>van Kampen diagram</term> is a simply connected planar
+	diagram. The planar embedding gives rise to a <term>boundary
+	word</term>, which is the label of the path that can be read
+	<em>clockwise</em> around the boundary. We note that the
+	boundary word is well up to cyclic permutation.
+      </p>
+      
+      <figure xml:id="fig_boundary_words">
+	  <caption>The boundary word is the label of the path read
+	  clockwise around the boundary.</caption> <image width="100%"
+	  xml:id="boundary_words" source="images/boundary_words.png"/>
+      </figure>
 
-  <!-- UP TO HERE -->
-<!-- Dehn's problems in free groups. -->
-  <!-- Quasi-siometries -->
-  <!-- Ends, 0,1,2,continuum, trees -->
-  <!-- 2 ended groups are virtually cyclic  -->
+      <p>
+	Van Kampen diagrams are the most important tool in studying
+	the word problem in groups. First note that if some word
+	<m>w</m> represents the identity in <m>\pres X R</m>, then
+	<me>w =_{F(X)} \prod_{i=1}^{k}w_ir_i^{\epsilon_i}
+	w_i^{-1}</me> for some conjugates of <m>r_i^{\pm 1}\in
+	R</m>. We can therefore form a <term>balloon diagram</term> as
+	in <xref ref="fig_balloon"/> whose boundary word is precisely
+	the (unreduced product) <m>\prod_{i=1}^{k}w_ir_i^{\epsilon_i}
+	w_i^{-1}</m>.
+      </p>
+
+      <figure xml:id="fig_balloon">
+	  <caption>A balloon diagram whose boundary word <m>w_1
+	  r_1^{-1} w_1^{-1} w_2 r_2 w_2^{-1} w_3 r_3^{-1}w_3^{-1} w_4
+	  r_4^{-1} w_4^{-1}.</m></caption> <image width="50%"
+	  xml:id="balloon" source="images/balloon.png"/>
+      </figure>
+
+      <p>
+	Let <m>\mathcal D</m> be a van Kampen diagram whose 2 cells
+	are bounded by words <m>r \in R.</m> Then the boundary word
+	<m>w</m> of <m>\mathcal D</m> represents the trivial element
+	in <m>\pres X R</m>. See <xref ref="fig_Z2_diagram_eg"/>, for
+	example.
+	<figure xml:id="fig_Z2_diagram_eg">
+	  <caption>A balloon diagram whose boundary word <m>w_1
+	  r_1^{-1} w_1^{-1} w_2 r_2 w_2^{-1} w_3 r_3^{-1}w_3^{-1} w_4
+	  r_4^{-1} w_4^{-1}.</m></caption> <image width="100%"
+	  xml:id="Z2_diagram_eg" source="images/Z2_diagram_eg.png"/>
+      </figure>
+      </p>
+      <p>
+	The reason is that any such diagram can be "unfolded" to a
+	balloon diagram (see <xref ref="fig_unfold"/>). This witnesses
+	that a boudary word <m>w</m> is equal to a product
+      </p>
+	<figure xml:id="fig_unfold">
+	  <caption>Unfolding a van Kampen diagram to a balloon
+	  diagram.</caption> <image width="100%" xml:id="unfold"
+	  source="images/unfold.png"/>
+      </figure>
+      <p>
+	This unfolding fact and its converse give van Kampen&amp;s
+	Lemma. The main difficulty resides in the fact that when
+	folding a balloon diagram, some 2-cells can get folded "all
+	the away around" creating spheres (think of a soccer ball.)
+	The argument is to show that if we start with a balloon
+	diagram with a minimal number of 2-cells, by performing the
+	foldings corresponding to elementary reductions in boundary
+	words, we remain planar at every step. Otherwise we could have
+	removed 2-cells.
+      </p>
+      <theorem>
+	<title>van Kampen&amp;s Lemma</title>
+	<statement>
+	  <p>
+	    Let <m>w</m> be a reduced word in alphabet <m>X</m>. Then
+	    <m>w = 1</m> in <m>\pres X R</m> if and only if <m>w</m>
+	    is the boundary of a van Kampen diagram whose 2-cells are
+	    bounded by words in <m>R</m>.
+	  </p>
+	</statement>
+	    
+      </theorem>
+    </subsection>
+    <exercises>
+      <exercise>
+      <statement><p>Let <m>X</m> be some alphabet and let <m>T</m> be
+      an <m>X</m>-digraph which is a tree. Prove that the boundary
+      label is a word that is equal in <m>F(X)</m> to the
+      identity.</p> <p>Hint: A <term>spur</term> is a vertex with
+      degree 1. Perform elementary cancellations one at a time. Show at
+      each step that the word obtained from an elementary cancellation
+      can be obtained by deleting a spur and incident edge in a tree
+      and taking the new boundary word.</p></statement></exercise>
+      <exercise>
+	<statement>
+	  <p>"Unfold the van Kampen diagram in <xref
+	  ref="fig_Z2_diagram_eg"/> an explicitly express that word as
+	  a product of 3 conjugates of <m>(a^{-1}b^{-1}ab)^{\pm
+	  1}</m></p> 
+	</statement>
+      </exercise>
+
+      <exercise>
+	<statement>
+	  Show that if two word <m>w,w&amp;</m> are reduced words that
+	  are equal in <m>\pres X R</m> then there is a "possibly
+	  pinched bigon" along whose top we can read <m>w</m> and
+	  along whose bottom we can read <m>w&amp;</m> that can be
+	  filled with 2-cells bounded by words in <m>R</m>.
+	  <figure xml:id="fig_bigon">
+	  <caption>A possibly pinched bigon</caption> <image
+	  width="75%" xml:id="bigon" source="images/bigon.png"/>
+	</figure>
+	</statement>
+      </exercise>
+
+      <exercise>
+	<statement>
+	  <p>In <xref ref="sec_homs_tietze"/> you were asked to show that
+	  in <m>\pres{r,\rho}{\rho\rho\rho,rr,r\rho r\rho}</m> we have
+	  <m>r\rho = \rho^2 r</m>. Construct the bigon witnessing this
+	  fact.
+	</p>
+      </statement>
+      </exercise>
+      
+    </exercises>
+  </section>
   
-  <!-- Nielsen theory. -->
-  <!-- Stallings foldings. -->
+</chapter>
 
   <!-- Chapter: Diagrams -->
   <!-- Lollipops. -->
