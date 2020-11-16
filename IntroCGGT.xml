@@ -4209,7 +4209,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  On the one hand because every <m>\Gamma_i^{\infty}</m> maps
 	  into some sufficiently large <m>\Gamma_j</m> we an argue
 	  that <m>H</m> which consists of <em>finite</em> products of
-	  elements in <m>\{h_1,h_2,ldots\}</m> consists precisely of
+	  elements in <m>\{h_1,h_2,\ldots\}</m> consists precisely of
 	  <m>\lang{\Gamma}{v_0}.</m>
 	</p>
 	<p>
@@ -4253,7 +4253,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	      A group <m>G</m> is abelian if for every <m>a,b \in
 	      G</m> we have <m>ab = ba</m> or
 	      <m>a^{-1}b^{-1}ab=1</m>. Describe the abelian subgroups
-	      a non-abelian free group.
+	      of a non-abelian free group.
 	    </p>
 	  </statement>
 	</exercise>
@@ -4375,7 +4375,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  source="images/unfold.png"/>
       </figure>
       <p>
-	This unfolding fact and its converse give van Kampen&amp;s
+	This unfolding fact and its converse give van Kampen's
 	Lemma. The main difficulty resides in the fact that when
 	folding a balloon diagram, some 2-cells can get folded "all
 	the away around" creating spheres (think of a soccer ball.)
@@ -4386,7 +4386,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	removed 2-cells.
       </p>
       <theorem>
-	<title>van Kampen&amp;s Lemma</title>
+	<title>van Kampen's Lemma</title>
 	<statement>
 	  <p>
 	    Let <m>w</m> be a reduced word in alphabet <m>X</m>. Then
@@ -4419,10 +4419,10 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 
       <exercise>
 	<statement>
-	  Show that if two word <m>w,w&amp;</m> are reduced words that
+	  Show that if two word <m>w,w'</m> are reduced words that
 	  are equal in <m>\pres X R</m> then there is a "possibly
 	  pinched bigon" along whose top we can read <m>w</m> and
-	  along whose bottom we can read <m>w&amp;</m> that can be
+	  along whose bottom we can read <m>w'</m> that can be
 	  filled with 2-cells bounded by words in <m>R</m>.
 	  <figure xml:id="fig_bigon">
 	  <caption>A possibly pinched bigon</caption> <image
