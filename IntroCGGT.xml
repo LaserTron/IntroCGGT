@@ -4528,7 +4528,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	following 2-cells:
       </p>
       <figure xml:id="fig_HNN_2_cell">
-	<caption>An HNN 2-cell.</caption> <image width="100%"
+	<caption>An HNN 2-cell.</caption> <image width="50%"
 	xml:id="HNN_2_cell" source="images/HNN_2_cell.png"/>
       </figure>
       <p>
@@ -4631,9 +4631,15 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  means that <m>w^{in} =_G 1</m> and since <m>\varphi A \to
 	  A'</m> is an isomorphism we have that <m>w^{out}=_G 1</m> as
 	  well. Therefore by van Kampen's lemma we can find a van
-	  Kampen diagram <m>\mathcal{D}'</m>with 2-cells with boundary in <m>R</m> whose
-	  boundary word is <m>w^{out}</m>.
+	  Kampen diagram <m>\mathcal{D}'</m>with 2-cells with boundary
+	  in <m>R</m> whose boundary word is <m>w^{out}</m>.
 	</p>
+	<figure xml:id="fig_track_surgery">
+	  <caption>Surgically decreasing the number of
+	  tracks.</caption> <image width="100%"
+	  xml:id="track_surgery"
+	  source="images/track_surgery.png"/>
+	</figure>
 	<p>
 	  It follows that we can cut out the annulus <m>\mathcal A</m>
 	  and surgically attach <m>\mathcal D'</m>. The resulting van
