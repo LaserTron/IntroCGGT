@@ -4385,7 +4385,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	words, we remain planar at every step. Otherwise we could have
 	removed 2-cells.
       </p>
-      <theorem>
+      <theorem xml:id="thm_VK_lem">
 	<title>van Kampen's Lemma</title>
 	<statement>
 	  <p>
@@ -4442,6 +4442,210 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       </exercise>
       
     </exercises>
+  </section>
+
+  <section>
+    <title>Lecture 15: HNN extensions and dual tracks</title>
+    <introduction>
+      <p>
+	In this lecture we will develop a method to understand the
+	famous Baumslag-Solitar group
+	<me>
+	  \mathrm{BS}(1,2) = \pres{a,t}{tat^{-1}a^2}.
+	</me>
+	It worth stressing again that there is no general procedure
+	which can take an arbitrary finite presentation
+	<m>\pres{x_1,\ldots,x_n}{r_1,\ldots,r_m}</m> and will
+	decide if this is a presenation of the trivial group.
+      </p>
+      <p>
+	For this reason, techniques to study groups from presentations
+	are necessarily ad-hoc, and will only work in certain
+	circumstances. We start with a construction in group theory
+      </p>
+    </introduction>
+    <subsection>
+      <title>
+	HNN extensions
+      </title>
+      <p>
+	<term>HNN extensions</term> are named after mathematicians
+	Higman, Neumann, and Neumann (the Neumanns were married.) They
+	are formed by putting a group <m>G</m> inside a larger group
+	<m>G*_t</m> with an extra generator called the <term>stable
+	letter</term>, typically we use <m>t</m>, which conjugates
+	elements in <m>G</m>. More precisely, suppose that <m>G</m>
+	contains two subgroups <m>A,A'</m> such that <m>A\approx
+	A'</m>, i.e. <m>A,A'</m> are isomorphic and let
+	<m>\varphi:A\stackrel{\sim}{\to} A'</m> be a specific
+	isomorphism. See <xref ref="fig_HNN_diag"/>.
+      	<figure xml:id="fig_HNN_diag">
+	  <caption>The setup for an HNN extension</caption>
+	  <image width="20%" xml:id="HNN_diagram">
+	    <latex-image>
+	      \begin{tikzpicture}
+	      \node (G) at (0,0) {$G$};
+	      \node (A) at (-1,-1) {$A$};
+	      \node (A') at (1,-1) {$A'$};
+	      \path (A) -- node[sloped]{$\leq$} (G);
+	      \path (A') -- node[sloped]{$\geq$} (G);
+	      \draw[->] (A) -- node[above]{$\sim$}node[below]{$\varphi$} (A');
+	      \end{tikzpicture}.
+	    </latex-image>
+	  </image>
+	</figure>
+	If <m>G=\pres X R</m>, then the HNN extension is given by the
+	following presentation<men xml:id="eq_HNN_pres">
+	G*_t=\pres{X,t}{R,t^{-1}at = \varphi(a); a\in A },
+	</men>
+	i.e. we add a new generator <m>t</m> (we assume <m>t \not\in
+	X</m>), the stable letter, and for each <m>a \in A</m> we add
+	a relation which says that conjugation of an element of
+	<m>a</m> by <m>t</m> produces the same result as making taking
+	the image <m>\varphi(a)</m>. Incidentally we slightly changed
+	the <term>convention for relations</term>: instead of writing
+	<m>tat^{-1}(\varphi(a)^{-1}</m> we wrote <m>t^{-1}at =
+	\varphi(a)</m>, which is equivalent. Also note that for these
+	relations we actually mean that we wrote words in <m>X^{\pm
+	1}</m> represeting elements in <m>a,\varphi(a)\in G</m>. In
+	particular we are not assuming <m>A,A'\subset X</m>.
+      </p>
+      <p>
+	Needless to say, adding extra relations to a group can have
+	unexpected consequences. We want to show that <m>G \leq
+	G*_t</m>, i.e. that <m>G*_t</m> is an extension of <m>G</m>.
+	Note that by Lemma <xref ref="lem_pres_hom"/> there is a
+	natural homomorphism <m>G \into G*_t</m>. Our first task is to
+	show that this homomorphism is <em>injective</em>.
+      </p>
+    </subsection>
+    <subsection>
+      <title>Dual tracks and van Kampen diagrams</title>
+      <p>
+	Comapring the presentation <m>G=\pres X R</m> and the
+	presentation given in <xref ref="eq_HNN_pres"/> we see that we
+	have extra <term>HNN relations</term> which give rise to the
+	following 2-cells:
+      </p>
+      <figure xml:id="fig_HNN_2_cell">
+	<caption>An HNN 2-cell.</caption> <image width="100%"
+	xml:id="HNN_2_cell" source="images/HNN_2_cell.png"/>
+      </figure>
+      <p>
+	Within each such 2-cell, we can draw a <term>dual
+	<m>t</m>-track</term> which a segment in each HNN-2-cell
+	joining the midpoints of the <m>t</m>-labeled edges. Within a
+	van Kampen diagram, these segments join up to make <term>dual
+	<m>t</m>-tracks in van Kampen diagrams.</term>
+      <figure xml:id="fig_dual_t_tracks">
+	<caption>Dual <m>t</m>-tracks.</caption> <image width="100%"
+	xml:id="dual_t_tracks" source="images/dual_t_tracks.png"/>
+      </figure>
+      </p>
+      <p>
+	This next lemma is a topological consequence of our
+	requirements that van Kampen diagrams are planar and simply
+	connected and that dual tracks are curves and the Jordan curve
+	theorem. One could probably also come up with a simpler purely
+	combinatorial proof... but whatever, the lemma is completely
+	obvious.
+      </p>
+      <p>
+	<lemma xml:id="lem_track_lemma">
+	  <title>
+	    The dual track lemma
+	  </title>
+	  <statement>
+	    <p>Dual tracks within a van Kampen diagram <m>\mathcal
+	    D</m>are either points, arcs with endpoints in the
+	    boundary, or circles. Every track divides <m>\mathcal D</m>
+	    into two disjoint regions.</p>
+	  </statement>
+	</lemma>
+	We note that if a  point type or an arc type track did not
+	divide <m>\mathcal D</m> into two distinct components we would
+	violate simple connectivity. If a circular track did not
+	divide into two components we would have an embedded Möbius
+	strip.
+	<figure xml:id="fig_violations_and_strips">
+	<caption>When tracks do not divide into 2.</caption> <image
+	width="100%" xml:id="violations_and_strips"
+	source="images/violations_and_strips.png"/>
+      </figure>
+      </p>
+      <p>
+	This topologically flavoured lemma is the key to proving
+	things about HNN extensions. We start with the following:
+      </p>
+      <theorem>
+	<statement>
+	  <p>
+	    If <m>G = \pres X R</m> and we have an HNN extension <me>
+	    G*_t=\pres{X,t}{R,t^{-1}at = \varphi(a); a\in A },</me>
+	    then <m>G</m> is naturally isomorphic to a subgroup of
+	    <m>G*_t</m>. </p>
+	</statement>
+      </theorem>
+      <proof>
+	<p>
+	  Consider the two presentation, the inclusions <m>X \into
+	  X\cup\{t\}</m> and <m>R \into R
+	  \cup\{t^{-1}w_at(w_{\varphi(a)})^{-1}\mid a \in A\}</m>,
+	  where <m>w_a,w_{\varphi(a)}</m> are choices of words in
+	  <m>X^{\pm 1}</m> representing the elments
+	  <m>a,\varphi(a)</m> in <m>G</m>, induce by Lemma <xref
+	  ref="lem_pres_hom"/> a natural homomorphism <m>\psi:G \to
+	  G*_t</m>. We need to show that <m>\psi</m> is injective.
+	</p>
+	<p>
+	  Suppose towards a contradiction that <m>\psi</m> was not
+	  injective. Then there is some <m>g \in G\setminus\{1\}</m>,
+	  of minimal word length, such that <m>\varphi(g)\neq
+	  1</m>. By van Kampen's Lemma (<xref ref="thm_VK_lem"/>)
+	  there is some reduced word <m>w_g</m> (realizing minimal
+	  word length) which is the boundary word of a van Kampen
+	  diagram <m>\mathcal D</m> whose 2-cells have boundary words
+	  from <m>R \into R \cup\{t^{-1}w_at(w_{\varphi(a)})^{-1}\mid
+	  a \in A\}</m>.
+	</p>
+	<p>
+	  Because <m>g \neq_G 1</m>, <m>\mathcal D</m> cannot consist
+	  solely of 2-cells with boundaries from <m>R</m>, therefore
+	  <m>\mathcal D</m> must contain HNN-2-cells and therefore at
+	  least one dual <m>t</m>-tracks. Let <m>\mathcal D</m> such a
+	  diagram with a <em>minimal</em> number of tracks. Because
+	  the boundary word of <m>\mathcal D</m> is a word containing
+	  letters only in <m>X</m> none of the tracks can reach the
+	  boundary of <m>\mathcal D</m>, so they must all be cicrcles.
+	</p>
+	<p>
+	  Let <m>\tau \subset \mathcal D</m> be one such cular dual
+	  track. The union of 2-cells containg it for an annulus
+	  <m>\mathcal A</m> with an inner boundary word <m>w^{in}</m>
+	  and an outer boundary word <m>w^{out}</m>. Now note on the
+	  one hand that, without loss of generality, <m>w^{in}</m> is
+	  a product of elements in <m>A</m> therefore <m>w^{in} \in
+	  A</m> and <m>w^{out} = \varphi(w^{in})</m>. On the other
+	  hand <m>w^{in}</m> is the boundary word of a van Kampen
+	  (sub) diagram with 2-cells with buondary in <m>R</m>. This
+	  means that <m>w^{in} =_G 1</m> and since <m>\varphi A \to
+	  A'</m> is an isomorphism we have that <m>w^{out}=_G 1</m> as
+	  well. Therefore by van Kampen's lemma we can find a van
+	  Kampen diagram <m>\mathcal{D}'</m>with 2-cells with boundary in <m>R</m> whose
+	  boundary word is <m>w^{out}</m>.
+	</p>
+	<p>
+	  It follows that we can cut out the annulus <m>\mathcal A</m>
+	  and surgically attach <m>\mathcal D'</m>. The resulting van
+	  Kampen diagram is a witness of the triviality of <m>w_g</m>
+	  in <me> G*_t=\pres{X,t}{R,t^{-1}at = \varphi(a); a\in A
+	  },</me> with one less track than <m>\mathcal D</m>, but this
+	  contradicts the fact that <m>\mathcal D</m> had a minimal
+	  number of tracks.
+	</p>
+      </proof>
+    </subsection>
+	
   </section>
   
 </chapter>
