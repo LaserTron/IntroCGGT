@@ -4494,8 +4494,10 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	    </latex-image>
 	  </image>
 	</figure>
-	If <m>G=\pres X R</m>, then the HNN extension is given by the
-	following presentation<men xml:id="eq_HNN_pres">
+	If <m>G=\pres X R</m>, then the <term>HNN extension of
+	<m>G</m> (with associates subgroup <m>A,A' \leq G</m> and
+	attachment isomorphism <m>\varphi</m>)</term> is given by the
+	following (possibly) presentation<men xml:id="eq_HNN_pres">
 	G*_t=\pres{X,t}{R,t^{-1}at = \varphi(a); a\in A },
 	</men>
 	i.e. we add a new generator <m>t</m> (we assume <m>t \not\in
@@ -4504,7 +4506,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	<m>a</m> by <m>t</m> produces the same result as making taking
 	the image <m>\varphi(a)</m>. Incidentally we slightly changed
 	the <term>convention for relations</term>: instead of writing
-	<m>tat^{-1}(\varphi(a)^{-1}</m> we wrote <m>t^{-1}at =
+	<m>t^{-1}at(\varphi(a)^{-1}</m> we wrote <m>t^{-1}at =
 	\varphi(a)</m>, which is equivalent. Also note that for these
 	relations we actually mean that we wrote words in <m>X^{\pm
 	1}</m> represeting elements in <m>a,\varphi(a)\in G</m>. In
@@ -4535,8 +4537,10 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	Within each such 2-cell, we can draw a <term>dual
 	<m>t</m>-track</term> which a segment in each HNN-2-cell
 	joining the midpoints of the <m>t</m>-labeled edges. Within a
-	van Kampen diagram, these segments join up to make <term>dual
-	<m>t</m>-tracks in van Kampen diagrams.</term>
+	van Kampen diagram, because the <em>only place</em>
+	<m>t</m>-labelled edges occur is either as fully external
+	edges, or inside HNN-2-cells, these segments join up to make
+	<term>dual <m>t</m>-tracks in van Kampen diagrams.</term>
       <figure xml:id="fig_dual_t_tracks">
 	<caption>Dual <m>t</m>-tracks.</caption> <image width="100%"
 	xml:id="dual_t_tracks" source="images/dual_t_tracks.png"/>
@@ -4545,30 +4549,32 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       <p>
 	This next lemma is a topological consequence of our
 	requirements that van Kampen diagrams are planar and simply
-	connected and that dual tracks are curves and the Jordan curve
+	connected, that dual tracks are curves, and the Jordan curve
 	theorem. One could probably also come up with a simpler purely
 	combinatorial proof... but whatever, the lemma is completely
 	obvious.
       </p>
-      <p>
+      
 	<lemma xml:id="lem_track_lemma">
 	  <title>
 	    The dual track lemma
 	  </title>
 	  <statement>
 	    <p>Dual tracks within a van Kampen diagram <m>\mathcal
-	    D</m>are either points, arcs with endpoints in the
-	    boundary, or circles. Every track divides <m>\mathcal D</m>
-	    into two disjoint regions.</p>
+	    D</m> are either points, arcs with endpoints in the
+	    boundary of the diagram, or circles. Every track divides
+	    <m>\mathcal D</m> into two disjoint regions. Distinct
+	    tracks are disjoint.</p>
 	  </statement>
 	</lemma>
+	<p>
 	We note that if a  point type or an arc type track did not
 	divide <m>\mathcal D</m> into two distinct components we would
 	violate simple connectivity. If a circular track did not
 	divide into two components we would have an embedded Möbius
 	strip.
 	<figure xml:id="fig_violations_and_strips">
-	<caption>When tracks do not divide into 2.</caption> <image
+	<caption>When tracks do not divide into 2 components.</caption> <image
 	width="100%" xml:id="violations_and_strips"
 	source="images/violations_and_strips.png"/>
       </figure>
@@ -4585,10 +4591,9 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	    then <m>G</m> is naturally isomorphic to a subgroup of
 	    <m>G*_t</m>. </p>
 	</statement>
-      </theorem>
-      <proof>
+        <proof>
 	<p>
-	  Consider the two presentation, the inclusions <m>X \into
+	  Consider the two presentation. The inclusions <m>X \into
 	  X\cup\{t\}</m> and <m>R \into R
 	  \cup\{t^{-1}w_at(w_{\varphi(a)})^{-1}\mid a \in A\}</m>,
 	  where <m>w_a,w_{\varphi(a)}</m> are choices of words in
@@ -4619,40 +4624,304 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  boundary of <m>\mathcal D</m>, so they must all be cicrcles.
 	</p>
 	<p>
-	  Let <m>\tau \subset \mathcal D</m> be one such cular dual
-	  track. The union of 2-cells containg it for an annulus
+	  Let <m>\tau \subset \mathcal D</m> be an innermost circular
+	  track, i.e. it doesn't enclose any other circular
+	  tracks. The union of 2-cells containg it for an annulus
 	  <m>\mathcal A</m> with an inner boundary word <m>w^{in}</m>
 	  and an outer boundary word <m>w^{out}</m>. Now note on the
 	  one hand that, without loss of generality, <m>w^{in}</m> is
 	  a product of elements in <m>A</m> therefore <m>w^{in} \in
 	  A</m> and <m>w^{out} = \varphi(w^{in})</m>. On the other
 	  hand <m>w^{in}</m> is the boundary word of a van Kampen
-	  (sub) diagram with 2-cells with buondary in <m>R</m>. This
-	  means that <m>w^{in} =_G 1</m> and since <m>\varphi A \to
-	  A'</m> is an isomorphism we have that <m>w^{out}=_G 1</m> as
-	  well. Therefore by van Kampen's lemma we can find a van
-	  Kampen diagram <m>\mathcal{D}'</m>with 2-cells with boundary
-	  in <m>R</m> whose boundary word is <m>w^{out}</m>.
+	  (sub) diagram, and since <m>\tau</m> is innermost there are
+	  no HNN-2-cells, so all 2-cells in the subdiagram have
+	  boundary labels in <m>R</m>. This means that <m>w^{in} =_G
+	  1</m> and since <m>\varphi A \to A'</m> is an isomorphism we
+	  have that <m>w^{out}=_G 1</m> as well. Therefore by van
+	  Kampen's lemma we can find a van Kampen diagram
+	  <m>\mathcal{D}'</m>with 2-cells with boundary in <m>R</m>
+	  whose boundary word is <m>w^{out}</m>.
 	</p>
 	<figure xml:id="fig_track_surgery">
-	  <caption>Surgically decreasing the number of
-	  tracks.</caption> <image width="100%"
-	  xml:id="track_surgery"
-	  source="images/track_surgery.png"/>
+	  <caption>Surgically decreasing the number of tracks, by
+	  taking out an innermost track.</caption> <image width="100%"
+	  xml:id="track_surgery" source="images/track_surgery.png"/>
 	</figure>
 	<p>
 	  It follows that we can cut out the annulus <m>\mathcal A</m>
-	  and surgically attach <m>\mathcal D'</m>. The resulting van
+	  and surgically re-attach <m>\mathcal D'</m>. The resulting van
 	  Kampen diagram is a witness of the triviality of <m>w_g</m>
 	  in <me> G*_t=\pres{X,t}{R,t^{-1}at = \varphi(a); a\in A
 	  },</me> with one less track than <m>\mathcal D</m>, but this
 	  contradicts the fact that <m>\mathcal D</m> had a minimal
 	  number of tracks.
 	</p>
-      </proof>
+	</proof>
+      </theorem>
+      <p>
+	In fact, the main thrust of the proof of the previous Theorem
+	can be restated as the following lemma:
+      </p>
+      <lemma xml:id="lem_min_tracks">
+	<statement>
+	  <p>
+	    Among all van Kampen diagrams witnessing the triviality of
+	    a word in an HNN extension, a diagram <m>\mathcal D</m>
+	    with a minimal number of dual <m>t</m>-tracks will not
+	    contain any circlar tracks.
+	  </p>
+	</statement>
+      </lemma>
+
+      <p>
+	Next we have this other injectivity result for the mapping
+	<m>\ZZ \to \gen t</m>:
+      </p>
+      <proposition>
+	<statement>
+	  Let <m>G*_t</m> be an HNN extension with stable letter
+	  <m>t</m>, then the element <m>t</m> has infinite order in
+	  <m>G*_t</m>. 
+	</statement>
+	<proof>
+	  <p>Suppsose towards a contradiction that <m>t^n=1</m> form
+	  some <m>n>0</m>. Then <m>t^n</m> is the boundary word of a
+	  van Kampen diagram <m>\mathcal D</m>. This means that there
+	  are tracks starting and ending on the boundary of
+	  <m>\mathcal D</m>, but since the 2-cells containing
+	  containing tracks are HNN-2-cells, <xref
+	  ref="fig_twisted_track"/> below  shows that any such track
+	  <m>\tau</m> must lie in a "twisted strip".
+	  <figure xml:id="fig_twisted_track">
+	    <caption>A twisted strip.</caption> <image width="50%"
+	    xml:id="twisted_track" source="images/twisted_track.png"/>
+	  </figure>
+	  </p>
+	  <p>
+	    This contradicts the planarity of <m>\mathcal D</m>, or
+	    the fact that <m>\tau</m> cuts <m>\mathcal D</m> into two
+	    components.
+	  </p>
+	</proof>
+      </proposition>
+      
     </subsection>
-	
+
+    <subsection>
+      <title>Economical presentations and (some of) the secrets of
+      <m>\mathrm{BS}(1,2)</m></title>
+      <p>
+	The presentation <xref ref="eq_HNN_pres"/> for <m>G*_t</m>
+	may have infinitely many relators, one for each element in
+	<m>A</m>. Until now, this infinite presentation has been
+	convenient, but seeing as we are primarily interested in
+	finitely presented groups, it will be nice to get a criterion
+	for when an HNN extension is also finitely presented.
+      </p>
+      <proposition xml:id="prop_HNN_fp">
+	<statement>
+	  <p>
+	    Suppose that the associated subgroup <m>A,A' \leq G</m>
+	    are finitely generated and that <m>G=\pres X R</m> is
+	    finitely presented. Then the HNN extension <m>G*_t</m> is
+	    finitely presentable as
+	    <me>
+	      G*_t = \pres{X,t}{R; t^{-1}a_it(a_i')^{-1}: 1\leq i \leq
+	      n}
+	    </me>
+	    where <m>\{a_1,\ldots a_n\}</m> are words in <m>X^{\pm
+	    1}</m> representing a finite generating set for <m>A</m>
+	    and the <m>a_i'</m> are words satisfying <m>\varphi(a_i)
+	    = _G a_i'</m>.
+	  </p>
+	</statement>
+      </proposition>
+      <p>
+	So now let's turn our attention to the following little
+	presentation:
+	<me>
+	  \mathrm{BS}(1,2) = \pres{a,t}{t^{-1}ata^{-2}}.
+	</me>
+	Let's show that it is an HNN extension.
+      </p>
+      <p>
+	We first note that <m>\ZZ \approx \pres{a}{}</m>. Now
+	<m>\pres{a}{}</m> contains the subgroups <m>\gen a</m>,
+	i.e. the whole thing, and <m>\gen{a^2}</m>,
+	i.e. <m>2\ZZ</m>. Both of these subgroups are isomorphic to
+	<m>\ZZ</m> and we can take the isomorphism:
+	<md>
+	  <mrow>
+	    \varphi: \gen a \amp \to \gen{a^2}
+	  </mrow>
+	  <mrow>
+	    a \amp \mapsto a^2.
+	  </mrow>
+	</md>
+	Recall that a homomorphism is fully determined by the image of
+	a generating set.
+      </p>
+      <p>
+	Therefore <m>\mathrm{BS}(1,2)</m> is an HNN extension of the
+	cyclic group. In particular we have an injective homomorphisms
+	<me>
+	\ZZ \approx \pres{a}{} \into \pres{a,t}{t^{-1}ata^{-2}},
+	</me> 
+	so <m>a</m> has infinite order in
+	<m>\mathrm{BS}(1,2)</m>. This fact was what was missing in
+	<xref ref="eg_BS12_1"/>. Now we have proved the existence of a
+	group that is "algebraically" embedded into another group, but
+	such that the inclusion is not a quasi isometric embedding. 
+      </p>
+      
+      <p>
+	Actually, the simplest examples of distorted subrgroups
+	(i.e. subgroups that are not quasi isometrically embedded)
+	arise from HNN extensions.
+      </p>
+      
+      <p>
+	Similarly, we see that the other Baumslag-Solitar groups
+	<me>
+	  \mathrm{BS}(n,m) = \pres{a,b}{b^{-1}a^nba^{-m}}
+	</me>
+	are also infinite and the element <m>a</m> has infinite
+	order. Note that here although we used the letter <m>b</m>
+	instead of <m>t</m>, we still have the HNN extensions
+	structure.
+      </p>
+    </subsection>
+
+    <subsection>
+      <title>
+	Syllables and Britton's lemma.
+      </title>
+      <p>
+	Our treatment of HNN extensions, using van Kampen diagrams and
+	tracks, is not historical. In this final section we will give
+	some classical notation and the main classical result
+	regarding HNN extensions.
+      </p>
+      <p>
+	Suppose that we are given <m>G = \pres X R</m> then every
+	element in <m>G*_t</m> can be represented as a word of the
+	form
+	<me>
+	  g =_{G*_t} w= a_0t^{n_1}a_1 \cdots t^{n_m}a_m, \textrm{ or }
+	  a_0t^{n_1}, \textrm{or} t^{n_m}a_m 
+	</me>
+	where the subwords <m>a_i</m> are words in <m>X^{\pm 1}</m>,
+	<m>t</m> is the stable letter, and the <m>n_i \in \bbZ</m>. The
+	words <m>a_i</m> are called <m>G</m>-syllables.
+      </p>
+      <p>
+	If we are more explicit and identify <m>A,A' \leq G</m> and
+	<m>\varphi:A \to A'</m> so that <m>\varphi(a) = t^{-1}at; a
+	\in A</m> then we say that a word <m>w</m> can be
+	<term>pinched</term> if it contains a subword<me>
+	t a_i t^{-1} \textrm{ or } t^{-1} a_j t,
+      </me>
+      where <m>a_i \in A'</m> or <m>a_j \in A</m>. In this case we can
+      reduce the numner of occurrences of <m>t</m> via
+      <me>
+	t a_i t^{-1} = \varphi^{-1}(a_i) \textrm{ or } t^{-1} a_j t =
+	\varphi(a_j).
+      </me>
+      For this reason we will say that a word in an HNN extension is
+      <term>reduced</term> if it doesn't contain any pinches. We now
+      finish by stating what is the classical fundamental theorem of
+      HNN extensions:
+      </p>
+      <theorem xml:id="thm_brittons_lem"><title>Britton's Lemma</title>
+      <statement>
+	<p>
+	  If a word <m>w</m>in an HNN extension <m>>G*_t</m> represents the
+	  trivial element, then either it is a word in <m>X^{\pm
+	  1}</m> representing the trivial element in <m>G</m> or it
+	  can be pinched.
+	</p>
+      </statement>
+      </theorem>
+      <p>
+	In particular reduced words in HNN extensions are
+	non-trivial. At this point there is enough machinery so that
+	an interested reader could consult Chapter 9 of <xref
+	ref="book_stillwell"/> to see how to contruct a group with
+	undecidable word problem.
+      </p>
+    </subsection>
+    <exercises>
+      <exercise>
+	<statement>
+	  <p>Consider <m>\ZZ = \gen a</m>. <m>\gen a</m> has two
+	  automorphisms, the identity automorphism and the
+	  automorphism perscribed by <m>a \mapsto a^{-1}</m>.</p>
+	  <ol>
+	    <li>Identify the group you get when you use the identity
+	    automorhpism. I assure you, you know this group.</li>
+	    <li>
+	      Show that the group <m>G'</m>obtained by forming a HNN
+	      extension using the non-trivial automorphism of
+	      <m>\ZZ</m> is not isomorphic to the group you found
+	      previously.
+	    </li>
+	    <li>
+	      Give a critique of the notation <m>G*_t</m> used to
+	      denote an HNN extension.
+	    </li>
+	  </ol>
+	</statement>
+      </exercise>
+      <exercise>
+	<statement>
+	  <p>Prove <xref ref="prop_HNN_fp"/>.</p>
+	  <p>Hint: Start by showing that for each of the (possibly
+	  infinitely many) old HNN-2-cells, you can construct a van
+	  Kampen diagram with the same boundary word using your finite
+	  set of relations. Use this and van Kampen's Lemma to apply
+	  <xref ref="lem_pres_hom"/> in order to get an isomorphism
+	  between the two groups corresponding to the finite and
+	  infinite presentation.</p>
+	</statement>
+      </exercise>
+      <exercise>
+	<statement>
+	  <p>
+	    Prove Britton's Lemma (<xref ref="thm_brittons_lem"/>)
+	  </p>
+	  <p>
+	    Hint: Draw a van Kampen diagram. Seriously, MAKE A
+	    DRAWING. Explain why you can assume there are no circular
+	    tracks. Find an "outermost" track and show that the piece
+	    of the boundary word travelling between the endpoints of
+	    the outermost track must lie in one of the associated
+	    subgroups.
+	  </p>
+	</statement>
+      </exercise>
+      <exercise>
+	<statement>
+	  Take the free group <m>F_3 = F(a,b,c)</m> and find two isomorphic
+	  subgroups <m>H,H'</m> of rank at least 4.
+	  <ol>
+	    <li> Give an isomorphism between <m>H,H'</m> and write out
+	    the full presentation of the corresponding HNN extension
+	    <m>G = (F_3*_t)</m>
+	    </li>
+	    <li>
+	      Referring to results of the previous chapters, give a
+	      convincing explanation of how to solve the word problem
+	      in this group.
+	    </li>
+	  </ol>
+	  <p>
+	    Hint: Subgroup membership and pinching.
+	  </p>
+	</statement>
+      </exercise>
+    </exercises>
   </section>
+ 
   
 </chapter>
 
