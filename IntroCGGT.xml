@@ -4,7 +4,8 @@
     <brandlogo source="images/CGGT.png"/>
     
     <latex-image-preamble>
-    \usepackage{tikz}
+      \usepackage{tikz}
+      \usetikzlibrary{arrows}
     \tikzstyle{vertex}=[circle, draw, fill=black, inner sep=0pt, minimum width=4pt]
     
     </latex-image-preamble>
@@ -4583,7 +4584,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	This topologically flavoured lemma is the key to proving
 	things about HNN extensions. We start with the following:
       </p>
-      <theorem>
+      <theorem xml:id="thm_HNN_embed">
 	<statement>
 	  <p>
 	    If <m>G = \pres X R</m> and we have an HNN extension <me>
@@ -4921,13 +4922,575 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       </exercise>
     </exercises>
   </section>
- 
+
+  <section>
+    <title>
+      A pause: why are doing any of this anyway?
+    </title>
+    <introduction>
+      <p>
+	In the previous chapter we presented HNN extensions. The
+	motivation for doing so was to demonstrate the effectiveness
+	of van Kampen diagram arguments. That said why should anybody
+	care about HNN extensions to begin with? In this section we
+	will try to place HNN extensions into a larger (and more
+	interesting) context.
+      </p>
+      <p>
+	One thing HNN extensions are good for are to construct groups
+	with interesting properties, for example we constructed
+	<m>\mathrm{BS}(1,2)</m> as an HNN extension of <m>\ZZ</m> and
+	in so doing were able to show that some subgroups are not
+	quasi-isometrically embedded.
+      </p>
+      <p>
+	Another important application is as follows. A state of a <url
+	href="https://en.wikipedia.org/wiki/Turing_machine">Turing
+	machine</url> (i.e. <url
+	href="https://www.youtube.com/watch?v=E3keLeMwfHY"> a
+	theoretical computer </url>) consists : one of finitely many
+	an internal state <m>\{Q_1,\ldots,Q_r\}</m>, and the string of
+	symbols written on a tape. It is possible, by a clever choice
+	of normal forms, to encode the state of a as elements of some
+	group <m>H</m> so that, given a state <m>s</m>, there is a
+	corresponding a word <m>w_s</m> and corresponding group
+	element. Crucially different states give different <em>group
+	elements</em>. A transition <m>s_1\to s_2</m> is achieved by
+	an HNN extension <m>H*_t</m> such that
+	<me>
+	  t^{-1}w_{s_1}t =_H w_{s_2}.
+	</me>
+	From there, using elementary but clever arguments, it is
+	possible to construct a group with undecidable word problem
+	and to show that the isomorphism problem is undecidable. An
+	interested reader can consult Chapter 9 of <xref
+	ref="book_stillwell"/> for a thorough account.
+      </p>
+
+      <p>
+	Besides creating designer groups, HNN extensions play a much
+	deeper role.
+      </p>
+      
+    </introduction>
+    <subsection>
+      <title>
+	The amalgamated product: the HNN extension's more popular
+	sibling
+      </title>
+      <p>
+	Given groups <m>G,H</m> it is possible to form their Cartesian
+	product <m>G\times H = \{(g,h)\mid g\in G,h\in H\}</m> with
+	multiplication defined componentwise. Another way of combining
+	groups is via a <term>free product</term> which we define in
+	terms of presentations as follows:
+	<ol>
+	  <li> Let <m>G = \pres X R</m> and <m>H = \pres Y S</m>, then
+	  the free product is:</li>
+	  <li>
+	    <me>
+	      G*H = \pres{X,Y}{R,S}
+	    </me>
+	  </li>
+	</ol>
+	Where we abuse notation and write, for example, <m>X,Y</m>
+	instead of <m>X \cup Y</m>. As for HNN extensions, elements of
+	<m>G*H</m> are represented as words<me> a_1b_1\cdots a_nb_n
+	</me> where the <m>a_i,b_j</m> are (possibly empty) words in
+	<m>X^{\pm 1},Y^{\pm 1}</m>, respectively. Call them
+	<term><m>G</m> and <m>H</m>-syllables</term> if you want. Here
+	there are no relations involving letters from both <m>X</m>
+	and <m>Y</m>, so an van Kampen diagram argument similar to,
+	but easier than, the one used to prove <xref
+	ref="thm_HNN_embed"/> shows that we can assume <m>G,H \leq
+	G*H</m>.
+      </p>
+      <p>
+	Note that if we present <m>\ZZ =
+	\pres{a}{}\approx\pres{b}{}</m> then we find that
+	<me>
+	  \ZZ*\ZZ = \pres{a,b}{} = F(a,b).
+	</me>
+	Even better, consider the trivial group <m>\{1\}=\pres c c</m>
+	(i.e. a group with one generator that is declared to be
+	trivial.) The trivial group admits the identity automorphism,
+	in this case, given by <m>c \mapsto c</m> so we can form the
+	HNN extension of the trivial group
+	<me>
+	  \{1\}*_t = \pres{c,t}{c,t^{-1}ctc^{-1}}
+	  \stackrel{\mathrm{Tietze}}{\approx} \pres{t}{} \approx \ZZ.
+	</me>
+	So in this way, starting with the trivial group, it is
+	possible to construct all free groups just by using HNN
+	extensions free products. In fact only HNN extensions are
+	sufficient.
+      </p>
+      <p>
+	Suppose now we are given two group <m>G = \pres X R,H = \pres
+	Y S</m> and suppose we have a pair of injective
+	homomorphisms:
+	<men xml:id="eq_amalg_monos"> G \stackrel{\psi}{\hookleftarrow} A
+	\stackrel{\phi}{\hookrightarrow} H,
+	</men>
+	i.e. <m>G</m> and <m>H</m> contains isomorphic copies of
+	<m>A</m> as subgroups. Then these isomorphisms prescribe a way
+	of making a new group by "gluing" <m>G</m> and <m>H</m> along
+	the images of <m>A</m>. The <term>amalgamated product of
+	<m>G</m> and <m>H</m> over <m>A</m> </term> is the group
+	<me>
+	  G*_A H = \pres{X,Y}{R,S, \psi(a)=\varphi(a);a \in A}
+	</me>
+	Note here that although <m>A</m> is not a subgroup of <m>G</m>
+	or <m>H</m> we have for all <m>a \in A, \psi(a)\in G,
+	\varphi(a) \in H</m> so that the set of <term>amalgamating
+	relations</term> <m>\{\psi(a)\varphi(a)^{-1} \mid a \in
+	A\}</m> can in fact be written as words in <m>(X\cup Y)^{\pm
+	1}</m>.
+      </p>
+      <p>
+	Similarly to the case with HNN extensions, we can observe that
+	ther only relations containing letters from both <m>X</m> and
+	<m>Y</m> are the amalgamating relations, so in van Kampen
+	diagrams we have <term>amalgamating 2-cells</term>. Similarly
+	to the case for <term>HNN-e-cells</term> we can draw tracks in
+	such 2-cells.
+	<figure xml:id="fig_amalg_track">
+	  <caption>A track in an amalgamating 2-cell.</caption> <image
+	  width="30%" 
+	  xml:id="amalg_track" source="images/amalg_track.png"/>
+	</figure>
+      </p>
+      <p>
+	Using the arguments of the previous chapter we can prove
+	analogous results for amalgamated products, like embedding
+	theorems, i.e. <m>G \leq G*_A H</m> and the analogue of
+	Britton's lemma, i.e. if a word
+	<me>
+	a_1b_1\cdots a_nb_n = _{G*_AH} 1
+	</me>
+	Then either some syllable <m>G \ni a_i \in \psi(A)</m> or <m>H
+	\ni b_j \in \varphi(A)</m>. Finally if the amalgamating
+	subgroup <m>A</m> is finitely generated, then the amalgamated
+	product is finitely presented (again same argument as for HNN
+	extensions.) <em>The only difference is that tracks are nicer
+	to draw in the HNN case.</em>
+      </p>
+
+      <p>
+	Ultimately the reason why amalgamated products are more
+	popular is that gluing two groups together along a subgroup
+	is more intuitively easier to understand than whatever is done
+	for HNN extensions. Both are equally important.
+      </p>
+    </subsection>
+    <subsection>
+      <title>
+	Stop avoiding the question! Why should I care?
+      </title>
+      <p>
+	It is now time to have the talk about category theory. So,
+	um... when a mother and a father, or any couple whose members
+	may or may not have biary genders, care alot for each
+	other... oops wrong talk.
+      </p>
+	
+	<p>
+	A <term>category</term> consists of a collection of
+	<term>objects</term> and a collection of <terms>arrows</terms>
+	between these objets, sometimes called
+	<term>morphisms</term>. In practice categories consist of
+	objects of the same <term>type.</term> Here are some examples:
+	<ol>
+	  <li> The category <m>\mathbf{set}</m> whose objects consists
+	  of all sets (so the collection of objects in a category need
+	  not be a set [ignore this parenthesis if you don't know about
+	  <url
+	  href = "https://en.wikipedia.org/wiki/Russell%27s_paradox">
+	    Russell's  paradox</url>]) and the morphisms are
+	  functions.</li>
+	  <li>
+	    The category <m>\mathbf{group}</m> whose objects are
+	    groups and whose morphisms are homomorphisms.
+ 	  </li>
+	  <li>
+	    The category <m>\mathbf{AbGroup}</m> whose objects are
+	    abelian groups and whose morphisms are homomorphisms.
+ 	  </li>
+	  <li>
+	    The category <m>\mathbf{Zmod}</m> whose objects are
+	    <m>\ZZ</m>-modules abelian groups and whose morphisms are
+	    <m>\ZZ</m>-linear homomorphisms.
+ 	  </li>
+	  <li>
+	    A <term>based topological space</term> consists of a pair
+	    <m>(X,x_0)</m> where <m>x_0</m> is some point in <m>X</m>
+	    called a basepoint and we can form a category out of these
+	    objects by taking <term>based continuous functions</term>
+	    denoted<me> (X,x_0) \to (Y,y_0) </me> are continuous map
+	    <m>X\to Y</m> that map basepoints to basepoints,
+	    i.e. <m>x_0 \mapsto y_0</m>.
+	  </li>
+	  <li>
+	    A directed graph forms a <term>small category</term> the
+	    objects are the vertices and arrows are the edges (which
+	    are literally arrows.)
+	  </li>
+	</ol>
+	We also have rings, field extensions, etc.
+      </p>
+      <p>
+	Certain categories have features that others don't. For
+	example for all the listed categories, except the small
+	category, each object admits an arrow to itself: the identity
+	arrow, which acts as the identity function. Again, with the
+	exception of the small category, all other morphisms come from
+	functions so we have a composition operation <me> f\circ g
+	</me> on morphisms, provided their domains and codomains match
+	up.
+      </p>
+      <p>
+	One advantage of category theory is that we can universally
+	define concepts. For example the categories of groups, abelian
+	groups, <m>\ZZ</m>-modules, and rings are all algebraic we
+	have for example the following:
+	<ol>
+	  <li> An isomorphism is a morhpism <m>f:A \to B</m> such that
+	  there exists another morphism <m>g</m> such that <m>g\circ f
+	  = 1_A</m>, the identity morphism on <m>A</m>.</li>
+	  <li>
+	    Up to unique isomorphism (i.e. there may be multiple
+	    objects that have this property, but for any two there is
+	    a unique isomorphism between them), the trivial object
+	    <m>T</m> is the object such that for any other object
+	    <m>A</m> there exists a unique surjective morphisms <m>f:A
+	  \to T</m>. I.e. the trivial object is the universal receiver.
+	  </li>
+	  <li>
+	    If we define the <term>cokernel</term> of a morphism to be
+	    it's image then we have the first isomorphism theorem<me>
+	    \mathrm{coker}(f) \approx \mathrm{dom}(f)/\ker(f)
+	  </me>
+	  </li>
+	</ol>
+	Note that free groups play the opposite role as a universal
+	sender.
+      </p>
+    </subsection>
+    <subsection>
+      <title>
+	Come one! You just gave me yet another super abstract thing
+	not to care about!
+      </title>
+      <p>
+	I assure you there is a point to this!
+      </p>
+      <p>
+	Certain constructions can also be defined categorically for
+	example. Take two objects <m>A,B</m> we want to define a third
+	object <m>C</m> which satisfies the following property: There
+	is a pair of surjective morphisms (also called
+	<term>epimorphisms</term>) <m>p_A:C\to A, p_B:C\to B</m> such
+	that for any object <m>T</m> and any pair of morhpisms
+	<m>\psi:A \to T</m> and <m>\phi:B \to T</m>, there to
+	exist a unique morhpism <m>\rho</m> which makes the following
+	diagram commute:
+	<figure xml:id="fig_product">
+	  <caption>The specification of a product</caption>
+	  <image width="40%" xml:id="product">
+	    <latex-image>
+	      \begin{tikzpicture}[scale = 2]
+	      \node (C) at (0,-1) {$C$};
+	      \node (A) at (-1,-1) {$A$};
+	      \node (B) at (1,-1) {$B$};
+	      \node (T) at (0,0) {$T$};
+	      \draw[->>] (C) -- node[above]{$p_A$} (A);
+	      \draw[->>] (C) -- node[above]{$p_B$} (B);
+	      \draw[->] (T) -- node[above]{$\forall \psi$} (A);
+	      \draw[->] (T) -- node[above]{$\forall \phi$} (B);
+	      \draw[dashed,->] (T) --node[left]{$\exists! f$} (C);
+	      \end{tikzpicture}
+	    </latex-image>
+	  </image>
+	</figure>
+	Such an object, if it exists, is called the <em>product</em>
+	of <m>A</m> and <m>B</m>. Note that in most familiar algebraic
+	structures, the Cartesian product <m>A\times B</m> satisfies
+	all these properties. Indeed, we have the projection morphisms
+	onto factors, e.g.  <m>A\times B \stackrel{p_A}{\onto} A</m>,
+	and the maps <m>\phi,\psi</m>, from and an arbitrary object
+	<m>T</m> specify the images on each factor, so the only
+	possibility for <m>f</m> is
+	<md>
+	  <mrow>f \amp = \psi \times \phi</mrow>
+	  <mrow> x \amp \mapsto (\psi(x),\phi(y)) </mrow>.
+      </md>
+      </p>
+      <p>
+	Note that if another object <m>C'</m> also satisfies this
+	property, we can put in the place of <m>T</m> in the diagram
+	and use the projection functions and we'll get that <m>C'
+	\approx C</m> and that this isomorphism is unique.
+      </p>
+      <p>
+	In this way we have a completely categorical definition of a
+	<term>(direct) product</term>. In category theory a cool thing
+	to do is to put the word co in front of stuff and reverse
+	arrows. Compare the diagram below with <xref
+	ref="fig_product"/>.
+	<figure xml:id="fig_coproduct">
+	  <caption>The specification of a coproduct</caption>
+	  <image width="40%" xml:id="coproduct">
+	    <latex-image>
+	      \begin{tikzpicture}[scale = 2]
+	      \node (C) at (0,-1) {$C$};
+	      \node (A) at (-1,-1) {$A$};
+	      \node (B) at (1,-1) {$B$};
+	      \node (T) at (0,0) {$T$};
+	      \draw[right hook->] (A) -- node[above]{$i_A$} (C);
+	      \draw[left hook->] (B) -- node[above]{$i_B$} (C);
+	      \draw[->] (A) -- node[above]{$\forall \psi$} (T);
+	      \draw[->] (B) -- node[above]{$\forall \phi$} (T);
+	      \draw[dashed,->] (C) --node[left]{$\exists! f$} (T);
+	      \end{tikzpicture}
+	    </latex-image>
+	  </image>
+	</figure>
+	where <m>i_A,i_B</m> (which reverse the surjective
+	<m>p_A,p_B</m>) are injective. The object <m>C</m> satisfying
+	this diagram is called the coproduct.
+      </p>
+      <p>
+	In the category of groups the coproduct of <m>A,B</m> is the
+	direct product <m>A*B</m> given at the very beginning of this
+	section. Indeed for <m>A*B</m> we mentioned a van Kampen
+	diagram argument which gives the inclusion <m>i_A:A \into
+	A*B</m>, furthermore the maps <m>\psi,\phi</m> fully specify
+	images of a generating set of <m>A*B</m> into <m>T</m>,
+	finally by <xref ref="lem_pres_hom"/> it is immediate that all
+	the relations on <m>A*B</m> vanish, thus giving us our unique
+	homomorphism, compatible with the given <m>\psi,\phi.</m>
+      </p>
+      <p>
+	Thus, even though a direct product seems just like stupidly
+	smashing two presentations together, in the category of
+	groups, the direct product realizes the coproduct, i.e. the
+	dual of the direct product. Amalgamated products and HNN
+	extensions can also be similarly be defined, albeit with more
+	complicated diagrams. For example amalgamated products are the
+	result of dualizing <url href =
+	"https://en.wikipedia.org/wiki/Pullback_(category_theory)">fibre
+	products.</url> Have another look at <xref
+	ref="eq_amalg_monos"/>.
+      </p>
+
+      <p>
+	Incidentally, in the categories of <m>\ZZ</m> modules and
+	rings, coproducts are direct sums, i.e. <m>A\oplus B</m> and
+	products are <m>A \times B</m>, which unless when taking
+	infinitely many terms, are interchangeable. In group theory
+	coproducts are more complicated because of the
+	non-commutativity.
+      </p>
+    </subsection>
+    <subsection>
+      <title>
+	Okay, so maybe smashing presentations together isn't that
+	random after all. What is it good for?
+      </title>
+      <p>
+	We must now discuss <term>functoriality</term>. A functor
+	<m>F</m> is a map <m>F:C_1 \to C_2</m> between categories such
+	that for any arrow <m>A \stackrel{f}{\to} B</m> in <m>C_1</m>,
+	in <m>C_2</m> we have <m>F(A) \stackrel{F(f)}{\to}
+	F(B)</m>. Let's give some examples.
+	<ol>
+	  <li>
+	    Every group has an underlying set, and every homomorphisms
+	    is a function. We therefore have the <term>forgetful
+	    functor</term> <m>F:\mathbf{group} \to
+	    \mathbf{set}</m>. We say it's forgetful because we forgot
+	    about the algebra.
+	  </li>
+	  <li>
+	    Every <m>\ZZ</m> module is an abelian group via the
+	    addition operation. Conversely any ableian group <m>A</m>
+	    admits a <m>\ZZ</m> multiplication via the map <m>g
+	    \mapsto g^n</m>. Since <m>A</m> is abelian we have a
+	    <m>\ZZ</m>-action by exponentiation <m>(g*h)^n = g^n
+	    h^n</m>, for all <m>n \in \ZZ.</m> Since <m>\ZZ-linear</m>
+	    homomorphism are group homomorphism, and group
+	    homomorphisms commute with exponentiation. We have
+	    functors <m>F:\mathbf{AbGroup} \to \mathbf{Zmod}</m> and
+	    <m>G:\mathbf{Zmod} \to \mathbf{AbGroup}</m> with <m>F\circ
+	    G = Id</m>, so the categories of ablian groups and
+	    <m>\ZZ</m>-modules are isomorphic. Functionality thus
+	    gives a rigorous way of saying abelian groups and
+	    <m>\Z</m> modules are the same thing.
+	  </li>
+	  <li>
+	    In <xref ref="sec_free_group_dehn"/> we mentionned
+	    abelianization: take any group <m>G</m> and add relations
+	    so that all its generators commute. This gives an ableian
+	    quotient group <m>G_{ab}</m>. Again <xref
+	    ref="lem_pres_hom"/> tells us that given a morphism
+	    <m>f:G\to H</m>, following the images of generators gives
+	    another morphism <m>f_{ab}:G_{ab} \to H_{ab}</m>, so
+	    abelianizaition is a functor. Moreover since abelian
+	    groups are isomorphic to <m>\ZZ</m>-modules. We can use
+	    ableianization and linear algebra as a tool to study
+	    groups. Recall that this was sufficient to prove that free
+	    groups of different rank are not isomorphic, and can be
+	    used to show that if a group has fewer relations then
+	    generators, then it is non-trivial and in fact infinite.
+	  </li>
+	</ol>
+      </p>
+      <p>
+	The importance of amalgamated free products and HNN extensions
+	shows up in topology. Let <m>(S^1,s_0)</m> be a based circle
+	and let <m>(X,x_0)</m> be a based space. Then a contiuous
+	based map <m>\gamma: (S^1,s_0),(X,x_0)</m> is a loop in
+	<m>X</m> based at <m>x_0</m>. The set of based loops of
+	<m>(X,x_0)</m> (modulo homotopy), with the concatenation
+	opeation form the fundamental group of <m>(X,x_0)</m>
+	denoted<me> \pi_1(X,x_0).
+      </me>
+      </p>
+      <p>
+	Remarkably, although we have a continuum of based loops, if we
+	only consider homotopy classes, then in many cases we have a
+	countable set, in fact:
+	<theorem>
+	  <statement>
+	    <p>
+	      A group <m>G</m> is finitely presented if and only if it
+	      acts properly and cocompactly by isometries on a
+	      simply-connected geodesic space
+	    </p>
+	  </statement>
+	</theorem>
+      </p>
+      <p>
+	Basically the fundamental group of any compact manifold or CW
+	complex will be finitely presented. <em>It is in this context
+	that the study of groups with generators and relations
+	originated.</em>
+      </p>
+      <p>
+	Now if <m>\gamma :(S^1,s_0) \to (X,x_0)</m> is a loop and
+	<m>f:(X,x_0) \to (Y,y_0)</m> is a continuous map, then
+	<m>f\circ\gamma</m> is a loop in <m>(Y,y_0)</m>. In a topology
+	course it is shown that the map:
+	<me>
+	  \pi_1(X,x_0) \ni [\gamma] \mapsto [f\circ\gamma] \in
+	  \pi_1(Y,y_0), </me> where <m>[\gamma]</m> represents a
+	  based homotopy class in fact is a <em>homomorphism</em>
+	  <me>f_\sharp:\pi_1(X,x_0)\to \pi_1(Y,y_0).</me>
+	  Thus <m>\pi_1</m> gives a functor from the category of based
+	  topological spaces to the category of groups.
+      </p>
+      <p>
+	Consider not the following generalization of a
+	coproduct. Supose we have a pair of injective morphisms
+	<m>i_X:Z\into X,i_Y:Z \into Y</m> then the <term>coproduct
+	over <m>(i_X,i_Y)</m></term> is an object <m>C</m> equipped
+	with two inclusions <m>\rho_X:X \into C,\rho_Y: Y\into
+	C</m>such that givem any triple of commuting maps
+	<m>\phi_Z,\phi_X,\phi_Y</m> from <m>Z,X,Y</m> (respectively)
+	to any object <m>T</m>, there exists a unique a unique map
+	<m>f:C \to T</m> making the following diagram commute:
+      </p>
+      <figure xml:id="fig_amalg_product">
+	  <caption>The a coproduct over a pair of monomorphisms</caption>
+	  <image width="40%" xml:id="amalg_product">
+	    <latex-image>
+	      \begin{tikzpicture}[scale = 2]
+	      \node (C) at (0,-1) {$C$};
+	      \node (A) at (-1,-1) {$X$};
+	      \node (B) at (1,-1) {$Y$};
+	      \node (T) at (0,0) {$T$};
+	      \node (Z) at (0,-2) {$Z$};
+	      \draw[right hook->] (A) -- node[above]{$\rho_X$} (C);
+	      \draw[left hook->] (B) -- node[above]{$\rho_Y$} (C);
+	      \draw[->] (A) -- node[above]{$\forall \phi_X$} (T);
+	      \draw[->] (B) -- node[above]{$\forall \phi_Y$} (T);
+	      \draw[dashed,->] (C) --node[left]{$\exists! f$} (T);
+	      \draw[right hook->] (Z) --node[above]{$i_X$} (A);
+	      \draw[right hook->] (Z) --node[above]{$i_Y$} (B);
+  	      \end{tikzpicture}
+	    </latex-image>
+	  </image>
+	</figure>
+	<p>
+	  If the standard coproduct was the free product, it should
+	  not come as a surprise to the reader that the the coproduct
+	  ovar a pair of monomorphismsm is nothing else than the
+	  amalgamated product.
+	</p>
+	<p>
+	  We therefore have two definitions of the amalgamated
+	  product: a concrete one involving an explicit presentation
+	  and one using the language of category theory, also
+	  affectionatley knonw as <term>abstract nonsense.</term>
+	</p>
+	<p>
+	  What good is abstract nonsense? Let us now turn our
+	  attention to based spaces. Let us first define an injective
+	  contiuous map <m>f:(Z,u_0) \into (X,x_0)</m> to be
+	  <term><m>\pi_1</m>-injective</term> if it's functorial image
+	  <m>f_\sharp \pi_1(U,u_0) \to \pi_1(X,x_0)</m> is also
+	  injective. And consider the diagram <xref
+	  ref="fig_amalg_product"/> in the context of of based
+	  spaces. Then the universal object in the category of based
+	  spaces is the topological space <m>X\cup_Z Y</m> obtained by
+	  gluing <m>X</m> to <m>Y</m> as perscribed by the pair of
+	  functions of from <m>Z</m> to <m>X,Y</m>. 
+	</p>
+	<p>
+	  As an immediate consequence of functoriality, we get the
+	  <term>Seifert van Kampen</term> (yes the same van Kampen)
+	  theorem: the fundamental group of space obtained by gluing
+	  spaces together is obtained by gluing the fundamental group
+	  together. 
+	</p>
+	<figure xml:id="fig_glue_surfaces">
+	  <caption>Gluing spaces together, glues together fundamental
+	  groups. This picture depicts spaces, fundamental groups and
+	  morphisms.</caption>
+	  <image width="75%" xml:id="glue_surfaces"
+		 source="images/glue_surfaces.png"/>
+	</figure>
+	<p>
+	  Acually, the real Seifert van Kampen theorem handles when
+	  the inclusion maps are not <m>\pi_1</m>-injective, but is
+	  proved the same way (it's just that we would have to
+	  generalize amalgamated products and all that stuff, but
+	  there is nothing new needed.)
+	</p>
+	<p>
+	  The mysterious HNN extensions occurs when a space gets glued
+	  to itself, basepoint issues make things awkward.
+	</p>
+	<figure xml:id="fig_HNN_glue">
+	  <caption>Glueing a space to itself. Notice how an extra loop
+	  gets created.</caption>
+	  <image width="75%" xml:id="HNN_glue"
+		 source="images/HNN_glue.png"/>
+	</figure>
+	<p>
+	  The relationship between topological spaces various
+	  algebraic invariants has been the subject of intense
+	  scrutiny for the past century. Amalgamated products and HNN
+	  extensions play an important role in these investigations.
+	</p>
+    </subsection>
+  </section>
   
 </chapter>
 
   <!-- Chapter: Diagrams -->
   <!-- Lollipops. -->
-
+ 
   <!-- END OF LECTURES -->
   <!-- END OF LECTURES -->
   <!-- END OF LECTURES -->
