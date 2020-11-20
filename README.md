@@ -19,15 +19,5 @@ Assuming all prerequisite software packages are installed, to produce html outpu
 ```
 make html-all
 ```
-For latex:
-`make latex`
-
-
-A utility to convert all `.svg` files in a directory to `.png` files is stored in `images/svgtopng.sh`.
-
-## Notes to self.
-In lecture 3 be more explicit about the group of words with insertions and deletions and gove more details about how equality works.
-
-Lecture 4, the ball of radius 4 question can be better explained.
-
-Lecture 7, talk about first betti numbers with respect to Tietze transformations.
+For pdf:
+`make pdf`
