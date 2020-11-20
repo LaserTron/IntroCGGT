@@ -15,9 +15,9 @@ necessary to update the `mathbook` submodule. [See here for
 instructions](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
 
-Assuming all prerequisite software packages are installed, to produce html output:
+Assuming all prerequisite software packages (specificially `latex` and whatever PreTeXt needs) are installed, 
+to produce html output:
 ```
 make html-all
 ```
-For pdf:
-`make pdf`
+For pdf: `make pdf`
