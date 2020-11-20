@@ -5478,7 +5478,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	</p>
 	<p>
 	  The mysterious HNN extensions occurs when a space gets glued
-	  to itself, basepoint issues make things awkward.
+	  to itself, basepoint issues make things awkward, however.
 	</p>
 	<figure xml:id="fig_HNN_glue">
 	  <caption>Glueing a space to itself. Notice how an extra loop
@@ -5486,12 +5486,6 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  <image width="75%" xml:id="HNN_glue"
 		 source="images/HNN_glue.png"/>
 	</figure>
-	<p>
-	  The relationship between topological spaces various
-	  algebraic invariants has been the subject of intense
-	  scrutiny for the past century. Amalgamated products and HNN
-	  extensions play an important role in these investigations.
-	</p>
     </subsection>
 
     <subsection>
@@ -5500,12 +5494,12 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       </title>
       <p>
       In the field of combinatorial and geometric group theory, we
-      typically that the amalgamating subgroup is mapped
+      typically require that the amalgamating subgroup is mapped
       injectively. We could relax the definition of an amalgamated
       product and no longer require the maps <m>i_X,i_Y</m> to be
       injective as below:
        <figure xml:id="fig_gen_fibre_coprod">
-	  <caption>Relaxing to coproduct over a pair of possibly
+	  <caption>Relaxing to coproducts over a pair of possibly
 	  non-injective morphisms</caption>
 	  <image width="40%" xml:id="gen_fibre_coprod">
 	    <latex-image>
@@ -5534,7 +5528,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
        ref="lem_pres_hom"/> can be used to show that this presentation
        will give the corresponding universal object. This
        generlaization of an amalgamated product is what is used in the
-       Seifert van Kampen Theorem, which covers the case where
+       full Seifert van Kampen Theorem, which covers the case where
        inclusions are no longer <m>\pi_1</m>-injective.
       </p>
        <p>
@@ -5542,13 +5536,13 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	 whereas the unit circle <m>S^1</m> has <m>\pi_1(S_1)=\ZZ</m>
 	 we certainly have the inclusion <m>S^1 \subset D</m>, and
 	 this inclusion is not <m>\pi_1</m>-injective. The full
-	 Seifert van Kampen Theorem, covers this case.
+	 Seifert van Kampen Theorem covers this case.
        </p>
        <p>
-	 This theorem is the one of the main tool used to study the
-	 fundamental groups of topological spaces and is the first
-	 step in proving one of the most important results of this
-	 century:
+	 This Seifert van Kampen Theorem is the one of the main tool
+	 used to study the fundamental groups of topological spaces, a
+	 field in which one of the most important results of this
+	 century has been made:
 	 <theorem>
 	   <title>
 	     Poincaré conjecture
