@@ -5037,9 +5037,9 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	of making a new group by "gluing" <m>G</m> and <m>H</m> along
 	the images of <m>A</m>. The <term>amalgamated product of
 	<m>G</m> and <m>H</m> over <m>A</m> </term> is the group
-	<me>
+	<men xml:id="eq_amalg_pres">
 	  G*_A H = \pres{X,Y}{R,S, \psi(a)=\varphi(a);a \in A}
-	</me>
+	</men>
 	Note here that although <m>A</m> is not a subgroup of <m>G</m>
 	or <m>H</m> we have for all <m>a \in A, \psi(a)\in G,
 	\varphi(a) \in H</m> so that the set of <term>amalgamating
@@ -5070,8 +5070,9 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	</me>
 	Then either some syllable <m>G \ni a_i \in \psi(A)</m> or <m>H
 	\ni b_j \in \varphi(A)</m>. Finally if the amalgamating
-	subgroup <m>A</m> is finitely generated, then the amalgamated
-	product is finitely presented (again same argument as for HNN
+	subgroup <m>A</m> is finitely generated and both <m>G</m> and
+	<m>H</m> are finitely presented, then the amalgamated product
+	is finitely also presented (again same argument as for HNN
 	extensions.) <em>The only difference is that tracks are nicer
 	to draw in the HNN case.</em>
       </p>
@@ -5314,18 +5315,19 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  <li>
 	    Every <m>\ZZ</m> module is an abelian group via the
 	    addition operation. Conversely any ableian group <m>A</m>
-	    admits a <m>\ZZ</m> multiplication via the map <m>g
-	    \mapsto g^n</m>. Since <m>A</m> is abelian we have a
-	    <m>\ZZ</m>-action by exponentiation <m>(g*h)^n = g^n
-	    h^n</m>, for all <m>n \in \ZZ.</m> Since <m>\ZZ-linear</m>
-	    homomorphism are group homomorphism, and group
-	    homomorphisms commute with exponentiation. We have
-	    functors <m>F:\mathbf{AbGroup} \to \mathbf{Zmod}</m> and
+	    admits a <m>\ZZ</m> multiplication via the exponentiation
+	    map <m>g \mapsto g^n</m>. Since <m>A</m> is abelian
+	    exponentiation is <m>\ZZ</m>-linear, i.e. <m>(gh)^n = g^n
+	    h^n</m>, for all <m>n \in \ZZ.</m> Since <m>\ZZ</m>-linear
+	    homomorphism are group homomorphism, and abelian group
+	    homomorphisms commute with exponentiation (and therefore
+	    have a linear structure). We have functors
+	    <m>F:\mathbf{AbGroup} \to \mathbf{Zmod}</m> and
 	    <m>G:\mathbf{Zmod} \to \mathbf{AbGroup}</m> with <m>F\circ
 	    G = Id</m>, so the categories of ablian groups and
 	    <m>\ZZ</m>-modules are isomorphic. Functionality thus
 	    gives a rigorous way of saying abelian groups and
-	    <m>\Z</m> modules are the same thing.
+	    <m>\ZZ</m> modules are the same thing.
 	  </li>
 	  <li>
 	    In <xref ref="sec_free_group_dehn"/> we mentionned
@@ -5396,7 +5398,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	over <m>(i_X,i_Y)</m></term> is an object <m>C</m> equipped
 	with two inclusions <m>\rho_X:X \into C,\rho_Y: Y\into
 	C</m>such that givem any triple of commuting maps
-	<m>\phi_Z,\phi_X,\phi_Y</m> from <m>Z,X,Y</m> (respectively)
+	<m>\phi_X,\phi_Y</m> from <m>X,Y</m> (respectively)
 	to any object <m>T</m>, there exists a unique a unique map
 	<m>f:C \to T</m> making the following diagram commute:
       </p>
@@ -5420,7 +5422,14 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
   	      \end{tikzpicture}
 	    </latex-image>
 	  </image>
-	</figure>
+      </figure>
+      <p>
+	Note that our diagram commutation requirement means that we
+	have an equality of compositions
+	<me>
+	  \phi_X\circ i_X : Z \to T = \phi_Y\circ i_Y : Z \to T 
+	</me>
+      </p>
 	<p>
 	  If the standard coproduct was the free product, it should
 	  not come as a surprise to the reader that the the coproduct
@@ -5483,6 +5492,74 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  scrutiny for the past century. Amalgamated products and HNN
 	  extensions play an important role in these investigations.
 	</p>
+    </subsection>
+
+    <subsection>
+      <title>
+	Final remark.
+      </title>
+      <p>
+      In the field of combinatorial and geometric group theory, we
+      typically that the amalgamating subgroup is mapped
+      injectively. We could relax the definition of an amalgamated
+      product and no longer require the maps <m>i_X,i_Y</m> to be
+      injective as below:
+       <figure xml:id="fig_gen_fibre_coprod">
+	  <caption>Relaxing to coproduct over a pair of possibly
+	  non-injective morphisms</caption>
+	  <image width="40%" xml:id="gen_fibre_coprod">
+	    <latex-image>
+	      \begin{tikzpicture}[scale = 2]
+	      \node (C) at (0,-1) {$C$};
+	      \node (A) at (-1,-1) {$X$};
+	      \node (B) at (1,-1) {$Y$};
+	      \node (T) at (0,0) {$T$};
+	      \node (Z) at (0,-2) {$Z$};
+	      \draw[->] (A) -- node[above]{$\rho_X$} (C);
+	      \draw[->] (B) -- node[above]{$\rho_Y$} (C);
+	      \draw[->] (A) -- node[above]{$\forall \phi_X$} (T);
+	      \draw[->] (B) -- node[above]{$\forall \phi_Y$} (T);
+	      \draw[dashed,->] (C) --node[left]{$\exists! f$} (T);
+	      \draw[->] (Z) --node[above]{$g_X$} (A);
+	      \draw[->] (Z) --node[above]{$g_Y$} (B);
+  	      \end{tikzpicture}
+	    </latex-image>
+	  </image>
+       </figure>
+       Again we would have a universal object, actually given by the
+       same kind of presentation as <xref ref="eq_amalg_pres"/>, only
+       here since <m>\psi,\varphi</m> are no longer injective, the
+       factors <m>G,H</m> may no longer embed in the cofibered
+       coproduct (or whatever it should be called). Still <xref
+       ref="lem_pres_hom"/> can be used to show that this presentation
+       will give the corresponding universal object. This
+       generlaization of an amalgamated product is what is used in the
+       Seifert van Kampen Theorem, which covers the case where
+       inclusions are no longer <m>\pi_1</m>-injective.
+      </p>
+       <p>
+	 For example: the unit disc <m>D</m> has <m>\pi_1(D)=\{1\}</m>
+	 whereas the unit circle <m>S^1</m> has <m>\pi_1(S_1)=\ZZ</m>
+	 we certainly have the inclusion <m>S^1 \subset D</m>, and
+	 this inclusion is not <m>\pi_1</m>-injective. The full
+	 Seifert van Kampen Theorem, covers this case.
+       </p>
+       <p>
+	 This theorem is the one of the main tool used to study the
+	 fundamental groups of topological spaces and is the first
+	 step in proving one of the most important results of this
+	 century:
+	 <theorem>
+	   <title>
+	     Poincaré conjecture
+	   </title>
+	   <statement>
+	     Let <m>M</m> be a closed 3-manifold. Then <m>M</m> is
+	     homeomorphic to the the 3-sphere <m>S^3</m> if an only if
+	     <m>\pi_1(M)=\{1\}</m>.
+	   </statement>
+	 </theorem>
+       </p>
     </subsection>
   </section>
   
