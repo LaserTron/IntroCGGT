@@ -5274,7 +5274,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       <p>
 	Thus, even though a direct product seems just like stupidly
 	smashing two presentations together, in the category of
-	groups, the direct product realizes the coproduct, i.e. the
+	groups, the free product realizes the coproduct, i.e. the
 	dual of the direct product. Amalgamated products and HNN
 	extensions can also be similarly be defined, albeit with more
 	complicated diagrams. For example amalgamated products are the
