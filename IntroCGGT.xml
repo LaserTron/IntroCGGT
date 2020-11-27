@@ -5191,9 +5191,9 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	object <m>C</m> which satisfies the following property: There
 	is a pair of surjective morphisms (also called
 	<term>epimorphisms</term>) <m>p_A:C\to A, p_B:C\to B</m> such
-	that for any object <m>T</m> and any pair of morhpisms
-	<m>\psi:A \to T</m> and <m>\phi:B \to T</m>, there to
-	exist a unique morhpism <m>\rho</m> which makes the following
+	that for any object <m>T</m> and any pair of morphisms
+	<m>\psi:T \to A</m> and <m>\phi:T \to B</m>, there to
+	exist a unique morphism <m>\rho</m> which makes the following
 	diagram commute:
 	<figure xml:id="fig_product">
 	  <caption>The specification of a product</caption>
@@ -5433,26 +5433,26 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	<p>
 	  If the standard coproduct was the free product, it should
 	  not come as a surprise to the reader that the the coproduct
-	  ovar a pair of monomorphismsm is nothing else than the
+	  ovar a pair of monomorphisms is nothing else than the
 	  amalgamated product.
 	</p>
 	<p>
 	  We therefore have two definitions of the amalgamated
 	  product: a concrete one involving an explicit presentation
 	  and one using the language of category theory, also
-	  affectionatley knonw as <term>abstract nonsense.</term>
+	  affectionately known as <term>abstract nonsense.</term>
 	</p>
 	<p>
 	  What good is abstract nonsense? Let us now turn our
 	  attention to based spaces. Let us first define an injective
-	  contiuous map <m>f:(Z,u_0) \into (X,x_0)</m> to be
+	  continuous map <m>f:(Z,u_0) \into (X,x_0)</m> to be
 	  <term><m>\pi_1</m>-injective</term> if it's functorial image
 	  <m>f_\sharp \pi_1(U,u_0) \to \pi_1(X,x_0)</m> is also
 	  injective. And consider the diagram <xref
 	  ref="fig_amalg_product"/> in the context of of based
 	  spaces. Then the universal object in the category of based
 	  spaces is the topological space <m>X\cup_Z Y</m> obtained by
-	  gluing <m>X</m> to <m>Y</m> as perscribed by the pair of
+	  gluing <m>X</m> to <m>Y</m> as prescribed by the pair of
 	  functions of from <m>Z</m> to <m>X,Y</m>. 
 	</p>
 	<p>
@@ -5470,7 +5470,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 		 source="images/glue_surfaces.png"/>
 	</figure>
 	<p>
-	  Acually, the real Seifert van Kampen theorem handles when
+	  Actually, the real Seifert van Kampen theorem handles when
 	  the inclusion maps are not <m>\pi_1</m>-injective, but is
 	  proved the same way (it's just that we would have to
 	  generalize amalgamated products and all that stuff, but
@@ -5555,6 +5555,252 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	 </theorem>
        </p>
     </subsection>
+  </section>
+
+  <section><title>Lecture 16: The combinatorial geometry and topology
+  of van Kampen diagrams.</title>
+  <introduction>
+    <p>Although we've been using them for a few lectures already, we
+    will now give formal definitions of 2-complexes.</p>
+    <p>
+      An <term>open <m>n</m>-cell</term> is a copy of the open ball in
+      <m>\RR^n</m>. For example an open <m>1</m>-cell is an open
+      interval, and open <m>2</m>-cell is an open disc. We will now
+      define a cell complex inductively as follows:
+      <ol>
+	<li>
+	  A closed 0-cell is a point. A zero-complex is a disjoint
+	  union of points.
+	</li>
+	<li>
+	  A closed 1-cell consists of an open 1-cell (an interval) and
+	  a boundary consisting of two closed zero-cells, i.e. an open
+	  interval with it's two endpoints. We think of a 1-cell as
+	  being embeddable into <m>\RR</m>. Note that if an open cell
+	  is the 1-ball, then the 0-sphere (i.e. the points of
+	  distance 1 from the origin in <m>\RR</m>) consists of two
+	  points. A 1 complex is obtained by taking a collection of
+	  1-cells and identifying points in their boundaries. Note
+	  that this is precisely the definition of an undirected graph
+	  that can contain multiedges and loops. <term>A combinatorial
+	  mapping of 1-complexes</term> is a function between 1
+	  complexes which sends 0-cells to 0-cells and 1-cells to
+	  1-cells.
+	</li>
+	<li>
+	  A closed 2-cell <m>D</m> consists of an open 2-cell and a
+	  boundary <m>\partial B</m> which is 1-complex homeomorphic
+	  to a circle (i.e. a closed polygon). Again we think of a
+	  2-cell as being embeddable into <m>\RR^2</m>. A 2-complex
+	  <m>X</m> is obtained by taking <m>X^{(1)}</m>, called a
+	  1-skeleton, and attaching 2-cells via the identification
+	  given by a combinatorial mapping <m>\partial B \to
+	  X^{(1)}.</m>
+	</li>
+      </ol>
+      The reader will probably see that this construction generalized
+      to arbitrarily high dimensions. For our purposes, however, it is
+      sufficient to stay in dimension 2, i.e. to work with
+      2-complexes.
+    </p>
+    <p>
+      Now we note that 2-complexes can be realized, and should be
+      thought of, as CW complexes, also called <term>cell
+      complexes</term>. That said the data that goes into describing
+      them is completely discrete. It actually turns out that many
+      interesting topological spaces can be studied from a
+      combinatorial viewpoint.
+    </p>
+  </introduction>
+  <subsection>
+    <title>
+      Euler characteristic of van Kampen diagrams.
+    </title>
+    <p>
+      Given a finite (i.e. with finitely many cells) connected 2-complex
+      <m>X</m> we have the following invariant called <term>Euler
+      Characteristic</term>
+      <men xml:id="eq_euler">
+	\chi(X) = V_X-E_X+F_X
+      </men>
+      Were <m>V_X,E_X,F_X</m> denote the number of vertices (0-cells),
+      edges (1-cells), faces (2-cells) of <m>X</m> (respectively).
+    </p>
+    <p>
+      We will now define <term>collapses</term> which are
+      transformations of cell complexes that are useful for inductive
+      arguments. A <term>free <m>n</m>-face</term> in a cell complex
+      <m>X</m> is an <m>n</m>-cell <m>f</m> which is contained in the
+      boundary <m>\partial \sigma</m> of single open <m>n+1</m>-cell
+      <m>\sigma</m>.
+    </p>
+    <figure xml:id="fig_free_faces">
+      <caption>Some free faces and complexes without free
+g      faces.</caption> <image width="30%" xml:id="free_faces"
+      source="images/free_faces.png"/>
+    </figure>
+    <p>
+      An <term>elementary collapse of cell complex <m>X</m> at a free
+      face <m>f</m></term> is the process of passing to <m>X' \subset
+      X</m> which is optained by deleting the free <m>n-face</m>
+      <m>f</m> and the unique open (<m>n+1</m>)-cell <m>\sigma</m>
+      containing <m>f</m>. We note that although <m>X'\subset X</m> we
+      actually have a continuous function <me>r: X \onto X' </me> such
+      that the restriction <m>r|_{X'} = Id_{X'}</m>, so that <m>r</m>
+      is a retraction. In fact <m>r</m> is a <em>deformation
+      retraction</em>. The reader should not panic if they don't know
+      what a deformation retraction is, as the following consequence
+      of this fact (which can be proved directly from definitions) is
+      all we will need.
+    </p>
+    <lemma xml:id="lem_collapse_preserve_characteristic">
+      <statement>
+	<p> If <m>X \to X'</m> is an elementary collapse then
+	<me>
+	  \chi(X) = \chi(X').
+	</me>
+	</p>
+      </statement>
+    </lemma>
+    <p>
+      We now turn our attention specifically to van Kampen diagrams,
+      which we have defined as finite planar simply connected
+      2-complexes. We start with the following lemma.
+    </p>
+    <lemma xml:id="lem_van_kampen_free_faces">
+      <statement>
+	<p>
+	  Any van Kampen diagram, which is not a point, contains a
+	  free face and theredore admits an elementary collapse.
+	</p>
+      </statement>
+      <proof>
+	<p>
+	  We first consider the case where <m>X</m> contains
+	  2-cells. First note that because <m>X</m> is planar every
+	  edge is contained in at most 3 edges.
+	</p>
+	<figure xml:id="fig_book">
+	  <caption>Edges in van Kampen diagrams can only be contained
+	  in two 2-cells and some 2-complexes without free
+	  <m>1</m>-faces. </caption>
+	  <image width="75%" xml:id="book"
+		 source="images/book.png"/>
+	</figure>
+	<p>
+	  So <m>X</m> has 2-cells, but no free faces, then every
+	  connected union of 2-cells must be a closed 2-manifold
+	  (i.e. a compact 2 manifold without boundary) contradicting
+	  that <m>X</m> is planar.
+	</p>
+	<p>
+	  We now consider the situation where <m>X</m> doesn't have
+	  any 2-cells. Then <m>X</m> is a finite graph. Since <m>X</m>
+	  is simply connected it doesn't contain any cycles, so
+	  <m>X</m> is a finite tree, therefore it contains vertices of
+	  degree 1, which are precisely free <m>0</m>-faces.
+	</p>
+	<p>
+	  Having exhausted all possibilities, the result follows.
+	</p>
+      </proof>
+    </lemma>
+
+    From this we immediately have, which we will use later.
+    <corollary>
+      <statement>
+	<p>
+	  If <m>X</m> is a van Kampen diagram then <m>\chi(X)=1.</m>
+	</p>
+      </statement>
+    </corollary>
+    
+  </subsection>
+  <subsection>
+    <title>The combinatorial Gauss-Bonnet theorem for planar
+    diagrams.</title> <url
+    href="https://en.wikipedia.org/wiki/Gauss–Bonnet_theorem">The
+    classical Gauss-Bonnet theorem</url> relates the integral of
+    curvature over a Riemannian manifold to the manifold's Euler
+    characteristic. We will now present a combinatorial version of
+    this fact. We&apos;ll start by stating the theorem and then define
+    what is meant by curvature.  <theorem xml:id="thm_CGBT">
+    <statement> <p>Let <m>X</m> be an angled 2-complex, then<me>
+    \sum_{f \in 2\mathrm{-cells}} \mathrm{Curvature}(f) + \sum_{v \in
+    0\mathrm{-cells}} \mathrm{Curvature}(v) = 2\pi\chi(X).  </me> </p>
+    </statement> </theorem> <p> <term>An angled 2-complex</term> is a
+    2-complex such that an angle has been assigned corner. We note
+    that this is done abstractly, we don't actually care about whether
+    it is realizable.
+
+    <figure xml:id="fig_angled_2_cell"> <caption>An
+    angled 2-cell. Angles are in radians. </caption> <image
+    width="75%" xml:id="angled_2_cell"
+    source="images/angled_2_cell.png"/> 
+    </figure> 
+
+    Given a 2-cell <m>f</m> we denote it's <term>perimeter</term>, the
+    length of <m>\partial f</m>, by <m>|\partial f|</m>. We note that
+    if <m>f</m> is such that two of it's boundary edges are identified
+    as <m>e</m>, then we count <m>e</m> twice in <m>f</m>. We can now
+    define the <term>curvature of a face</term>:
+    <me>
+    \mathrm{Curvature}(f) = \sum_{c \in \mathrm{corners}(f)} \angle c
+    - (|\partial f|-2)\pi.
+    </me>
+  </p>
+
+  <p> We note that for a regular polygon <m>P</m> with <m>|\partial
+  P|</m> side in <m>\mathbf{E}^2</m>, the total angle sum is
+  <m>(|\partial P|-2)\pi</m> (e.g. the sum of the internal angles of a
+  triangle is <m>\pi</m>, for a square it's <m>2\pi</m>, etc). The
+  curvature of a 2-cell therefore measures the excess angle sum
+  compared to a Euclidean polygon.  </p> <p> The curvature of a vertex
+  is a bit more subtle. On the one hand it is set up so that <xref
+  ref="thm_CGBT"/> holds, but it also has geometrical
+  significance. Given a vertex <m>v \in X</m> in a 2-cell, we can
+  consider a spheres (i.e. a sets of points equidistant to <m>v</m>)
+  shrinking to <m>v</m>. These sphere will intersect incident edges in
+  points and incident 2-faces in arcs. We call the resulting,
+  persisting 1-complex the <term>link of <m>v</m></term>, denoted
+  <m>\mathrm{link(v)}</m>.
+      <figure xml:id="fig_link">
+	<caption>The link of a vertex. </caption>
+	<image width="75%" xml:id="link"
+	       source="images/link.png"/>
+      </figure>
+      We note, for example, that if <m>e</m> forms a loop at <m>v</m>,
+      then it contributes two vertices to <m>\mathrm{link}(v)</m>. We
+      also note that because <m>X</m> is an angled complex, each edge
+      in <m>\mathrm{link}(v)</m> corresponds to the corner of some
+      2-cell and therefore carries an angle. I.e. if <m>e \in
+      E(\mathrm{link}(v)</m> then there is a well defined <m>\angle e</m>
+    </p>
+
+    <p>
+      We can now define the curvature of a vertex:
+      <me>
+	\mathrm{Curvature}(v) =
+	\pi(2-\chi(\mathrm{link}(v)))-
+	\left( 
+	\sum_{e \in E(\mathrm{link}(v))} \angle e
+	\right)
+      </me>
+    </p>
+    <p>
+      We note that in the case where <m>\mathrm{link}(v)</m> is just a
+      cycle, then if the picture is realized in the plane, the sum of
+      the angles should add up to <m>2\pi</m>, and in this case the
+      cuvature measures the total angle deficiency. This definition,
+      however, extends to arbitrary angled 2-complexes.
+    </p>
+    <p>
+      Ultimately <xref ref="thm_CGBT"/> is simply a double counting
+      argument: the terms in these sums of curvature cancel out to
+      give <m>2\pi\chi(X)</m>.
+    </p>
+  </subsection>
+  
   </section>
   
 </chapter>
