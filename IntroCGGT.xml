@@ -5636,7 +5636,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
     </p>
     <figure xml:id="fig_free_faces">
       <caption>Some free faces and complexes without free
-g      faces.</caption> <image width="30%" xml:id="free_faces"
+g      faces.</caption> <image width="75%" xml:id="free_faces"
       source="images/free_faces.png"/>
     </figure>
     <p>
@@ -5684,7 +5684,7 @@ g      faces.</caption> <image width="30%" xml:id="free_faces"
 	  <caption>Edges in van Kampen diagrams can only be contained
 	  in two 2-cells and some 2-complexes without free
 	  <m>1</m>-faces. </caption>
-	  <image width="75%" xml:id="book"
+	  <image width="25%" xml:id="book"
 		 source="images/book.png"/>
 	</figure>
 	<p>
@@ -5735,7 +5735,7 @@ g      faces.</caption> <image width="30%" xml:id="free_faces"
 
     <figure xml:id="fig_angled_2_cell"> <caption>An
     angled 2-cell. Angles are in radians. </caption> <image
-    width="75%" xml:id="angled_2_cell"
+    width="50%" xml:id="angled_2_cell"
     source="images/angled_2_cell.png"/> 
     </figure> 
 
@@ -5753,7 +5753,8 @@ g      faces.</caption> <image width="30%" xml:id="free_faces"
   <p> We note that for a regular polygon <m>P</m> with <m>|\partial
   P|</m> side in <m>\mathbf{E}^2</m>, the total angle sum is
   <m>(|\partial P|-2)\pi</m> (e.g. the sum of the internal angles of a
-  triangle is <m>\pi</m>, for a square it's <m>2\pi</m>, etc). The
+  triangle is <m>\pi</m>, for
+  a square it's <m>2\pi</m>, etc). The
   curvature of a 2-cell therefore measures the excess angle sum
   compared to a Euclidean polygon.  </p> <p> The curvature of a vertex
   is a bit more subtle. On the one hand it is set up so that <xref
@@ -5800,6 +5801,59 @@ g      faces.</caption> <image width="30%" xml:id="free_faces"
       give <m>2\pi\chi(X)</m>.
     </p>
   </subsection>
+  <exercises>
+    <exercise>
+      <statement>
+	<p>
+	  Consider the (topological )2-sphere realized as a
+	  tetrahedtron, <m>T</m> consisting of 4 triangles.
+	</p>
+	<p>
+	  <ol>
+	    <li>
+	      Sketch <m>T</m> and compute <m>\chi(T)</m>.
+	    </li>
+	    <li>
+	      Angle the triangles so that they are Euclidean
+	      equilateral triangles, i.e. each corner has angle
+	      <m>\pi/3</m>. What is the curvature of the faces, what
+	      is the curvature of the vertices?
+	    </li>
+	    <li>
+	      Now angle the complex so that each vertex has curvature
+	      0. This can be done by making all the angles adjacent to
+	      a vertex <m>v</m> add up to <m>2\pi.</m> Verify that
+	      this indeed makes vertices have curvature 0. What is the
+	      curvature of each face?
+	    </li>
+	  </ol>
+	</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+	<p> Repeat the previous exercise with a cube</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <p>
+	 Consult the following link for a <url
+	 href="http://geometrygames.org/HyperbolicBlanket/">hyperbolic
+	 blanket</url>, which is an infinite planar 2-complex whose
+	 2-cells are 5 sided and such that every vertex is adjacent to
+	 4 2-cells.
+      </p>
+      <p>
+	Assume that the pentagons are regular Euclidean i.e. each
+	angle is <m>\frac{3\pi}{5}</m>, what is the curvature of the
+	vertices? 
+      </p>
+      <p>
+	Why would people say a hyperbolic blanket is a negatively
+	curved space?
+      </p>
+    </exercise>
+  </exercises>
   
   </section>
   
