@@ -24,6 +24,7 @@
     \newcommand{\lab}{\mathbf{label}}
     \newcommand{\Stal}[1]{\Gamma(#1)}
     \newcommand{\lang}[2]{\mathcal{L}_{#1}(#2)}
+    \newcommand{\BEmatrix}[1]{\begin{bmatrix} #1 \end{bmatrix}}
   </macros>
 </docinfo>
 
@@ -1698,7 +1699,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
   <lemma xml:id="lem_cyclic_perm">
     <statement>
       Given any cyclically reduced word <m>w=x_1\cdots x_{m} \in
-      F_</m>, 
+      F_n</m>, 
       <ul>
 	<li>any cyclic permutation <m>w&apos;=x_j\cdots x_m x_1\cdots
 	x_{j-1} \in F_n</m> of <m>w</m> can be obtained by
@@ -1732,9 +1733,9 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       </p>
       <p>
 	Hint: Work in abelianizations. Let <m>a,b,c</m> be the vectors
-	<m>\pmatrix{1\\0\\1},\pmatrix{0\\1\\0},\pmatrix{0\\0\\1}</m>
+	<m>\BEmatrix{1\\0\\1},\BEmatrix{0\\1\\0},\BEmatrix{0\\0\\1}</m>
 	respectively. The relations also correspond to vectors,
-	e.g. <m>abc=\pmatrix{1\\1\\1}</m>. Now
+	e.g. <m>abc=\BEmatrix{1\\1\\1}</m>. Now
 	<m>G/[G,G]\otimes_\ZZ\QQ</m> is the vector space
 	<me>
 	  V=\QQ^3/U
@@ -2087,7 +2088,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	<p>
 	  We take the standard cayley graphs <m>\cay{\{1\}}{\ZZ}</m>,
 	  the line, and
-	  <m>\cay{\left\{\pmatrix{1\\0},\pmatrix{0\\1}\right\}}{\ZZ^2}</m>,
+	  <m>\cay{\left\{\BEmatrix{1\\0},\BEmatrix{0\\1}\right\}}{\ZZ^2}</m>,
 	  the infinite grid, and equip <m>\ZZ</m> and <m>\ZZ^2</m>
 	  with the induced word metric.
 	</p>
@@ -2745,7 +2746,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	<li>In an infinite tree, any finite subset is an essential
 	disconnecting set.</li>
 	<li> The grid
-	<m>\cay{\{\pmatrix{1\\0},\pmatrix{0\\1}\}}{\ZZ^2}</m> doesn&apos;t
+	<m>\cay{\{\BEmatrix{1\\0},\BEmatrix{0\\1}\}}{\ZZ^2}</m> doesn&apos;t
 	admit any finite essential disconnecting sets.</li>
       </ul>
     </statement>
@@ -3028,7 +3029,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  Let <m>L</m> be the infinite line (i.e. the standard Cayley
 	  graph for <m>\ZZ</m>) and let <m>T_4</m> be the infinite
 	  regular tree of valence 4 (i.e. <m>T_4 =
-	  \cay{\{a,b\}{F(a,b)}</m>.) In both metric spaces consider
+	  \cay{\{a,b\}}{F(a,b)}</m>.) In both metric spaces consider
 	  the balls <m>B(x_0,1)\subset B(x_0,2) \subset
 	  B(x_0,3)\subset \cdots</m>. 
 	</p>
@@ -4214,7 +4215,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  <m>\lang{\Gamma}{v_0}.</m>
 	</p>
 	<p>
-	  On the other hand <m>\Gamma</m> is connected and by Zorn&amp;s
+	  On the other hand <m>\Gamma</m> is connected and by Zorn&apos;s
 	  lemma contains a maximal subtree, therefore a spanning tree
 	  and the arguments in the previous part carry through
 	  (recalling that we only consider finite paths) to give us a
@@ -4812,7 +4813,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  a_0t^{n_1}, \textrm{or} t^{n_m}a_m 
 	</me>
 	where the subwords <m>a_i</m> are words in <m>X^{\pm 1}</m>,
-	<m>t</m> is the stable letter, and the <m>n_i \in \bbZ</m>. The
+	<m>t</m> is the stable letter, and the <m>n_i \in \ZZ</m>. The
 	words <m>a_i</m> are called <m>G</m>-syllables.
       </p>
       <p>
