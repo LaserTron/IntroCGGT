@@ -3029,7 +3029,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  Let <m>L</m> be the infinite line (i.e. the standard Cayley
 	  graph for <m>\ZZ</m>) and let <m>T_4</m> be the infinite
 	  regular tree of valence 4 (i.e. <m>T_4 =
-	  \cay{\{a,b\}}{F(a,b)}</m>.) In both metric spaces consider
+	  \cay{\{a,b\}{F(a,b)}</m>.) In both metric spaces consider
 	  the balls <m>B(x_0,1)\subset B(x_0,2) \subset
 	  B(x_0,3)\subset \cdots</m>. 
 	</p>
@@ -4813,7 +4813,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  a_0t^{n_1}, \textrm{or} t^{n_m}a_m 
 	</me>
 	where the subwords <m>a_i</m> are words in <m>X^{\pm 1}</m>,
-	<m>t</m> is the stable letter, and the <m>n_i \in \ZZ</m>. The
+	<m>t</m> is the stable letter, and the <m>n_i \in \bbZ</m>. The
 	words <m>a_i</m> are called <m>G</m>-syllables.
       </p>
       <p>
@@ -5672,19 +5672,18 @@ g      faces.</caption> <image width="75%" xml:id="free_faces"
       <statement>
 	<p>
 	  Any van Kampen diagram, which is not a point, contains a
-	  free face and theredore admits an elementary collapse.
+	  free face and therefore admits an elementary collapse.
 	</p>
       </statement>
       <proof>
 	<p>
 	  We first consider the case where <m>X</m> contains
 	  2-cells. First note that because <m>X</m> is planar every
-	  edge is contained in at most 3 edges.
+	  edge is contained in at most two 2-cells.
 	</p>
 	<figure xml:id="fig_book">
 	  <caption>Edges in van Kampen diagrams can only be contained
-	  in two 2-cells and some 2-complexes without free
-	  <m>1</m>-faces. </caption>
+	  in more than two 2-cells. </caption>
 	  <image width="25%" xml:id="book"
 		 source="images/book.png"/>
 	</figure>
@@ -5857,7 +5856,499 @@ g      faces.</caption> <image width="75%" xml:id="free_faces"
   </exercises>
   
   </section>
-  
+
+  <section>
+    <title>Lecture 17: The <m>C'(1/6)</m> small cancellation condition
+    and Dehn's algoithm</title>
+    <introduction>
+      <p>
+	Let us now put combinatorial curvature to work. Let <m>G =
+	\pres X R</m> and suppose <m>X,R</m> are finite, that all
+	words in <m>R</m> are cyclically reduced and furthermore that
+	no <m>r \in R</m> is a consequence of the remaining
+	relations. A <term>piece</term> is a subword of some <m>r \in
+	R</m> which either occurs in some other <m>r' \in R</m> or
+	which occurs in a different location in <m>r</m>.
+      </p>
+      <p>
+	Another way of considering pieces is to consider a van Kampen
+	diagram <m>\mathcal D</m> without cancellable pairs (see <xref
+	ref="fig_canc_pair"/>).
+	<figure xml:id="fig_canc_pair">
+	  <caption>A cancellable pair in a van Kampen diagram and how
+	  to remove it.</caption>
+	  <image width="75%" xml:id="canc_pair"
+		 source="images/canc_pair_D6.png"/> 
+	</figure>
+	A <term>arc</term> is a maximal connected subgraph whose
+	vertices have degree at most 2, an <term>internal edge</term>
+	is an edge contained in the boundaries of two 2-cells, and an
+	<term>internal arc</term> is an arc consisting of internal
+	edges. Then <term>pieces</term> are exactly the labels
+	internal arcs of van Kampen diagrams over <m>\pres X R</m>.	
+      </p>
+
+      <p>
+	Obviously there are many pieces, any symbol that occurs twice
+	in <m>R</m> is a piece. The small cancellation condition has
+	to do with proportionately large pieces.
+      </p>
+      <definition xml:id="defn_metric_small_cancellation">
+	<statement>
+	  <p>
+	    A presentation <m>\pres X R</m> satisfies the
+	    <term><m>C'(\lambda)</m> metric small cancelation
+	    condition</term> if for any <m>r \in R</m> and any piece
+	    <m>p</m> which is subword of <m>r</m> we have
+	  <me>
+	    \frac{|p|}{|r|} \lt \lambda,
+	  </me>
+	  where <m>|p|,|r|</m> denote word lengths.
+	  </p>
+	</statement>
+      </definition>
+
+      <p>
+	Now this condition interests us because whenever it is
+	satisfied by a presentation, we will have a uniform method to
+	solve the word problem. Before going into details let's
+	explain the what will happen.
+      </p>
+
+      <p>
+	The word problem on <m>\pres X R</m> is difficult to solve when
+	there are words representing the trivial which are relatively
+	short but whose van Kampen diagrams contain many, many
+	2-cells. We can think of this as a small perimeter enclosing a
+	large area. For example one could justifiably draw a circle on
+	the ground around oneself and declare that this circle
+	encloses the rest of the surface of the earth.
+      </p>
+      
+      <p>
+	In a space, the relationship between areas enclosed by some
+	perimeter is given by something called an isoperimetric
+	function. For example in the Euclidean plane <m>\mathbb{E}^2</m>
+	given closed loop of length <m>\ell</m>, the maximal area that
+	can be enclosed is <m>A=\frac{1}{4\pi}\ell^2</m>. So we'll say
+	that <m>\mathbb{E}^2</m> has a <term>quadratic</term>
+	isoperimetric function.
+      </p>
+
+      <p>
+	Now as we saw, on a sphere (which is positively curved) we
+	have regions whose areas are much larger than the length of
+	bounding curve. On the plane (which has zero curvature) area
+	is at most quadratic in the length of a bounding curve. In the
+	presence of negative curvature, area is a <em>linear</em>
+	function of the length of a bounding curve. 
+      </p>
+      <p>
+	As far as group theory is concerned, these concepts appear in
+	van Kampen diagrams. We consider the length of the boundary
+	word of a van Kampen diagram to be the length of an enclosing
+	curve and we consider the area to be the number of 2-cells. In
+	this case negative curvature manifests itself as follows: a
+	reduced word <m>w</m> representing the identity in <m>\pres X
+	R</m>can be written as the product of at most <m>C\cdot|w|</m>
+	conjugates of relations. We will now present something which
+	is a special case of a result known as Greendlinger's Lemma.
+      </p>
+    </introduction>
+    <subsection>
+      <title>
+	Finding and removing shells
+      </title>
+      <p>For this section we'll assume that <m>\pres X R</m> be a
+      <m>C'(1/6)</m> presentation. Before considering we shall make
+      the following modification to van Kampen diagrams: we will merge
+      all the arcs appearing in a diagram to a single edge, the label
+      of the resulting edge will be the word read along the arc. We
+      will call such a diagram <term>arc reduced</term>. We note that
+      there are no longer any vertices of degree 2 in an arc reduced
+      diagram. For the moment we will also restrict our attention to
+      van Kampen diagrams that are homeomorphic to discs, i.e. which
+      cannot be disconnected by removing a vertex.
+      </p>
+      <p>
+	Let <m>\mathcal D</m> be an arc reduced van Kampen diagram
+	homeomerphic to a disc. We will say that a vertex <m>v</m> is
+	<term>interior</term> if is in the interior of <m>\mathcal
+	D</m>, otherwise we say that <m>v</m> is
+	<term>exterior</term>. Given a 2-cell <m>f</m> we will say
+	that <m>f</m> is internal if all the (open) edges in its
+	boundar contained in the interior of <m>\mathcal D</m>,
+	otherwise we say it is <term>external.</term> We note that for
+	an internal 2-cell <m>f</m>, all the arcs in its boundary
+	consist of pieces. By the <m>C'(1/6)</m> condition, all these
+	arcs have length strictly less than <m>1/6</m> the length of
+	the boundary word of the 2 cell, therefore <em>internal
+	2-cells</em> must have at least 7 sides. We now come to a more
+	technical definition:
+	<definition>
+	  Let <m>\mathcal D</m> be an arc-reduced van Kampen diagram
+	  homeomorphic to a disc. We say that a 2-cell <m>f</m> is an
+	  <term><m>i</m>-shell</term> if its boundary only contains
+	  one external arc, and if it is joined to the rest of the
+	  diagram by a path consisting of <m>i</m>arcs.
+	</definition>
+      </p>
+      <figure xml:id="fig_i-shell">
+	<caption>Some <m>i</m>-shells and some external 2-cells which
+	aren't i-shells. </caption>
+	<image width="75%" xml:id="i-shell"
+	       source="images/i-shell.png"/>
+      </figure>
+      <p>
+	Now, recalling that labels of arcs pieces and that pieces are
+	less that 1/6 the length of any relator they are part of, for
+	an <m>i\leq 3</m> shell we see that the length of the union of
+	internal arcs attaching it to the rest of the diagram is less
+	than the length of the external arc (<m>3\times (\lt 1/6) \lt
+	1/2</m>) so the effect of removing an <m>i</m>-shell so to
+	produce a new van Kampen diagram with fewer 2-cells and a
+	strictly shorter boundary word.
+      </p>
+      <p>
+	Our goal is now to show that the <m>C'(1/6)</m> small
+	cancellation condition always forces arc-reduced van Kampen
+	diagrams homeomorphic to circles to have <m>i</m>-shells for
+	some <m>1 \leq i \leq 3</m>. We will find these using
+	curvature. 
+      </p>
+      <p>
+	In the previous lecture we saw that <m>\chi(\mathcal D) =
+	1</m>, therefore <m>\mathrm{Curvature}(\mathcal D) =
+	2\pi>0</m>. For reference consider the following regular
+	Euclidean polygons:
+	<ol>
+	  <li> Triangle, angle sum <m>\pi</m>, average angle
+	  <m>\pi/3</m>.</li>
+	  <li>Square, angle sum <m>2\pi</m>, average angle
+	  <m>\pi/2</m></li>.
+	  <li>Pentagon, angle sum <m>3\pi</m>, average angle
+	  <m>3\pi/5</m></li>.
+	  <li>Hexagon, angle sum <m>4\pi</m>, average angle
+	  <m>2\pi/3</m></li>.
+	  <li>
+	    Heptagon, angle sum <m>5 \pi</m>, average angle
+	    <m>5\pi/7</m>
+	  </li>
+	</ol>
+	In our context, recall that for a 2-cell we have that <m>
+	\mathrm{Curvature}(f)</m> is the angle sum in excess of the
+	expected Euclidean angle sum.
+      </p>
+      <p>
+	For vertices either <m>v</m> is interior, in which case
+	<m>\chi(\mathrm{link}(v)) = 0</m> and the expected Euclidean
+	angle sum is <m>2\pi</m>, or <m>v</m> is exterior in which
+	case <m>\chi(\mathrm{link}(v)) = 1</m> and the expected
+	Euclidean angle sum is <m>\pi</m>. Now if the angle sum of a
+	vertex is equal to the expected Euclidean angle sum, then it
+	has curvature 0. Recall the the combinatorial Gauss-Bonnet
+	theorem holds for <em>any angle assignment</em>. In
+	particular we are free to pick angle assignments which will be
+	suitable to our purposes.
+      </p>
+      <proposition xml:id="prop_i_shell">
+	<statement>
+	  <p>
+	    Let <m>\mathcal D</m> be an arc-reduced van Kampen diagram
+	    homeomorphic to a disc. Then it contains an <m>i</m>-shell
+	    for <m>1\leq i \leq 3</m>
+	  </p>
+	</statement>
+	<proof>
+	  <p>
+	    We start by assigning angles so that all vertices have
+	    curvature 0.
+	    <ul>
+	      <li> If <m>v</m> is interior, we set all adjacent angles
+	      to <m>\frac{2\pi}{\deg(v)}</m></li>
+	      <li> If <m>v</m> is exterior, we set all adjacent angles
+	      to <m>\frac{\pi}{\deg(v)-1}</m></li>
+	    </ul>
+	  </p>
+	  <figure xml:id="fig_angles">
+	    <caption>Assinging angles for zero curvature
+	    vertices. </caption>
+	    <image width="75%" xml:id="angles"
+		   source="images/angles.png"/>
+	  </figure>
+	  <p>
+	    We note that this gives angles adjacent to interior
+	    vertices, we'll call these <term>interior angles</term>, a
+	    maximum possible value of <m>\frac{2\pi}{3}</m>, the other
+	    angles (i.e. the <term> exterior angles</term>) have a
+	    maximum possible angle of <m>\frac{\pi}2</m>.
+	  </p>
+	  <p>
+	    From this it immediately follows that any internal 2-cell
+	    must have negative curvature as it must have at least
+	    seven sides and to non-negative curvature its angles must
+	    be on average at least
+	    <m>\frac{5\pi}{7}>\frac{2\pi}{3}>\frac\pi 2.</m>
+	  </p>
+	  <p>
+	    Now <m>\mathcal D</m> has positive curvature overall, and
+	    this curvature comes from exterior 2-cells. Let us first
+	    consider an exterior 2-cell <m>f</m> that is not a shell.
+	    <figure xml:id="fig_ext_2_cell">
+	    <caption>Exterior 2-cells which are not shells </caption>
+	    <image width="75%" xml:id="ext_2_cell"
+		   source="images/ext_2_cell.png"/>
+	  </figure>
+	  </p>
+	  <p>
+	    We first see that four of the corners are exterior and
+	    therefore have angle at most <m>\pi/2</m>. Looking at the
+	    figure, we see that a 4-sided 2 cell has curvature at most
+	    zero. A five sided 2-cell has an angle sum of at most
+	    <me>4\cdot \pi/2 + 2\pi/3 = (2+2/3)\pi \lt 3\pi</me> and
+	    therefore has negative curvature. Finally, seeing as some
+	    of the angles are at most <m>\pi/2</m> and none of the
+	    others can exceed <m>2\pi/3</m>, it is impossible to
+	    achieve even the expected Eclidean angle sum for 2-cells
+	    that have 6 or more sides, i.e. any such 2-cells will also
+	    have negative curvature.
+	  </p>
+	  <p>
+	    We are therefore forced to accept that <m>\mathcal D</m>
+	    contains shells. Suppose finally towards a contradition
+	    that <m>\mathcal D</m> only contained <m>i</m>-shells for
+	    <m>i \gt 3</m>. On the one hand, if <m>i>5</m> then an
+	    <m>i-shell</m> gives rise to a 2-cell with <m>i+1</m>
+	    sides, and in the previous paragraph we saw that these
+	    never have positive curvature. On the other hand a 4-shell
+	    gives rise to a Pentagon with two external vertices so the
+	    maximal angle sum is
+	    <me> 2\cdot \frac \pi 2 +
+	    3\cdot\frac{2\pi}{3}=3\pi
+	    </me>
+	    and the resulting curvature is at most zero. Therefore the
+	    only 2-cells that can contribute positive curvature are
+	    <m>(1,2,3)</m>-shells and since the total curvature is
+	    positive, these must exist.
+	  </p>
+	</proof>
+      </proposition>
+      <p>
+      This result immediately gives us the following corollary.
+      </p>
+      <corollary>
+	<statement>
+	  Let <m>\pres X R</m> satisfy the <m>C'(1/6)</m> small
+	  cancellation condition. Any boundary word of a van Kampen
+	  diagram <m>\mathcal D</m> which is homeomorphic to a circle
+	  must contain a subword which is more than half of some
+	  cyclic permutation of some <m>r \in R^{\pm 1}</m>
+	</statement>
+      </corollary>
+      <p>
+	Just to be clear the <em>reason why we chose <m>1/6</m> in the
+	first place </em> is precisely so that the bit sticking out of
+	a <m>3</m>-shell is longer than the other side.
+      </p>
+    </subsection>
+    <subsection>
+      <title>Dehn's algorithm</title> We now present an algorithm
+      which solves the word problem in <m>c'(1/6)</m> presentation.
+      <definition>
+	<title>
+	  Dehn's Algorithm
+	</title>
+	<statement>
+	  <p>
+	    Let <m>w</m> be some word representing an element of
+	    <m>\pres X R</m> consider the following algorithm for an
+	    input word <m>w</m>:
+	  </p>
+	  <ol>
+	    <li>
+	      If <m>w = w' r' w''</m> and <m>r'r''</m> is some cyclic
+	      permutation of some <m>r \in R</m> with
+	      <m>|r'|\lt|r''|</m> then repeat with
+	      <m>w''=w'r''w''</m>, which is shorter.
+	    </li>
+	    <li>
+	      Otherwise, <m>w</m> cannot be shortened by replacing
+	      "half relations" and we stop.
+	    </li>
+	  </ol>
+	</statement>
+      </definition>
+      <p>
+	Now note that at each step, the algorthm produces shorter
+	words or terminates. Also the sequence of words it produces
+	are all equal in the group. Furthermore, this algorithm will
+	terminate for every word and every finite presentation. We
+	would really like it if the algorithm reduces the word to the
+	identity if an only if the word was trivial, or equivalently,
+	if a word can no longer be shortened in this simplistic way
+	that is non-trivial. But if this were the case we would have
+	an algorithm to solve the word problem which will work for all
+	groups, which is impossible. In fact, if we take the  familiar
+	<me>
+	  \ZZ^2 = \pres{a,b}{a^{-1}b^{-1}ab}
+	</me>
+	and take the word
+	<m>w=aaabbba^{-1}a^{-1}a^{-1}b^{-1}b^{-1}b^{-1}</m>, then we
+	will see that Dehn's algorithm terminates on <m>w,</m> thus
+	giving a "false positive" on the non-triviality of
+	<m>w</m>.
+      </p>
+      <p>
+	That said for a <m>C'(1/6)</m> presentation, the presence of
+	<m>1,2,3</m>-shells provide exactly the subwords of words
+	representing the identity that can be replaces by shorter
+	halves of relations. Now we previously only considered van
+	Kampen diagrams which were homeomorphic to discs. More
+	generally van Kampen diagrams are made up of discs that are
+	either joined by vertices or graphs. We will say that a vertex
+	<m>v</m> is <term>semi-exterior</term> if
+	<m>\mathrm{link}(v)</m> is not connected. In this case either
+	<m>v</m> doesn't lie in a 2-cell, or it is where some maximal
+	disc is attached to the rest of the diagram.
+	<figure xml:id="fig_semi_ext">
+	    <caption>Semi-exterior vertices </caption>
+	    <image width="75%" xml:id="semi_ext"
+		   source="images/semi_ext.png"/>
+	  </figure>
+      </p>
+      <p>
+	In all such cases <m>\chi(\mathrm{link}(v)\geq 2</m>, so in
+	all cases the "expected" Euclidean angle sum is 0 or negative,
+	which means that they contribute 0 or negative angles. A quick
+	verification shows that, if anything, semi-exterior vertices
+	make the case for <m>1,2,3</m>-shells even stronger and we get
+	the general statement.
+      </p>
+
+      <theorem xml:id="thm_small_canc_Dehn">
+	<title>
+	  Dehn's algorithm works for <m>C'(1/6)</m> small cancellation
+	</title>
+	<statement>
+	  <p>
+	    If <m>G=\pres X R</m> satisfies the <m>C'(1/6)</m> small
+	    cancellation, then Dehn's algorithm correctly solves the
+	    word problem, i.e. it will reduce a word <m>w</m> to the
+	    identity if an only if <m>w=_G1</m>. If <m>w</m> is not
+	    reduced to <m>1</m>, then it is non-trivial.
+	  </p>
+	</statement>
+      </theorem>
+      <p>
+	This is a quintessential combinatorial and geometric group
+	theory result: it is an algorithmic result about group
+	presentations which relies on the geometric notion of
+	curvature. We also note the the the failure of Dehn's
+	algorithm on <m>\ZZ^2</m> can be explained by the fact that
+	<m>\ZZ^2</m> is the fundamental group of the torus, which has
+	curvature 0 and Dehn's algorithm is a negative curvature
+	phenomenon.
+      </p>
+
+      <p>
+	Finally although algorithmic results are great we are doing
+	algebra after all, and it would be desirable to obtain
+	algebraic results, we have.
+	<theorem xml:id="thm_smal_canc_inf">
+	  <statement>
+	    <p>
+	      If <m>G=\pres X R</m> satisfies the  <m>C'(1/6)</m>
+	      condition then <m>G</m> is infinite and contains
+	      elements of infinite order.
+	    </p>
+	  </statement>
+	  <proof><title>sketch</title>
+	    <p>The simplest proof of this fact follows from using
+	    deterministic finite automata. We say that a word <m>w</m>
+	    is <term>locally geodesic</term> if it contains no
+	    subwords which are long halves of cyclic permutations of
+	    generators.</p>
+	    <p>
+	      A set of words which is forbidden to contain a finite
+	      list of poison subwords forms a regular language
+	      <m>L</m> which can be encoded by a finite automaton
+	      <m>\matfrak A</m>. It is easy to show that we can get
+	      the pumping lemma to apply and we get a sequence of
+	      geodesic words <me>u*(w^m)*t; m \in \mathbb N</me>. All
+	      of these are non-trivial and it is easy to see that
+	      <m>w^m, m\in \mathbb N</m> is in fact a sequence of
+	      distinct <m>G</m>-non-trivial (in fact locally geodesic)
+	      words and the result follows.
+	    </p>
+	  </proof>
+	</theorem>
+      </p>
+    </subsection>
+    
+    <subsection>
+      <title>On the abundance of <m>C'(1/6)</m> presentations.</title>
+      <p>
+	In this final part I want to informally explain why
+	<m>C'(1/6)</m> presentations are, in a sense, abundant. First
+	we need to define what we mean by a random presentation. We
+	will define 4 parameters for a presentation <m>\pres X,R</m>:
+	<me>n = |X|, m=|R|, M = \max_{r\in R}(|r|), \mu = \min_{r \in
+	R}(|r|),</me> i.e. the number of generators, the number of
+	relations, the maximal generator length and the shortest
+	genrator length. We denote by <m>\mathcal {P}(m,m,M,\mu)</m>
+	the set of all presentations satisfying these parameters, and
+	it is clear that we can fix a specific alphabet <m>X</m> of
+	the appropriate size so that <m>\mathcal {P}(n,m,M,\mu)</m>
+	becomes a finite set. 
+      </p>
+      <p>
+	Now if we fix <m>M=1</m>, i.e all relations have length 1 and
+	we let <m>m\gt\gt n</m>, then with high probablility every
+	generator will show up as a relation and we'll have a trivial
+	group. So in this random model we have trivial groups with
+	high probability.
+      </p>
+      <p>
+	The few relators model random is when we fix <m>n,m</m> and,
+	for example, set <m>M \leq 2\mu</m>. In this case, as <m>\mu
+	\to \infty</m>, we'll find that the probability that a
+	presentation selected from <m>\mathcal P(n,m,2\mu,\mu)</m> at
+	random will be <m>C'(1/6)</m>.
+      </p>
+      <p>
+	To see why this is true, consider the one relator case
+	(<m>m=1</m>). Failure of <m>C'(1/6)</m> means that there is
+	some subword of <m>r</m> of length at least
+	<m>\frac{|r|}{6}</m> occurs twice. To get a sense of how
+	unlikely this is consider tossing a coin 1 000 000 times, what
+	is the probalbility of the same <m>16000 \approx
+	\frac{1000000}{6}</m> streak of heads and tails occuring
+	twice? It is small. In general the probability of failure
+	decreases exponentially as <m>\mu\to \infty</m>.
+      </p>
+      <p>
+	Now the actual argument has some technicalities involving
+	conditional probabilitie that arise, for example, from
+	considering when subwords overlap with themselves, or shifts
+	of cyclic words, but the situations which involve tricky
+	technicalities only constitute a negligible portion of all
+	possibilities and, guided by the coin-toss heuristic above, it
+	is actually quite doable to work ot an exponentially decaying
+	<em>upper bounds</em> for the probability of <m>C'(1/6)</m>
+	failure. In fact this will also be the case for
+	<m>C'(\lambda)</m> for any <m>\lambda>0</m>. Basically, if the
+	number of relations is fixed and their lengths go to infinity,
+	you will most likely get a small cancellation presentation.
+      </p>
+
+      <p>
+	This reason alone mean that small cancellation presentations
+	are somehow important.
+      </p>
+    </subsection>
+    
+  </section>
+
 </chapter>
 
   <!-- Chapter: Diagrams -->
