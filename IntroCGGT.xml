@@ -3029,7 +3029,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  Let <m>L</m> be the infinite line (i.e. the standard Cayley
 	  graph for <m>\ZZ</m>) and let <m>T_4</m> be the infinite
 	  regular tree of valence 4 (i.e. <m>T_4 =
-	  \cay{\{a,b\}{F(a,b)}</m>.) In both metric spaces consider
+	  \cay{\{a,b\}}{F(a,b)}</m>.) In both metric spaces consider
 	  the balls <m>B(x_0,1)\subset B(x_0,2) \subset
 	  B(x_0,3)\subset \cdots</m>. 
 	</p>
@@ -4813,7 +4813,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	  a_0t^{n_1}, \textrm{or} t^{n_m}a_m 
 	</me>
 	where the subwords <m>a_i</m> are words in <m>X^{\pm 1}</m>,
-	<m>t</m> is the stable letter, and the <m>n_i \in \bbZ</m>. The
+	<m>t</m> is the stable letter, and the <m>n_i \in \ZZ</m>. The
 	words <m>a_i</m> are called <m>G</m>-syllables.
       </p>
       <p>
@@ -5877,8 +5877,8 @@ g      faces.</caption> <image width="75%" xml:id="free_faces"
 	<figure xml:id="fig_canc_pair">
 	  <caption>A cancellable pair in a van Kampen diagram and how
 	  to remove it.</caption>
-	  <image width="75%" xml:id="canc_pair"
-		 source="images/canc_pair_D6.png"/> 
+	  <image width="100%" xml:id="canc_pair"
+		 source="images/canc_pair.png"/> 
 	</figure>
 	A <term>arc</term> is a maximal connected subgraph whose
 	vertices have degree at most 2, an <term>internal edge</term>
@@ -5994,8 +5994,8 @@ g      faces.</caption> <image width="75%" xml:id="free_faces"
 	</definition>
       </p>
       <figure xml:id="fig_i-shell">
-	<caption>Some <m>i</m>-shells and some external 2-cells which
-	aren't i-shells. </caption>
+	<caption>Some <m>i</m>-shells and an external 2-cell isn't an
+	i-shell. </caption>
 	<image width="75%" xml:id="i-shell"
 	       source="images/i-shell.png"/>
       </figure>
@@ -6071,8 +6071,8 @@ g      faces.</caption> <image width="75%" xml:id="free_faces"
 	    </ul>
 	  </p>
 	  <figure xml:id="fig_angles">
-	    <caption>Assinging angles for zero curvature
-	    vertices. </caption>
+	    <caption>Assigning angles to have zero curvature interior
+	    and exterior vertices.  </caption>
 	    <image width="75%" xml:id="angles"
 		   source="images/angles.png"/>
 	  </figure>
@@ -6095,8 +6095,8 @@ g      faces.</caption> <image width="75%" xml:id="free_faces"
 	    this curvature comes from exterior 2-cells. Let us first
 	    consider an exterior 2-cell <m>f</m> that is not a shell.
 	    <figure xml:id="fig_ext_2_cell">
-	    <caption>Exterior 2-cells which are not shells </caption>
-	    <image width="75%" xml:id="ext_2_cell"
+	    <caption>Exterior 2-cells which are not shells and a 4-shell </caption>
+	    <image width="100%" xml:id="ext_2_cell"
 		   source="images/ext_2_cell.png"/>
 	  </figure>
 	  </p>
@@ -6179,7 +6179,7 @@ g      faces.</caption> <image width="75%" xml:id="free_faces"
 	</statement>
       </definition>
       <p>
-	Now note that at each step, the algorthm produces shorter
+	Now note that at each step, the algorithm produces shorter
 	words or terminates. Also the sequence of words it produces
 	are all equal in the group. Furthermore, this algorithm will
 	terminate for every word and every finite presentation. We
@@ -6243,7 +6243,7 @@ g      faces.</caption> <image width="75%" xml:id="free_faces"
 	This is a quintessential combinatorial and geometric group
 	theory result: it is an algorithmic result about group
 	presentations which relies on the geometric notion of
-	curvature. We also note the the the failure of Dehn's
+	curvature. We also note the the failure of Dehn's
 	algorithm on <m>\ZZ^2</m> can be explained by the fact that
 	<m>\ZZ^2</m> is the fundamental group of the torus, which has
 	curvature 0 and Dehn's algorithm is a negative curvature
@@ -6272,7 +6272,7 @@ g      faces.</caption> <image width="75%" xml:id="free_faces"
 	      A set of words which is forbidden to contain a finite
 	      list of poison subwords forms a regular language
 	      <m>L</m> which can be encoded by a finite automaton
-	      <m>\matfrak A</m>. It is easy to show that we can get
+	      <m>\mathfrak A</m>. It is easy to show that we can get
 	      the pumping lemma to apply and we get a sequence of
 	      geodesic words <me>u*(w^m)*t; m \in \mathbb N</me>. All
 	      of these are non-trivial and it is easy to see that
@@ -6295,7 +6295,7 @@ g      faces.</caption> <image width="75%" xml:id="free_faces"
 	<me>n = |X|, m=|R|, M = \max_{r\in R}(|r|), \mu = \min_{r \in
 	R}(|r|),</me> i.e. the number of generators, the number of
 	relations, the maximal generator length and the shortest
-	genrator length. We denote by <m>\mathcal {P}(m,m,M,\mu)</m>
+	generator length. We denote by <m>\mathcal {P}(m,m,M,\mu)</m>
 	the set of all presentations satisfying these parameters, and
 	it is clear that we can fix a specific alphabet <m>X</m> of
 	the appropriate size so that <m>\mathcal {P}(n,m,M,\mu)</m>
@@ -6303,7 +6303,7 @@ g      faces.</caption> <image width="75%" xml:id="free_faces"
       </p>
       <p>
 	Now if we fix <m>M=1</m>, i.e all relations have length 1 and
-	we let <m>m\gt\gt n</m>, then with high probablility every
+	we let <m>m\gt\gt n</m>, then with high probability every
 	generator will show up as a relation and we'll have a trivial
 	group. So in this random model we have trivial groups with
 	high probability.
@@ -6321,19 +6321,19 @@ g      faces.</caption> <image width="75%" xml:id="free_faces"
 	some subword of <m>r</m> of length at least
 	<m>\frac{|r|}{6}</m> occurs twice. To get a sense of how
 	unlikely this is consider tossing a coin 1 000 000 times, what
-	is the probalbility of the same <m>16000 \approx
-	\frac{1000000}{6}</m> streak of heads and tails occuring
+	is the probability of the same <m>16000 \approx
+	\frac{1000000}{6}</m> streak of heads and tails occurring
 	twice? It is small. In general the probability of failure
 	decreases exponentially as <m>\mu\to \infty</m>.
       </p>
       <p>
 	Now the actual argument has some technicalities involving
-	conditional probabilitie that arise, for example, from
+	conditional probabilities that arise, for example, from
 	considering when subwords overlap with themselves, or shifts
 	of cyclic words, but the situations which involve tricky
 	technicalities only constitute a negligible portion of all
 	possibilities and, guided by the coin-toss heuristic above, it
-	is actually quite doable to work ot an exponentially decaying
+	is actually quite doable to work out an exponentially decaying
 	<em>upper bounds</em> for the probability of <m>C'(1/6)</m>
 	failure. In fact this will also be the case for
 	<m>C'(\lambda)</m> for any <m>\lambda>0</m>. Basically, if the
@@ -6346,6 +6346,46 @@ g      faces.</caption> <image width="75%" xml:id="free_faces"
 	are somehow important.
       </p>
     </subsection>
+
+    <exercises>
+      <exercise>
+	<statement>
+	  <p>Let <m>\pres X R</m> be a
+	  <m>C'(1/6)</m>-presentation. Prove that it is impossible to
+	  tile a sphere 2-cells with boundary words in <m>R</m>.
+	  </p>
+	  <p>Hint: The point of this problem is to get you to read the
+	  proof <xref ref="prop_i_shell"/>. Note that all 2-cells
+	  on a sphere must be"internal".</p>
+	  <p>Comment: This in particualr implies that <m>C'(1/6)</m>
+	  presentations are <term>aspherical</term>, which is
+	  significant when considering group cohomology.
+	  </p>
+	</statement>
+      </exercise>
+      <exercise>
+	<statement>
+	  <p>
+	    The fundamental group of a closed surface of genus 2 has
+	    the following presentation:
+	    <me>
+	      \pres{a,b,c,d}{aba^{-1}b^{-1}cdc^{-1}d^{-1}}.
+	    </me>
+	    How would you go about solving the word problem for this
+	    group? 
+	  </p>
+	</statement>
+      </exercise>
+      <exercise>
+	<statement>
+	  <p>
+	    In your own words, using drawings, examples, and citing
+	    results, explain why <xref ref="thm_small_canc_Dehn"/> is
+	    true.
+	  </p>
+	</statement>
+      </exercise>
+    </exercises>
     
   </section>
 
