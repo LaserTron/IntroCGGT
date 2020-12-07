@@ -6168,8 +6168,8 @@ g      faces.</caption> <image width="75%" xml:id="free_faces"
 	    <li>
 	      If <m>w = w' r' w''</m> and <m>r'r''</m> is some cyclic
 	      permutation of some <m>r \in R</m> with
-	      <m>|r'|\lt|r''|</m> then repeat with
-	      <m>w''=w'r''w''</m>, which is shorter.
+	      <m>|r''|\lt|r'|</m> then repeat with
+	      <m>w''=w'(r'')^{-1}w''</m>, which is shorter.
 	    </li>
 	    <li>
 	      Otherwise, <m>w</m> cannot be shortened by replacing
@@ -6357,7 +6357,7 @@ g      faces.</caption> <image width="75%" xml:id="free_faces"
 	  <p>Hint: The point of this problem is to get you to read the
 	  proof <xref ref="prop_i_shell"/>. Note that all 2-cells
 	  on a sphere must be"internal".</p>
-	  <p>Comment: This in particualr implies that <m>C'(1/6)</m>
+	  <p>Comment: This in particular implies that <m>C'(1/6)</m>
 	  presentations are <term>aspherical</term>, which is
 	  significant when considering group cohomology.
 	  </p>
@@ -6389,6 +6389,165 @@ g      faces.</caption> <image width="75%" xml:id="free_faces"
     
   </section>
 
+  <section>
+    <title>Epilogue: word hyperbolic groups.</title>
+    <introduction>
+      <p>
+	We started out this course with a rigorous construction of
+	<m>F(X)</m> the free group on <m>X</m> which led to group
+	presentations: a unified way of working with finitely
+	presented groups. Immediately, it became apparent that a group
+	doesn't have a distinguished generating set, nor a
+	distinguished, finite, collection of relations. That is to
+	say, a group presentation <m>\pres X R</m> is not determined
+	by the (isomorphism class) of the group <m>G</m>, or in
+	other words, presentations are not canonical. What would be
+	canonical for finitely presented group <m>G</m> would be the
+	infinite set of <em>all finite presentation</em> of <m>G</m>,
+	which we described using Tietze transformations.
+      </p>
+      <p>
+	We ended the first chapter with Dehn's algorithmic problems:
+	<ol>
+	  <li>The word problem.</li>
+	  <li>The conjugacy problem.</li>
+	  <li>The isomorphisms problem.</li>
+	</ol>
+	All three of these problems are undecidable in general. This,
+	combined with the fact that a group generally has no
+	distinguished presentations, reinforce the conception that
+	group presentations are completely useless. We ended the first
+	chapter by trying to temper this impression by showing that
+	when we restrict to a class of groups, in this case to the
+	class of finitely generated free groups, we are able to solve
+	all three of these algorithmic problems. 
+      </p>
+      <p>
+	At the end of the first chapter we also presented an
+	invariant, namely the first Betti number. We say it is an
+	invariant because, unlike some presentation, it is determined
+	by the isomorphism class of a group <m>G</m>. The second
+	chapter was devoted to presenting the concept of
+	quasi-isometry, which we motivated as follows: all finite
+	generating sets of a group <m>G</m> are equally valid, and can
+	give rise to different Cayley graphs. These Cayley graphs can
+	look very different, <em>but they are all going to be
+	quasi-isometric.</em> This leads us to consider spaces up to
+	quasi isometry.
+      </p>
+      <p>
+	If we consider a finitely generated group <m>G</m> equipped
+	with a word metric and forget about everything else this is
+	nothing more than some countable set <m>G</m> with some
+	function distance function <m>d:G \times G \to \ZZ_{\geq
+	0}</m>. Topologically, these are all just countable discrete
+	sets, i.e. they are boring. It is only when considering such
+	spaces up to quasi-isometry that they become interesting. For
+	example we show that as metric spaces, <m>\ZZ^2</m> and
+	<m>\ZZ</m> are not quasi-isometric.
+      </p>
+      <p>
+	Any group invariant will only give partial information about
+	the group. The rest of chapter 2 is devoted to exploring the
+	limitations of quasi-isometry and as a consequence of the
+	Svarc-Milnor lemma it is shown that <em>at best</em>
+	quasi-isometry can distinguish groups up to virtual
+	isomorphism. An accurate analogy is that <em>quasi-isometry is
+	like a special pair of goggles:</em> it lets you see entire
+	groups, but your vision is blurry so some things you can tell
+	apart like <m>\ZZ</m> and <m>\ZZ^2</m>, but other groups are
+	indistinguishable, like <m>\ZZ</m> and
+	<m>\ZZ\oplus(\ZZ/2\ZZ)</m>.
+      </p>
+      <p>
+	We ended Chapter 2 by showing that if we are only given a word
+	metric on a group <me> d:G \times G \to \ZZ_{\geq 0} </me>
+	and the assurance that this metric space is quasi-isometric to
+	<m>\ZZ</m>, then <m>G</m> is itself is virtually
+	isomorphic to <m>\ZZ</m>, so that quite a bit of algebraic
+	structure can be inferred from this purely metric information.
+      </p>
+
+      <p>
+	Chapter 3 is about actually calulating things. It starts by
+	soliving yet another algorithmic problem within the class of
+	free groups: the subgroup membership problem and introduces
+	the concept of folding. We then introduce 2-complexes and van
+	Kampen diagrams, which give us a geometric tool to study words
+	representing the identity in a group presentation <m>\pres X
+	R</m>. The concept of folding is used here because it is what
+	enables us to construct a van Kampen diagram from a product of
+	conjugates of relations. 
+      </p>
+      <p>
+	Van Kampen diagrams allow us to use 2 dimensional topological
+	arguments regarding groups. In particular, using tracks, we
+	were able to prove fundamental results about HNN extensions
+	and by using commbinatorial analogues of curvature we were
+	able to show that Dehn's algorithm, a greedy approach to
+	solving the word problem given a group presentation <m>\pres
+	XR</m>, will almost surely work correctly provided the
+	relations are chosen at random with length much longer than
+	the number of relations.
+      </p>
+
+      <p>
+	In particular the <m>C'(1/6)</m> small cancellation condition
+	is "generic", but it depends on a particular choice of
+	presentation. Given a <m>C'(1/6)</m>, it is easy to ransform
+	it using Tietze transformations so that it no longer satisfies
+	the criteron. Also, how does this condition play with
+	quasi-isometry?
+      </p>
+    </introduction>
+    <subsection>
+      <title>
+	Isoperimetric inequalites and word hyperbolicity
+      </title>
+      <p>
+	Given <m>G=\pres X R</m> and some word <m>w =_G 1</m> we can
+	define
+	<me>
+	  \mathrm{area}(w) = \min\left(\left\{n \in \ZZ_{\geq 0}
+	  \middle|w = \prod_{i=1}^n a_ir_i^{\epsilon_i}a_i^{-1}\
+	  \right\}\right)
+	</me>
+	or, equivalently, the minimal number of <m>R</m>-2-cells among
+	all van Kampen diagrams witnessing the triviality of <m>w</m>
+	in <m>\pres X R</m>. Now given, <m>\pres X R</m> we can define
+	the <term>isoperimetric function</term> of the presentation
+	as the following :
+	<md>
+	  <mrow> f_{\pres X R} :\ZZ_{\geq 0} \amp \to \ZZ_{\geq 0}</mrow>
+	  <mrow> f(n)\amp= \min\left(\left\{\mathrm{area}(w) \in
+	  \ZZ_{\geq 0}\middle | |w|\leq n \right\}\right).</mrow>
+	</md>
+      Clearly such functions are nonnegative and non-decreasing.
+      </p>
+      <p>
+	We say a presentation <m>\pres X R</m> is a <term>Dehn
+	presentation</term> if Dehn's algorithm correctly solves the
+	word problem. Recall that would take a <m>C'(1/6)</m>
+	presentation and, while preserving the generating set, change
+	the relations so that Dehn's algorithm no longer works.
+      </p>
+      <p>
+	We will now return to geometry. Let <m>x,y,z</m> be three
+	points in a geodesic metric space (i.e. for any two points
+	there is a path joining them realizing the distance), a
+	geodesic triangle <m>\Delta(x,y,z)</m> is a union of three
+	geodesics, one from <m>x</m> to <m>y</m>, one from <m>y</m> to
+	<m>z</m>, and one from <m>z</m> to <m>x</m>.
+	 <figure xml:id="fig_thin-triangle">
+	   <caption>A <m>\delta</m>-thin triangle </caption>
+	    <image width="75%" xml:id="thin-triangle"
+		   source="images/thin-triangle.png"/>
+	 </figure>
+      </p>
+    </subsection>
+  </section>
+
+  
 </chapter>
 
   <!-- Chapter: Diagrams -->
