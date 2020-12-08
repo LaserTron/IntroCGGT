@@ -6535,14 +6535,242 @@ g      faces.</caption> <image width="75%" xml:id="free_faces"
 	We will now return to geometry. Let <m>x,y,z</m> be three
 	points in a geodesic metric space (i.e. for any two points
 	there is a path joining them realizing the distance), a
-	geodesic triangle <m>\Delta(x,y,z)</m> is a union of three
-	geodesics, one from <m>x</m> to <m>y</m>, one from <m>y</m> to
-	<m>z</m>, and one from <m>z</m> to <m>x</m>.
-	 <figure xml:id="fig_thin-triangle">
-	   <caption>A <m>\delta</m>-thin triangle </caption>
-	    <image width="75%" xml:id="thin-triangle"
-		   source="images/thin-triangle.png"/>
-	 </figure>
+	<term>geodesic triangle <m>\Delta(x,y,z)</m></term> is a union
+	of three geodesics, one from <m>x</m> to <m>y</m>, one from
+	<m>y</m> to <m>z</m>, and one from <m>z</m> to <m>x</m>. Note
+	that in a graph, unlike in Euclidean space, there may by
+	multiple geodesics joining two points. (See <xref
+	ref="fig_multi_geod"/>.)
+      </p>
+	
+      <figure xml:id="fig_multi_geod">
+	<caption> Three distinct geodesics joining
+	<m>\BEmatrix{0\\0}</m> and <m>\BEmatrix{5\\3}</m> in <m>\cay{\left\{\BEmatrix{1\\0},\BEmatrix{0\\1}\right\}}{\ZZ^2}</m></caption>
+	<image width="75%" xml:id="multi_geod"
+	       source="images/multi_geod.png"/>
+      </figure>
+      <p>
+	We say a geodesic triangle is <term><m>\delta</m>-thin</term>
+	if every side is contained in the union of the
+	<m>\delta</m>-neighbourhood of the two other sides (see figure
+	<xref ref="fig_thin-triangle"/>.)	
+	<figure xml:id="fig_thin-triangle">
+	  <caption>A <m>\delta</m>-thin triangle. Each side stays
+	  <m>\delta</m>-close to the union of the other two
+	  sides. </caption>
+	  <image width="75%" xml:id="thin-triangle"
+		 source="images/thin-triangle.png"/>
+	</figure>
+      </p>
+      <p>
+	Recall that a geodesic metric space <m>X</m> is a space such
+	that for any pair of points <m>x,y \in X</m> there is a path
+	joining these points realizing this distance. A geodesic space
+	is said to be <term>Gromov hyperbolic</term> if there exists a
+	uniform <m>\delta</m> such that every geodesic triangle is
+	<m>\delta</m>-thin. If <m>X</m> is a tree for example, then
+	every geodesic triangle is a "tripod" so every side is
+	contained in the 0-neighbourhood of union of the other two
+	sides.
+      </p>
+      <p>
+	This notion of hyperbolicity plays well with quasi-isometry,
+	in fact it is easy to show the following:
+	<propostion>
+	  <statement><p>
+	  If <m>X</m> is Gromov hyperbolic and is quasi-isometric to
+	  <m>Y</m> then <m>Y</m> is also Gromov hyperbolic, though
+	  possibly with a different <m>\delta</m>-parameter.
+	  </p></statement>
+	</propostion>
+      </p>
+      <p>
+	As far as group theory is concerned we have the following
+	equivalent characteristics.
+	<theorem xml:id="thm_hyp">
+	  <statement>
+	    <p>
+	      Let <m>G</m> be a finitely generated group. The
+	      following are equivalent.
+	      <ol>
+		<li>For every finite generating set <m>\gen S = G</m>,
+		the Cayley Graph, <m>\cay S G</m> is Gromov
+		hyperbolic. (Different generating sets will give
+		different <m>\delta</m> parameters.)</li>
+		<li>
+		  For every finite generating set <m>\gen S = G</m>,
+		  there exists a finite collection of relations
+		  <m>D_G(S)</m> such that <me>
+		  G = \pres{S}{D_G(S)}
+		</me> and <m>\pres{S}{D_G(S)}</m> is a Dehn presentation.
+		</li>
+		<li>
+		  For any finite presentation <m>G = \pres S R</m>,
+		  the isperimetric function is at most linearly
+		  growing, i.e. <m>f_{\pres S R}</m> is <m>O(n)</m>.
+		</li>
+	      </ol>
+	    </p>
+	  </statement>
+	</theorem>
+	We first note that this theorem says something about a group
+	and not specifically about some presentation of the group.  We
+	will say that <m>G</m> is <term>word hyperbolic</term> if it
+	satisfies any of the equivalent conditions of this theorem. A
+	proof of this result (and much more) can be found in <xref
+	ref="notes_hyperbolic"/>, which should now be understandable
+	after doing this course.
+      </p>
+      <p>
+	We note that an argument using Tietze transformations and van
+	Kampen diagrams immediately tell us that <m>2. \Rightarrow
+	3.</m> We will now make a few remarks about how
+	<m>1. \Rightarrow 2.</m> is proved.
+      </p>
+    </subsection>
+    <subsection>
+      <title>
+	A local to global property of Gromov hyperbolic spaces.
+      </title>
+      <p>
+	In normal differential geometry, shortest paths tend to be
+	"straight lines". For example if <m>p,q</m> are two points in
+	<m>\RR^2</m> equipped with the Euclidean geometry, then any
+	path <m>t \mapsto (x(t),y(t))</m> joining <m>p</m> and
+	<m>q</m> will be a shortest path if and only if the velocity
+	<m>(x'(t),y'(t))</m> is always parallel to the acceleration
+	<m>(x''(t),y''(t))</m>. In other words, and this is how it is
+	classically, geodesics are defined via local properties: if a
+	path looks "straight" at every point, then it is globally
+	straight.
+      </p>
+      <p>
+	Now figure <xref ref="fig_multi_geod"/> shows that in some
+	geodesic metric spaces, we can have multiple geodesics joining
+	two points, and furthermore, looking at a path locally doesn't
+	tell us anything about its large scale behaviour. For example
+	a path in a graph could close up on itself, but there will be
+	no indication of this looking at edges and vertices
+	individually.  A consequence of Gromov-hyperbolicity is that
+	there is some way to pass from local to global. Consider this
+	"medium scale" local to global result:
+      </p>
+      <!--
+      <theorem>
+	<title>
+	  Stability of Quasi-Geodesics
+	</title>
+	<statement>
+	  <p>
+	    For all <m>\delta >0</m>, <m>K\geq 1</m> and <m>C\geq
+	    0</m>, there exists a constant <m>R(\delta,L,C)</m> such
+	    that, if <m>X</m> is a <m>\delta</m>-hyperbolic geodesic
+	    metric space, and <m>q:[0,L] \to X</m> is a
+	    <m>(K,C)</m>-quasi geodesic (i.e a quasi-isometrically
+	    embedded line segment) and <m>\gamma</m> is a geodesic
+	    joining the endpoints of <m>q</m>, then the image of
+	    <m>q</m> is contained in the <m>R</m>-neighbourhood of
+	    <m>\gamma.</m>
+	  </p>
+	</statement>
+      </theorem>
+      <p>
+	In other words quasi geodesics in hyperbolic spaces stay close
+	to geodesics. A path <m>\gamma</m> in <m>X</m> is said to be a
+	<m>k</m>-local geodesic if every subpath of length <m>k</m> is
+	geodesic. Gromov hyperbolic spaces enjoy the following
+	local-to-global property:
+      </p>
+      -->
+      <theorem>
+	<title>
+	  Local geodesics are quasi-geodesics
+	</title>
+	<statement>
+	  <p>
+	    Let <m>X</m> be a <m>\delta</m>-hyperbolic geodesic metric
+	    space and let <m>\gamma</m> be a <m>k</m>-local geodesic
+	    for <m>k>8\delta</m>. Then <m>\gamma</m> is a
+	    <m>(K,C)</m>-quasi-geodesic for
+	    <m>K=\frac{k+4\delta}{k-4\delta}</m> and <m>C=2\delta.</m>
+	  </p>
+	</statement>
+      </theorem>
+      <p>
+	To grasp the significance of this result. Note that this
+	property is not enjoyed by the standard Cayley graph of
+	<m>\ZZ^2</m> as shown in <xref ref="fig_Z2_loop"/>, in fact
+	for any <m>k</m> it is possible to construct arbitrarily long
+	closed loops (so definitely not quasi-geodesics with
+	reasonable constants) in this Cayley graph that are
+	<m>k</m>-local geodesics.
+	<figure xml:id="fig_Z2_loop">
+	<caption>
+	  A <m>4</m>-local geodesic in <m>\cay{\left\{\BEmatrix{1\\0},
+	  \BEmatrix{0\\1}\right\}}{\ZZ^2}</m> which is definitely not
+	  geodesic.
+	</caption>
+	<image width="75%" xml:id="Z2_loop"
+		 source="images/Z2_loop.png"/>
+	</figure>
+      </p>
+      <p>
+	This leads to Dehn presenations as follows: an word <m>w</m>
+	in some generating set <m>\gen S = G</m> is the label of some
+	path <m>\gamma_w</m>in the Cayley graph, which is
+	<m>\delta</m>-hyperbolic. Any word representing the identity
+	is the label of a closed loop.
+      </p>
+      <p>
+	If all subwords of length <m>8\delta+1</m> of <m>w</m> are
+	geodesic, this forces <m>\gamma_w</m> to be quasi-geodesic and
+	since we know the parametrs, if <m>w</m> is sufficiently long
+	its endpoints will be far from one another, so <m>w</m> cannot
+	be a closed loop and therfore is not trivial. It follows that
+	words representing the identity are either short (one of the
+	finitely many words representing the identity of length at
+	most some bound <m>M</m>) or long, but containing a subword of
+	length at most <m>8\delta+1</m> that is not "geodesic". In the
+	latter case, such subwords can pre replaced by a shorter
+	words, decreasing the length of <m>w</m>. Repeating this gives
+	Dehn's algorithm.
+      </p>
+      <p>
+	In fact this local to global property is more than just a
+	consequence of Gromov hyperbolicity. For groups, possessing
+	this property is in fact equivalent to hyperbolicity! This is
+	just one reason why the class of hyperbolic groups is
+	remarkable.
+      </p>
+    </subsection>
+    <subsection>
+      <title>
+	Dehn's algorithmic problems in hyperbolic groups
+      </title>
+      <p>
+	The solution to all three of Dehn's algorithmic problems in
+	hyperbolic groups has been a major achievement of geometric
+	group theory. The solution to the word problem follows from
+	Dehn presentations. A solution to the conjugacy problem (given
+	<m>g,h</m> decide if there is some <m>x</m> such that
+	<m>xgx^{-1}h^{-1}=1</m>) actually follows from
+	<m>\delta</m>-hyperbolicity and a study of geodesic
+	<em>quadrilaterals</em>.
+      </p>
+      <p>The isomorphism problem for hyperbolic groups involved work
+      spanning from 1995 to 2011. There is no simple way to explain
+      how it works as it involves asymptotic methods to create exotic
+      topological spaces arising from limits of spaces and canonical
+      group decomposition theories. In other words, it's super cool!
+      </p>
+      <p>
+	Finally, it is worth pointing out that not every hyerpbolic
+	group <m>G</m> admits a <m>C'(1/6)</m> presentation, even
+	though they all admit Dehn presentations. The proof goes like
+	this: there exist hyperbolic groups which satisfy something
+	called Kazhdan's property (T), but it was also shown that
+	<m>C'(1/6)</m> groups never satisfy this property. Once again,
+	the proofs of these facts involve fascinating math.
       </p>
     </subsection>
   </section>
