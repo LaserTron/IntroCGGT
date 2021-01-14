@@ -40,49 +40,83 @@
     </titlepage>
     <introduction xml:id="chap_intro"><title>Introduction</title>
     <p>
-      Because the field of geometric group theory is relatively new,
-      sounds cool, is cool, and is accessible, it is, in 2020, very
-      active and evolving. This also means that geometric group
-      theory means different things to different people.
+      This course is meant to be a fully self-contained introduction
+      to combinatorial and geometric group theory, building only off
+      the axioms of group theory.
+    </p>
+
+    <p>
+      Although the reader is expected to know what a string of symbols
+      or a graph is and to use some arguments use intuitive topology, no
+      in-depth knowledge is assumed and this text was written to be
+      accessible to an incoming graduate student, or an advanced
+      undergraduate with some exposure to algebra, analysis, and
+      proofs. The goal of this course is to prepare and motivate a
+      student to study word (or Gromov) hyperbolic groups.
     </p>
     
     <p>
-      Lie groups, for example, are interesting as groups, play a
-      critical role in geometry, and would certainly have their place
-      in a course in geometric group theory. But, Dynkin diagrams
-      notwithstanding, drawings are not a major tool for dealing with
-      Lie groups. Furthermore, differential geometry is a prerequisite
-      to studying these groups.
+      The first part of the course gives a rigourous construction of
+      the free group, which in turn leads to group presentations: a
+      way to identify any group as a string of symbols from some
+      alphabet subject equipped with rewriting rules. Although this
+      gives a unified framework in which to study groups, it turns out
+      that it is impossible in general to decide if two words
+      represetning group elements in some group given by a
+      presentation are equal, or whether two group presentations
+      actually define isomorphic groups. In general there is no
+      canonical presentation for a given group.
     </p>
 
     <p>
-      This course will be a self-contained introduction to the art of
-      working with infinite discrete groups by drawing pictures. In
-      particular this course has no advanced prerequisites, besides
-      mathematical maturity. This constraint will guide the choice of
-      topics.
+      The second part presents a basic concept fo geometric group
+      theory: every choice of generating set for a group, makes the
+      group into a metric space, realized by a Cayley graph. Although
+      in this way a group will admit different metrics, they will all
+      be quasi-isometric. In this way, although a group has no
+      canonical presentation or generating set, we can canonically
+      associate to it a quasi isometry class. We give an example of
+      how to show that two groups are not quasi-isometric and
+      therefore non-isomorphic. We also explore the limitations of
+      quasi-isometry, in particular by showing that quasi-isometry
+      cannot distinguish virtually isomorphic groups. We end the
+      section by showing that a group is two two ended if and only if
+      it is virtually isomorphic to <m>\ZZ</m>, thus illustrating that
+      it is possible to recover algebraic information about a group
+      from purely metric information.
     </p>
 
     <p>
-      We will start with a rigorous exploration of the <m>F(X)</m>,
-      the free group on a set <m>X</m> of letters and touch on the
-      classical subject of combinatorial group theory, which is the
-      study of groups given by generators and relations. One driving
-      question will be: <i>Which calculations can we perform, or which
-      algorithmic problems can we solve, in a group given by a certain
-      presentation?</i>
+      Third and final part returns to groups given by
+      presentations. We introduce van Kampen's Lemma, which tells us
+      how 2-complexes (2-dimensional generalizations of graphs) can be
+      used to describe non trivial words representing the identity. Using intuitive planar
+      topological arguments we deduce structural results about HNN
+      extensions. We then present the Combinatorial Gauss-Bonnet
+      Theorem and turn our study to group presentations satisfying the
+      <m>C'(1/6)</m> small cancellation condition. We show that group
+      presentations that satisfy this property admit a fast solution
+      to the word problem. Thus, although in general there is no
+      method to solve the word problem given an arbitrary group
+      presentations, if one writes out a "random" presentation, then
+      with high probability this presentation will be <m>C'(1/6)</m>
+      and will admit a very simple algorithm which properly solves the
+      word problem. 
     </p>
-    
     <p>
-      Our approach to this will be geometrical: group presentations
-      enable us to draw Van Kampen diagrams and we will see that in
-      the presence of (combinatorial) negative curvature, many
-      algorithmic problems become tractable.
+      Unfortunately altough a group may admit a <m>C'(1/6)</m> group
+      presentation, it will also admit many, many other presentations
+      that do not satisfy this property. Furthermore there is no
+      method to decide whether a group has such a
+      presentation. Presentations are not canonical. In the epilogue,
+      we introduce <m>\delta</m>-hyperbolicity which is a property
+      that, similarly to small cancellation, enables us to solve the
+      word problem, but which is robust under quasi-isometries.
     </p>
-
-    <p>Along the way we will touch on many other topics that can be
-    explored by the techniques we will develop.</p>
-
+    <p>
+      From her the student will be able to consult understand many of
+      the excellent introductions to hyperbolic groups.
+    </p>
     </introduction>
 
 
@@ -90,14 +124,137 @@
   </frontmatter>
 
   <chapter><title>Free groups and presentations</title>
-    <section xml:id="reductions"><title>Lecture 1: Words and reductions</title>
+  <section xml:id="sec_gen_assoc">
+    <title>Generalized associativity</title>
+    <introduction>
+    <p>As the reader should already know, a <term>group</term>
+    <m>(G,\cdot)</m> is a pair consisting of a set <m>G</m> and a
+    binary operation <m>\star:G\times G \to G</m>, usually called
+    <term>multiplication</term>, which satisfies the following axioms:
+    <ul>
+      <li>The multiplication operation is <term>associative</term>,
+      i.e. for all <m>g,h,k \in G</m> we have <me>(g\star h)\star k =
+      g\star(h \star k).</me></li>
+      <li>There exists an element <m>1_G\in G</m> called the
+      <term>identity element</term> such that for every <m>g\in ,
+      1_G \star g = g</m>.</li>
+      <li>For every <m>g \in G</m> there exists an inverse <m>g^{-1}
+      \in G</m> such that <m>g\star g^{-1}=1_G.</m>
+      </li>
+    </ul>
+    We will always denote a group by simply <m>G</m>, we will almost
+    always omit the subscript for the identity element, and we will
+    usually denote multiplication simply by concatenation,
+    i.e. we&apos;ll write stuff like <me>gg^{-1}=1.</me> </p>
+    </introduction>
+
+    <p>
+      Throughout this course we will want to consider a generating set
+      <m>A \subset G</m> of a group. The cleanest definition of a
+      generating set is to say that if <m>H \leq G</m> is a subgroup
+      (i.e. it is closed under multiplication and inverses) and
+      <m>A\subset H</m> then <m>H=G.</m>
+    </p>
+    <p>
+      The way we want to think of a generating set is as follows:
+      <m>A</m> is a <term>generating set of <m>G</m></term> if every
+      <m>g \in G</m> can be expressed as a product<me>
+      g = a_1^{\epsilon_1}\cdots a_n^{\epsilon_n}, 
+      </me> where <m>a_i\in A; i=1,\ldots,n</m> and <m>\epsilon_i =
+      \pm 1</m>. The issue is that multiplication is a <em>binary
+      operation</em> which means such a product must have a bunch of
+      brackets e.g.
+      <me>
+	x*(y*(z*w)), (x*y)*(z*w), (x*(y*z))*w.
+      </me>
+      The number of bracketings grows exponentially interms of the
+      number of factors. This is terrible!
+    </p>
+    <p>
+      The associativity axiom amounts to saying that three factor long
+      products are well-defined, i.e.
+      <me>
+	x*y*z = x*(y*z) = (x*y)*z.
+      </me>
+      Our goal is now to show that long products with arbitrarily many
+      factors are well-defined. On the one hand, this lets us ignore
+      those pesky brackets, on the other hand this implies that a
+      product of long factors is well-defined, i.e. the concatenation
+      <me> (a_1*\cdots*a_n)*(b_1*\cdots*b_m) =
+      a_1*\cdots*a_n*b_1*\cdots*b_m </me> is well-defined.
+    </p>
+    <p>
+      A few words about what we mean by well-defined are in
+      order. Consider the binary operation <m>\div</m> of
+      division. This operation is not associative so brackeding
+      matters. For example
+      <me>
+	12 = 12\div (12 \div 12) \neq (12\div 12)\div 12= \frac{1}{12},
+      </me>
+      so the bracket-free "long product" <m>12\div 12\div 12 </m> is
+      not well defined. If the reader thinks division is fishy, then
+      they can investigate the cross product from linear algebra which
+      is an actual non-associative product.
+    </p>
+
+    <p> For now we will keep our brackets. A product is
+    <term>left-nice</term> if it consists of a single factor, if it
+    consists of two factors <m>x*y</m>, or if it is of the form
+    <m>x*(z)</m> where <m>z</m> contains at least two factors and
+    itelf left-nice.</p>
+
+    We leave as an exercise the following:
+    
+    <theorem xml:id="thm_gen_assoc"><title>Generalized
+    associativity</title>
+    <statement>
+      Any messy product can be turned into a nice product by a sequence
+      of applications of the associativity axiom. Furthermore the order
+      the factors is preserved.
+    </statement>
+    </theorem>
+    
+    From which the following immediately follows:
+    
+    <corollary xml:id="cor_products">
+      <statement>
+	In any group (or any algebraic structure with an associative
+	binary operation) long products <me>
+	g_1\cdots g_n = \prod_{i=1}^n g_i; g_i \in G
+    </me>
+    are well-defined.
+      </statement>
+    </corollary>
+
+    <exercises>
+      <exercise xml:id="ex_nice">
+	<statement>
+	  <p> Prove <xref ref="thm_gen_assoc"/>.      
+	  </p>
+	</statement>
+      </exercise>
+      <exercise>
+      <statement>
+	<p>Let <m>A</m> be a subset of a group <m>G</m>, prove that the
+	set of products <me>\gen A = \left\{g \in G \mid g =
+	a_1^{\epsilon_1}\cdots a_m^{\epsilon_m}, \textrm{ for some }
+	a_i \in A, \epsilon_i = \pm 1\right\}</me> is a subgroup.</p>
+	<p> Hint: For inverses try writing a product backwards and
+	flipping signs.</p>
+      </statement>
+      </exercise>
+      </exercises>
+    </section>
+  
+  
+    <section xml:id="reductions"><title>The free group.</title>
     <p>
       Let <m>X</m> be a set. We will call <m>X</m> an
       <term>alphabet</term> and we will call its elements
       <term>symbols</term>. For each symbol <m>x \in X</m> take a
       formal inverse <m>x^{-1}</m> and we denote:
       <me>
-	 X^{\pm 1} = X \cup \{x^{-1} : x \in X\}.
+	X^{\pm 1} = X \cup \{x^{-1} : x \in X\}.
       </me>
       We further adopt the convention that <m>\left(x^{-1}\right)^{-1}
       = x</m>.
@@ -108,11 +265,27 @@
       </me>
       where each symbol <m>x_i \in X^{\pm 1}</m>. In the situation
       where alphabet is clear we will simply write <m>w</m> instead of
-      <m>w(X)</m>.   
-      
-      So, for example, if  <m>X = \{a,b,c\}</m> then <m>X^{\pm 1} = \{a,
+      <m>w(X)</m>.
+    </p>
+      <p>
+	
+	So, for example, if  <m>X = \{a,b,c\}</m> then <m>X^{\pm 1} = \{a,
       a^{-1}, b, b^{-1},c , c^{-1}\}</m> and the string <me>
       abbac^{-1}b^{-1}ba^{-1}</me> is a word in <m>X^{\pm 1}</m>.
+      </p>
+    
+    <p>
+      We will now define the <term>free group <m>F(X)</m> on the
+      alphabet <m>X</m>.</term>
+      <ol>
+	<li>
+	  The set underlying <m>F(X)</m> is the set of all strings in
+	  the symbols <m>X^{\pm 1}</m>, or equivalently the set of all
+	  long products of elements of <m>X^{\pm 1}</m> along with the
+	  empty string, which we denote by <m>1</m> or
+	  <m>1_{F(X)}.</m>
+	</li>
+      </ol>
     </p>
 
     <p>
@@ -323,29 +496,11 @@
       </exercise>
     </exercises>
     
-    </section>
+  </section>
 
     <section xml:id="universal"><title>Lecture 2: The free group and
     its universal property</title>
-    <p>As the reader should already know, a <term>group</term>
-    <m>(G,\cdot)</m> is a pair consisting of a set <m>G</m> and a
-    binary operation <m>\star:G\times G \to G</m>, usually called
-    <term>multiplication</term>, which satisfies the following axioms:
-    <ul>
-      <li>The multiplication operation is <term>associative</term>,
-      i.e. for all <m>g,h,k \in G</m> we have <me>(g\star h)\star k =
-      g\star(h \star k).</me></li>
-      <li>There exists an element <m>1_G\in G</m> called the
-      <term>identity element</term> such that for every <m>g\in ,
-      1_G \star g = g</m>.</li>
-      <li>For every <m>g \in G</m> there exists an inverse <m>g^{-1}
-      \in G</m> such that <m>g\star g^{-1}=1_G.</m>
-      </li>
-    </ul>
-    We will always denote a group by simply <m>G</m>, we will almost
-    always omit the subscript for the identity element, and we will
-    usually denote multiplication simply by concatenation, i.e. we&apos;ll
-    write stuff like <me>gg^{-1}=1.</me> </p> <p> <m>F(X)</m>, the
+    <p> <m>F(X)</m>, the
     <term>free group on an alphabet <m>X</m></term> consists of the
     set of reduced words in <m>X</m> and multiplication is defined by
     concatenation and reduction, i.e.  <me> u\star v = \overline{u*v},
@@ -404,55 +559,6 @@
     associativity</term>. Since it is difficult to get excited about
     associativity, some discussion is in order.
   </p>
-
-  <p> Division <m>\div</m> is not associative, which means that
-  expressions of the form <m>12\div 12 \div 12</m> are not well
-  defined:<me> \frac{1}{12} = (12\div 12) \div 12 \neq 12\div(12\div
-  12) = 12.</me> Different bracketings give different results. In the
-  previous lecture associativity was used to say that a product of
-  three elements <m>w_1\star w_2 \star w_3</m> is well-defined, which
-  in turn enables us to define subwords. So what about arbitrary
-  products such as
-  <me>
-    g_1g_2\cdots g_n = \prod_{i=1}^n g_i
-  </me>?
-  The issue here is that our group operation is a <em>binary
-  operation</em>. Bracketing simply gives the order in which we
-  perform the multiplication operations, multiplying two elements at a
-  time. Associativity only says that products of three factors are
-  well defined. We will say that a product is <term>nice</term> if it
-  looks like
-  <me>
-    a_1*(a_2*(a_3*a_4))
-  </me>
-  and other wise a product like <me> ((a_1*a_2)*(a_3*a_4))*a_5</me> is
-  called <term>messy</term>. This terminology is neither standard nor
-  particularly good. In fact we didn&apos;t even give precise
-  definitions. In <xerv ref="ex_nice"/> you are asked to give a
-  precise recursive definition of a nice product and then you will be
-  asked to prove the following:
-  </p>
-  <theorem xml:id="thm_gen_assoc"><title>Generalized
-  associativity</title>
-  <statement>
-    Any messy product can be turned into a nice product by a sequence
-    of applications of the associativity axiom. Furthermore the order
-    the factors is preserved.
-  </statement>
-  </theorem>
-
-  From which the following immediately follows:
-
-  <corollary xml:id="cor_products">
-    <statement>
-      In any group (or any algebraic structure with an associative
-      binary operation) long products <me>
-      g_1\cdots g_n = \prod_{i=1}^n g_i; g_i \in G
-    </me>
-    are well-defined.
-    </statement>
-  </corollary>
-
   <p>
   Here is why we care. Suppose you are given some <m>\varphi:X \to
   G</m> which maps each letter of the alphabet to arbitrary elements
@@ -544,21 +650,7 @@
     </statement>
     
   </exercise>
-  <exercise xml:id="ex_nice">
-    <statement>
-    <p>It is an important skill to be able to capture an
-    idea with a good definition.</p>
-    <p>
-      There are two parts to this exercise:
-      <ol>
-	<li>Give a precise recursive definition of a nice
-	product.</li>
-	<li>Use this definition to prove <xref
-	ref="thm_gen_assoc"/>.</li>
-      </ol>      
-    </p>
-    </statement>
-  </exercise>
+  
   <exercise>
     <statement>
       Prove <xref ref="thm_free_gp_universal"/>.
@@ -3478,6 +3570,8 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
   <title>
     Diagram methods
   </title>
+  <!-- Comment out Folding
+       
   <section>
     <title>
       Lecture 12: Diagram methods for free groups I
@@ -4262,7 +4356,7 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
       </exercises>
       
   </section>
-
+  -->
   <section>
     <title>Lecture 14: van Kampen diagrams and the geometry of the
     word problem</title>
