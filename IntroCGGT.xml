@@ -114,7 +114,7 @@
       word problem, but which is robust under quasi-isometries.
     </p>
     <p>
-      From her the student will be able to consult understand many of
+      From here the student will be able to consult understand many of
       the excellent introductions to hyperbolic groups.
     </p>
     </introduction>
@@ -1949,6 +1949,32 @@ call this the <term>pinch in the product <m>w_1\cdot w_2</m>.</term>
 	</me>
 	where <m>U</m> is the subspace spanned by the relation
 	vectors, and <m>\dim(V)=3-\dim(U)</m>.
+      </p>
+    </statement>
+  </exercise>
+<exercise>
+    <statement>
+      <p>Consider this more elementary approach to showing that
+      <m>b_1(G)</m> is a group invariant. If <m>G = \pres X R</m> is a
+      finite presentation, assign to each <m>x_i \in X</m> the
+      standard basis vector <m>e_i \in \QQ^{|X|}</m> and for each
+      <m>r \in R</m> take the vector <m>v_r \in \QQ^{|X|}</m> to be
+      the vector whose <m>i</m>th entry is the sum of the exponents of
+      the letter <m>x_i</m>. Let <m>U = \mathrm{span}\{v_r \mid
+      r\in R\}.</m>
+      </p>
+      <p>
+	Show that for every elementary Tietze transformation,
+	although you change the presentation the number
+	<me>
+	  |X| - \dim(U)
+	</me>
+	remains unchanged. 
+      </p>
+      <p>
+	Explain why this impies that <m>b_1(G)</m>, as calculated in
+	the previous problem, depends on the group <m>G</m> and not on
+	some particular choice of presentation.
       </p>
     </statement>
   </exercise>
