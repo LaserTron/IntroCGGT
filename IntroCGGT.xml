@@ -625,8 +625,8 @@
   a long product of elements in <m>X^{\pm 1} \subset F(X)</m>. Then we
   set
   <men xml:id="eq_free_gp">
-    \varphi^*(w) =\varphi^*(a_1^{\epsilon_1}\cdots a_n^{\epsilon_n} =
-    \varphi(a_1)^{\epsilon_1} \cdots \varphi(a_1)^{\epsilon_1}, </men>
+    \varphi^*(w) =\varphi^*(a_1^{\epsilon_1}\cdots a_n^{\epsilon_n}) =
+    \varphi(a_1)^{\epsilon_1} \cdots \varphi(a_n)^{\epsilon_n}, </men>
     which is a product of elements of <m>G</m>. Generalized
     associativity and the fact that if <m>w =_{F(X)}w'</m> then
     <m>\varphi^*(w)=\varphi^*(w')</m> ensure that this mapping is
