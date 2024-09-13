@@ -8,7 +8,9 @@ be delighted to  be informed about typos or more serious mathematical mistakes.
 
 ## Instructions to get started.
 In a sensible operating system the following command will work:
-`git clone --recurse-submodules https://github.com/LaserTron/IntroCGGT.git`
+```
+git clone --recurse-submodules https://github.com/LaserTron/IntroCGGT.git
+```
 
 Otherwise if this repository is cloned normally, it will still be
 necessary to update the `mathbook` submodule. [See here for
